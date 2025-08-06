@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>palcli_apt</name>
+  <version>0.4.0</version>
+
+  <description>PAL CLI for apt management</description>
+
+  <author email="mathias.luedtke@pal-robotics.com">Mathias Lüdtke</author>
+  <maintainer email="mathias.luedtke@pal-robotics.com">Mathias Lüdtke</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <exec_depend>palcli</exec_depend>
+  <exec_depend>python3-apt</exec_depend>
+  <exec_depend>python3-rospkg</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>ament_xmllint</test_depend>
+  <test_depend>python3-apt</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

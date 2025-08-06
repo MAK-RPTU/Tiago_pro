@@ -1,0 +1,4 @@
+/i18n_manager:
+  ros__parameters:
+    # default system locale, set on activate transition
+    default_system_locale: en_US

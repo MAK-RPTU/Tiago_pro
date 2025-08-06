@@ -1,0 +1,7 @@
+<library path="omni_drive_controller">
+  <class name="omni_drive_controller/OmniDriveController" type="omni_drive_controller::OmniDriveController" base_class_type="controller_interface::ChainableControllerInterface">
+  <description>
+    The OmniDriveController tracks velocity commands. It expects 4 VelocityJointInterface type of hardware interfaces.
+  </description>
+  </class>
+</library>

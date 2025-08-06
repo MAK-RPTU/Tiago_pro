@@ -1,0 +1,4 @@
+source;share/gravity_compensation_controller2/local_setup.bash
+source;share/gravity_compensation_controller2/local_setup.dsv
+source;share/gravity_compensation_controller2/local_setup.sh
+source;share/gravity_compensation_controller2/local_setup.zsh

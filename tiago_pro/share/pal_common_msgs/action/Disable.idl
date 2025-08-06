@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from pal_common_msgs/action/Disable.action
+// generated code does not contain a copyright notice
+
+
+module pal_common_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "This action disables a functionality for a set amount of seconds." "\n"
+      "A negative or zero value will disable it until the goal is canceled")
+    struct Disable_Goal {
+      @verbatim (language="comment", text=
+        "for how long to disable the functionality")
+      @unit (value="s")
+      float duration;
+    };
+    struct Disable_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct Disable_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

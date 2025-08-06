@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/Event.srv
+// generated code does not contain a copyright notice
+
+
+module kb_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "a set of partially bound statements (ie, some terms in the statement(s) are" "\n"
+      "variables, starting with a '?')")
+    struct Event_Request {
+      sequence<string> patterns;
+
+      @verbatim (language="comment", text=
+        "if true, the event is automatically removed after it is triggered once")
+      boolean one_shot;
+
+      sequence<string> models;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct Event_Response {
+      @verbatim (language="comment", text=
+        "the event id.")
+      string id;
+
+      @verbatim (language="comment", text=
+        "topic to subscribe to to be notified" "\n"
+        "every time the event is triggered.")
+      string topic;
+    };
+  };
+};

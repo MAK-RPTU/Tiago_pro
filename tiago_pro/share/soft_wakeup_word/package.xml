@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>soft_wakeup_word</name>
+  <version>2.2.0</version>
+  <description>Detects wake-up/suspend intents based on wake-up keyword/sleep keyword detection</description>
+
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>fmt</build_depend>
+  <build_depend>pal_module_cmake</build_depend>
+
+  <exec_depend>diagnostic_updater</exec_depend>
+  <exec_depend>fmt</exec_depend>
+
+  <depend>diagnostic_msgs</depend>
+  <depend>hri</depend>
+  <depend>hri_actions_msgs</depend>
+  <depend>hri_msgs</depend>
+  <depend>i18n_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
+</package>

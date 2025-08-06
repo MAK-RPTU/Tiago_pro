@@ -1,0 +1,4 @@
+source;share/pal_metapkg_ros4hri/local_setup.bash
+source;share/pal_metapkg_ros4hri/local_setup.dsv
+source;share/pal_metapkg_ros4hri/local_setup.sh
+source;share/pal_metapkg_ros4hri/local_setup.zsh

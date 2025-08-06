@@ -1,0 +1,6 @@
+action/SetLocale.action
+action/SetLocale.idl
+srv/GetLocales.idl
+srv/GetLocales.srv
+srv/GetLocales_Request.msg
+srv/GetLocales_Response.msg

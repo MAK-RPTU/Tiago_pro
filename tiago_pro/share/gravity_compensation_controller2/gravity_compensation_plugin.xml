@@ -1,0 +1,7 @@
+<library path="gravity_compensation_controller2">
+  <class name="pal_controllers/GravityCompensationController" type="pal_controllers::GravityCompensationController" base_class_type="controller_interface::ChainableControllerInterface">
+  <description>
+    Performs gravity compensation of a robotic arm sending torques to the motors
+  </description>
+  </class>
+</library>

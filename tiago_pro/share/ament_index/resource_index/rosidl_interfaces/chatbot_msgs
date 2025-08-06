@@ -1,0 +1,14 @@
+action/Dialogue.action
+action/Dialogue.idl
+srv/AddToDialogue.idl
+srv/AddToDialogue.srv
+srv/AddToDialogue_Request.msg
+srv/AddToDialogue_Response.msg
+srv/GetResponse.idl
+srv/GetResponse.srv
+srv/GetResponse_Request.msg
+srv/GetResponse_Response.msg
+srv/ResetModel.idl
+srv/ResetModel.srv
+srv/ResetModel_Request.msg
+srv/ResetModel_Response.msg

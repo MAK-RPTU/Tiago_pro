@@ -1,0 +1,1 @@
+boost;diagnostic_msgs;geometry_msgs;hri;hri_msgs;rclcpp;rclcpp_lifecycle;std_msgs;std_srvs;tf2_ros;diagnostic_updater;python3-graphviz;lifecycle_msgs;tf2;ament_cmake_gtest;ament_lint_auto;ament_lint_common;rosgraph_msgs

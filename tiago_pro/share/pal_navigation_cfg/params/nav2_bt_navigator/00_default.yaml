@@ -1,0 +1,2 @@
+/bt_navigator:
+  use_preset: "navigate_w_replanning_and_recovery.yaml"

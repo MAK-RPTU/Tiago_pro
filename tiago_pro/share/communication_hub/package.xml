@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>communication_hub</name>
+  <version>1.9.0</version>
+  <description>Multi-modal communication hub for human-robot interaction</description>
+  <maintainer email="luka.juricic@pal-robotics.com">user</maintainer>
+  <license>Apache License 2.0</license>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <buildtool_depend>git</buildtool_depend>
+
+  <build_depend>ament_index_cpp</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>lifecycle_msgs</build_depend>
+  <build_depend>java</build_depend> <!-- required to generate antlr4 grammar files -->
+  <build_depend>pal_module_cmake</build_depend>
+  <build_depend>rcl_interfaces</build_depend>
+  <build_depend>tts_msgs</build_depend>
+
+  <exec_depend>ament_index_cpp</exec_depend>
+  <exec_depend>diagnostic_updater</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
+  <exec_depend>tts_msgs</exec_depend>
+
+  <depend>action_msgs</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>chatbot_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>fmt</depend>
+  <depend>geometry_msgs</depend>
+  <depend>hri</depend>
+  <depend>hri_actions_msgs</depend>
+  <depend>hri_msgs</depend>
+  <depend>kb_msgs</depend>
+  <depend>magic_enum</depend>
+  <depend>nlohmann-json-dev</depend>
+  <depend>pal_device_msgs</depend>
+  <depend>play_motion2_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>rosidl_default_generators</depend>
+  <depend>std_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

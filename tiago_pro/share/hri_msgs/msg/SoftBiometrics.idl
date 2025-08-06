@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/SoftBiometrics.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    module SoftBiometrics_Constants {
+      const uint8 UNDEFINED = 0;
+      const uint8 FEMALE = 1;
+      const uint8 MALE = 2;
+      const uint8 OTHER = 3;
+    };
+    @verbatim (language="comment", text=
+      "This message describes soft biometrics (age and gender)")
+    struct SoftBiometrics {
+      std_msgs::msg::Header header;
+
+      uint8 age;
+
+      float age_confidence;
+
+      @verbatim (language="comment", text=
+        "one of UNDEFINED, FEMALE, MALE, OTHER")
+      uint8 gender;
+
+      float gender_confidence;
+    };
+  };
+};

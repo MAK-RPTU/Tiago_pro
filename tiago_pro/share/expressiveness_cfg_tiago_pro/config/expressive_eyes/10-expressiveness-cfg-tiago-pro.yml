@@ -1,0 +1,1030 @@
+/robot_face/expressive_eyes:
+  remappings:
+    /robot_face/tts: /communication_hub/robot_speech
+  ros__parameters:
+    general:
+      headless: false
+      fullscreen: false
+      baseline: 100.0
+      bg_bitmap: ''
+      bg_color:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      draw_eye_glare: false
+      draw_iris: false
+      draw_mouth: true
+      eye_size:
+      - 35.0
+      - 80.0
+      fg_bitmap: image://expressive_eyes/data/foreground.png
+      fg_color:
+      - 0.8
+      - 0.84
+      - 0.67
+      - 1.0
+      focal_distance: 10.0
+      gaze_h_fov: 120.0
+      gaze_v_fov: 90.0
+      has_physical_eyes: false
+      iris_color:
+      - 0.0
+      - 0.8
+      - 0.5
+      - 1.0
+      is_blinking: true
+      live_refresh: false
+      mouth_nominal_width: 150.0
+      mouth_offset_x: 0.0
+      mouth_offset_y: 60.0
+      offset_x: 0.0
+      offset_y: -20.0
+      panel_resolution:
+      - 1280
+      - 800
+      physical_panel_size:
+      - 173.0
+      - 108.0
+      velocity: 4.0
+    expressions: |
+      amazed:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.1
+          scale_x: 1.5
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 65.0
+          left_raiser: 10.0
+          lips_separation: 15.0
+          right_angle: 65.0
+          right_raiser: 10.0
+          width: 100.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.1
+          scale_x: 1.5
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      angry:
+        left_eye:
+          bottom_lid:
+            angle: -7.199999999999999
+            bend: 0.02
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.05
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+        mouth:
+          left_angle: -16.8
+          left_raiser: 0.6
+          lips_separation: 0.0
+          right_angle: -7.199999999999999
+          right_raiser: 3.0
+          width: 100.0
+        right_eye:
+          bottom_lid:
+            angle: 5.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.05
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 18.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.55
+      annoyed:
+        left_eye:
+          bottom_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.2
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -15.0
+            bend: 0.12
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.18
+        mouth:
+          left_angle: -16.8
+          left_raiser: -3.5999999999999996
+          lips_separation: 1.0
+          right_angle: 16.8
+          right_raiser: 6.6
+          width: 90.0
+        right_eye:
+          bottom_lid:
+            angle: 5.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 20.0
+            bend: 0.14
+            scale_factor_lid_bend: 1.54
+            scale_factor_lid_height: 1.18
+            y: 0.1
+      asleep:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.45
+        mouth:
+          left_angle: 0.0
+          left_raiser: 0.0
+          lips_separation: 0.0
+          right_angle: 0.0
+          right_raiser: 0.0
+          width: 30.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.45
+      bored:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+        mouth:
+          left_angle: 5.0
+          left_raiser: 1.0
+          lips_separation: 0.0
+          right_angle: -5.0
+          right_raiser: -1.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+      confused:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.2
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.2
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: -20.0
+          left_raiser: 0.0
+          lips_separation: 0.0
+          right_angle: 20.0
+          right_raiser: 3.0
+          width: 60.0
+        right_eye:
+          bottom_lid:
+            angle: 5.0
+            bend: 0.2
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.2
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+      despaired:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+        mouth:
+          left_angle: -5.0
+          left_raiser: 5.0
+          lips_separation: 0.0
+          right_angle: -4.0
+          right_raiser: 4.0
+          width: 90.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+      disappointed:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 5.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+        mouth:
+          left_angle: -10.0
+          left_raiser: -2.0
+          lips_separation: 1.0
+          right_angle: -5.0
+          right_raiser: -3.0
+          width: 70.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -6.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+      disgusted:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+        mouth:
+          left_angle: -20.0
+          left_raiser: -5.0
+          lips_separation: 10.0
+          right_angle: 0.0
+          right_raiser: 5.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.2
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.2
+      embarrassed:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.1
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 10.0
+            bend: 0.1
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+        mouth:
+          left_angle: 40.0
+          left_raiser: 5.0
+          lips_separation: 0.0
+          right_angle: 0.0
+          right_raiser: 0.0
+          width: 70.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.1
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -10.0
+            bend: 0.1
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+      excited:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.2
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 65.0
+          left_raiser: 10.0
+          lips_separation: 4.0
+          right_angle: 65.0
+          right_raiser: 10.0
+          width: 100.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.2
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      furious:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+        mouth:
+          left_angle: -60.0
+          left_raiser: -10.0
+          lips_separation: 0.0
+          right_angle: -65.0
+          right_raiser: -10.0
+          width: 100.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+      guilty:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 10.0
+            bend: 0.3
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+        mouth:
+          left_angle: 45.0
+          left_raiser: 2.0
+          lips_separation: 0.0
+          right_angle: 50.0
+          right_raiser: 2.0
+          width: 65.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -10.0
+            bend: 0.3
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+      happy:
+        left_eye:
+          bottom_lid:
+            angle: 3.0
+            bend: 0.4
+            scale_factor_lid_bend: 1.4
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.22
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 55.199999999999996
+          left_raiser: 16.8
+          lips_separation: 3.0
+          right_angle: 45.6
+          right_raiser: 18.0
+          width: 100.0
+        right_eye:
+          bottom_lid:
+            angle: -2.0
+            bend: 0.4
+            scale_factor_lid_bend: 1.38
+            scale_factor_lid_height: 1.2
+            y: 0.3
+          scale_x: 1.14
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      horrified:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.5
+          scale_y: 1.0
+          top_lid:
+            angle: 20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: -4.0
+          left_raiser: -3.0
+          lips_separation: 10.0
+          right_angle: -5.0
+          right_raiser: -3.0
+          width: 65.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.5
+          scale_y: 1.0
+          top_lid:
+            angle: -20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      neutral:
+        left_eye:
+          angle: 0.0
+          bottom_lid:
+            angle: 0.0
+            angle_offset: 180.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+            y_offset: -0.5
+          corner_radius: 96.0
+          lower_inner_radius_x: 0.5
+          lower_inner_radius_y: 0.5
+          lower_outer_radius_x: 0.5
+          lower_outer_radius_y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            angle_offset: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+            y_offset: -0.5
+          upper_inner_radius_x: 0.5
+          upper_inner_radius_y: 0.5
+          upper_outer_radius_x: 0.5
+          upper_outer_radius_y: 0.5
+        mouth:
+          left_angle: 65.0
+          left_raiser: 10.0
+          lips_separation: 0.0
+          right_angle: 65.0
+          right_raiser: 10.0
+          width: 100.0
+        right_eye:
+          angle: 0.0
+          bottom_lid:
+            angle: 0.0
+            angle_offset: 180.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+            y_offset: -0.5
+          corner_radius: 96.0
+          lower_inner_radius_x: 0.5
+          lower_inner_radius_y: 0.5
+          lower_outer_radius_x: 0.5
+          lower_outer_radius_y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            angle_offset: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+            y_offset: -0.5
+          upper_inner_radius_x: 0.5
+          upper_inner_radius_y: 0.5
+          upper_outer_radius_x: 0.5
+          upper_outer_radius_y: 0.5
+      pleading:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 5.0
+          left_raiser: 2.0
+          lips_separation: 1.0
+          right_angle: 7.0
+          right_raiser: 3.0
+          width: 80.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -30.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      rejected:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 25.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.8
+        mouth:
+          left_angle: 10.0
+          left_raiser: 4.0
+          lips_separation: 0.0
+          right_angle: -10.0
+          right_raiser: -5.0
+          width: 80.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 25.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.8
+      sad:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+        mouth:
+          left_angle: -5.0
+          left_raiser: 2.0
+          lips_separation: 1.0
+          right_angle: -10.0
+          right_raiser: -5.0
+          width: 80.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.6
+      scared:
+        left_eye:
+          bottom_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.4
+          scale_y: 1.0
+          top_lid:
+            angle: 30.0
+            bend: 0.1
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 0.0
+          left_raiser: -4.0
+          lips_separation: 10.0
+          right_angle: 0.0
+          right_raiser: -3.0
+          width: 60.0
+        right_eye:
+          bottom_lid:
+            angle: -10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+          scale_x: 1.4
+          scale_y: 1.0
+          top_lid:
+            angle: -30.0
+            bend: 0.1
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      skeptical:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+        mouth:
+          left_angle: -5.0
+          left_raiser: -5.0
+          lips_separation: 0.0
+          right_angle: 15.0
+          right_raiser: 3.0
+          width: 65.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 25.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.1
+      surprised:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+          scale_x: 1.5
+          scale_y: 1.0
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+        mouth:
+          left_angle: 10.0
+          left_raiser: 0.0
+          lips_separation: 20.0
+          right_angle: 0.0
+          right_raiser: 0.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 0.8
+            y: 0.0
+          scale_x: 1.25
+          scale_y: 0.8
+          top_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.0
+      suspicious:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+        mouth:
+          left_angle: -3.0
+          left_raiser: 2.0
+          lips_separation: 2.0
+          right_angle: 0.0
+          right_raiser: 2.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+      tired:
+        left_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 5.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+        mouth:
+          left_angle: -3.0
+          left_raiser: -1.0
+          lips_separation: 1.0
+          right_angle: 0.0
+          right_raiser: -1.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: 0.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -5.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.4
+      vulnerable:
+        left_eye:
+          bottom_lid:
+            angle: 10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: 20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+        mouth:
+          left_angle: 0.0
+          left_raiser: -2.0
+          lips_separation: 0.0
+          right_angle: 0.0
+          right_raiser: -2.0
+          width: 50.0
+        right_eye:
+          bottom_lid:
+            angle: -10.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.5
+          scale_x: 1.0
+          scale_y: 1.0
+          top_lid:
+            angle: -20.0
+            bend: 0.0
+            scale_factor_lid_bend: 1.2
+            scale_factor_lid_height: 1.2
+            y: 0.3
+      
+

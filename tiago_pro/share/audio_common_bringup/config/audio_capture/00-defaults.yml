@@ -1,0 +1,10 @@
+/audio_capture:
+  ros__parameters:
+    dst: appsink
+    device: ""
+    format: mp3
+    bitrate: 192
+    channels: 1
+    depth: 16
+    sample_rate: 16000
+    sample_format: S16LE

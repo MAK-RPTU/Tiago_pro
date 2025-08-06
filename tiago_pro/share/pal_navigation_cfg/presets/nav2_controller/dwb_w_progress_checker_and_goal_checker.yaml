@@ -1,0 +1,79 @@
+ros__parameters:
+  use_sim_time: false
+  controller_frequency: 20.0
+  min_x_velocity_threshold: 0.001
+  min_y_velocity_threshold: 0.5
+  min_theta_velocity_threshold: 0.001
+  failure_tolerance: 0.3
+  progress_checker_plugin: "progress_checker"
+  goal_checker_plugins: ["general_goal_checker"]
+  controller_plugins: ["FollowPath"]
+  odom_topic: "/mobile_base_controller/odom"
+  speed_limit_topic: "/speed_limit"
+
+  # Progress checker parameters
+  progress_checker:
+    plugin: "nav2_controller::SimpleProgressChecker"
+    required_movement_radius: 0.5
+    movement_time_allowance: 10.0
+  # Goal checker parameters
+  general_goal_checker:
+    plugin: "nav2_controller::SimpleGoalChecker"
+    xy_goal_tolerance: 0.25
+    yaw_goal_tolerance: 0.25
+    stateful: True
+  # DWB parameters
+  FollowPath:
+    plugin: "dwb_core::DWBLocalPlanner"
+
+    # Kinematic Parameters
+    min_vel_x: 0.0
+    min_vel_y: 0.0
+    max_vel_x: 0.5
+    max_vel_y: 0.0
+    max_vel_theta: 1.00
+    min_speed_xy: 0.0
+    max_speed_xy: 0.5
+    min_speed_theta: -1.0
+    acc_lim_x: 0.4
+    acc_lim_y: 0.0
+    max_angular_accel: 0.8
+    acc_lim_theta: 0.5
+    decel_lim_x: -0.4
+    decel_lim_y: 0.0
+    decel_lim_theta: -0.8
+
+    # XYTheta Iterator Parameters
+    vx_samples: 50
+    vy_samples: 5
+    vtheta_samples: 50
+
+    # DWB Controller
+    prune_plan: True
+    prune_distance: 1.0
+    forward_prune_distance: 1.0
+    trajectory_generator_name: "dwb_plugins::StandardTrajectoryGenerator"
+    transform_tolerance: 0.3
+    shorten_transformed_plan: True
+    short_circuit_trajectory_evaluation: True
+    critics:
+      [
+        "RotateToGoal",
+        "Oscillation",
+        "BaseObstacle",
+        "GoalAlign",
+        "PathAlign",
+        "PathDist",
+        "GoalDist",
+        "ObstacleFootprintCritic",
+      ]
+    BaseObstacle.scale: 0.02
+    PathAlign.scale: 12.0
+    PathAlign.forward_point_distance: 0.1
+    GoalAlign.scale: 32.0
+    GoalAlign.forward_point_distance: 0.1
+    PathDist.scale: 12.0
+    Oscillation.scale: 5.0
+    GoalDist.scale: 32.0
+    RotateToGoal.scale: 32.0
+    ObstacleFootprintCritic.scale: 50.0

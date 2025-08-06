@@ -1,0 +1,2 @@
+/slam_toolbox:
+  use_preset: "slam_toolbox_sync.yaml"

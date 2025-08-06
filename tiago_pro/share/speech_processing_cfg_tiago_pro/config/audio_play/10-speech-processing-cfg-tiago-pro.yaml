@@ -1,0 +1,8 @@
+/audio_play:
+  ros__parameters:
+    device: default # tell alsa to use pulseaudio default sink
+    do_timestamp: false
+    format: wave
+    sample_rate: 22000
+  remappings:
+    audio: audio_out/raw

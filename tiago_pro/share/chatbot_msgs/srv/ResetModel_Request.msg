@@ -1,0 +1,5 @@
+# Request to reset the conversation history for a chatbot model.
+
+# (Optional) The model family name to be reset.
+# If left empty, all models will be reset.
+string model

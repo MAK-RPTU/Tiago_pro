@@ -1,0 +1,7 @@
+speech_processing_modules:
+  - asr_vosk
+  - chatbot_rasa
+  - communication_hub
+  - i18n_manager
+  - soft_wakeup_word
+  - tts_engine

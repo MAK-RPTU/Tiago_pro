@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>attention_manager</name>
+  <version>2.1.0</version>
+  <description>The attention_manager package implements the logic deciding where the robot should look</description>
+
+  <maintainer email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <author email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>pal_module_cmake</build_depend>
+
+  <exec_depend>launch_pal</exec_depend>
+
+  <depend>attention_manager_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>hri</depend>
+  <depend>lifecycle_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend> 
+
+  <test_depend>ament_cmake_gmock</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

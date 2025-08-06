@@ -1,0 +1,6 @@
+/attention_manager:
+  ros__parameters:
+    use_saliency: True
+    eye_frame: sellion_link
+    base_frame: base_link
+    default_eye_height: 1.2 # Tiago Pro

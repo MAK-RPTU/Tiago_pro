@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>realsense_simulation</name>
+  <version>2.1.0</version>
+  <description>RealSense Camera description package for simulation</description>
+  <maintainer email="sergio.moyano@pal-robotics.com">sergiomoyano</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="sergio.moyano@pal-robotics.com">sergiomoyano</author>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>realsense_gazebo_plugin</exec_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>

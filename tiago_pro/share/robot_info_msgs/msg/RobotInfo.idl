@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robot_info_msgs/msg/RobotInfo.msg
+// generated code does not contain a copyright notice
+
+#include "rcl_interfaces/msg/Parameter.idl"
+
+module robot_info_msgs {
+  module msg {
+    struct RobotInfo {
+      sequence<rcl_interfaces::msg::Parameter> info;
+    };
+  };
+};

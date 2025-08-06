@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>pal_ros_workspace</name>
+  <version>0.0.4</version>
+  <description>
+    Provides the prefix level environment files for PAL package overlaying ROS 2.
+  </description>
+
+  <maintainer email="mathias.luedtke@pal-robotics.com">Mathias Lüdtke</maintainer>
+
+  <license>Proprietary</license>
+
+  <author email="steven@openrobotics.org">Steven! Ragnarök</author>
+  <author email="mathias.luedtke@pal-robotics.com">Mathias Lüdtke</author>
+  <maintainer email="mathias.luedtke@pal-robotics.com">Mathias Lüdtke</maintainer>
+
+  <build_depend>ament_cmake_core</build_depend>
+  <build_depend>ament_package</build_depend>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_depend>ros_workspace</build_depend>
+  <exec_depend>ros_workspace</exec_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,6 @@
+/chatbot_rasa:
+  ros__parameters:
+    # Model family name
+    model: default
+    # Default locale
+    default_locale: en_US

@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hri_actions_msgs/action/LookAt.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PointStamped.idl"
+
+module hri_actions_msgs {
+  module action {
+    struct LookAt_Goal {
+      geometry_msgs::msg::PointStamped look_goal;
+    };
+    struct LookAt_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct LookAt_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

@@ -1,0 +1,2 @@
+gaze_manager:
+  launch: "gaze_manager gaze_manager.launch.py"

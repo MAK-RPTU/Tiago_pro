@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_privacy_msgs/msg/PersonalDataProcessor.msg
+// generated code does not contain a copyright notice
+
+
+module hri_privacy_msgs {
+  module msg {
+    struct PersonalDataProcessor {
+      @verbatim (language="comment", text=
+        "ID of the ROS node generating the data")
+      string data_source_node;
+
+      @verbatim (language="comment", text=
+        "user-friendly string for the ROS node name")
+      string user_friendly_source_name;
+
+      @verbatim (language="comment", text=
+        "plain-English description of what the data is used for")
+      string data_purpose;
+
+      @verbatim (language="comment", text=
+        "path to the data file")
+      string path;
+    };
+  };
+};

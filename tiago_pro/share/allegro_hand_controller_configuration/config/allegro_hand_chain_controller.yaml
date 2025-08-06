@@ -1,0 +1,135 @@
+${EE_SIDE_PREFIX}_controller_pids:
+  ros__parameters:
+    type: pid_controller/PidController
+    dof_names:
+    - ${EE_SIDE_PREFIX}_thumb_rotatory_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_1_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_2_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_3_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint
+
+    command_interface: effort
+
+    reference_and_state_interfaces: ["position"]
+
+    gains:
+
+      ${EE_SIDE_PREFIX}_thumb_rotatory_joint: {p: 2.5, i: 6.2, d: 0.005, i_clamp_max: 2.0, i_clamp_min: -2.0}
+      ${EE_SIDE_PREFIX}_thumb_flexor_1_joint: {p: 2.3, i: 5.65, d: 0.0175, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_thumb_flexor_2_joint: {p: 2.0, i: 5.65, d: 0.012, i_clamp_max: 2.0, i_clamp_min: -2.0}
+      ${EE_SIDE_PREFIX}_thumb_flexor_3_joint: {p: 2.0, i: 5.0, d: 0.01, i_clamp_max: 1.5, i_clamp_min: -1.5}
+
+      ${EE_SIDE_PREFIX}_finger_1_rotatory_joint: {p: 2.5, i: 4.2, d: 0.005, i_clamp_max: 2.0, i_clamp_min: -2.0}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_1_joint: {p: 2.8, i: 6.65, d: 0.0175, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint: {p: 2.35, i: 3.65, d: 0.012, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint: {p: 2.3, i: 3.7, d: 0.01, i_clamp_max: 1.5, i_clamp_min: -1.5}
+
+      ${EE_SIDE_PREFIX}_finger_2_rotatory_joint: {p: 2.5, i: 4.2, d: 0.005, i_clamp_max: 2.0, i_clamp_min: -2.0}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint: {p: 2.8, i: 6.65, d: 0.0175, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint: {p: 2.35, i: 3.65, d: 0.012, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint: {p: 2.3, i: 3.7, d: 0.01, i_clamp_max: 1.5, i_clamp_min: -1.5}
+
+      ${EE_SIDE_PREFIX}_finger_3_rotatory_joint: {p: 2.5, i: 4.2, d: 0.005, i_clamp_max: 2.0, i_clamp_min: -2.0}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint: {p: 2.8, i: 6.65, d: 0.0175, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint: {p: 2.35, i: 3.65, d: 0.012, i_clamp_max: 1.5, i_clamp_min: -1.5}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint: {p: 2.3, i: 3.7, d: 0.01, i_clamp_max: 1.5, i_clamp_min: -1.5}
+
+
+
+${EE_SIDE_PREFIX}_controller:
+  ros__parameters:
+    type: joint_trajectory_controller/JointTrajectoryController
+    joints:
+      - ${EE_SIDE_PREFIX}_thumb_rotatory_joint
+      - ${EE_SIDE_PREFIX}_thumb_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_thumb_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_thumb_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_finger_1_rotatory_joint
+      - ${EE_SIDE_PREFIX}_finger_1_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_finger_2_rotatory_joint
+      - ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_finger_3_rotatory_joint
+      - ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint
+    command_joints:
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_thumb_rotatory_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_thumb_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_thumb_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_thumb_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_1_rotatory_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_1_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_1_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_1_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_2_rotatory_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_2_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_2_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_2_flexor_3_joint
+
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_3_rotatory_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_3_flexor_1_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_3_flexor_2_joint
+      - ${EE_SIDE_PREFIX}_controller_pids/${EE_SIDE_PREFIX}_finger_3_flexor_3_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.75 
+      ${EE_SIDE_PREFIX}_thumb_rotatory_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_thumb_flexor_1_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_thumb_flexor_2_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_thumb_flexor_3_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint:
+        goal: 0.3
+
+      ${EE_SIDE_PREFIX}_finger_2_rotatory_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint:
+        goal: 0.3
+
+      ${EE_SIDE_PREFIX}_finger_3_rotatory_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint:
+        goal: 0.3
+      ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint:
+        goal: 0.3
+    
+      stop_trajectory_duration: 0.0

@@ -1,0 +1,4 @@
+source;share/soft_wakeup_word/local_setup.bash
+source;share/soft_wakeup_word/local_setup.dsv
+source;share/soft_wakeup_word/local_setup.sh
+source;share/soft_wakeup_word/local_setup.zsh

@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from i18n_msgs/srv/GetLocales.srv
+// generated code does not contain a copyright notice
+
+
+module i18n_msgs {
+  module srv {
+    struct GetLocales_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "A list of locale, using the ISO 639-1 2 letters language code, followed by" "\n"
+      "an hyphen, followed by the ISO 3166-1 2 letter region." "\n"
+      "" "\n"
+      "For instance: en_GB, fr_FR, ca_ES")
+    struct GetLocales_Response {
+      sequence<string> locales;
+    };
+  };
+};

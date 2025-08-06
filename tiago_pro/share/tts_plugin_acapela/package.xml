@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tts_plugin_acapela</name>
+  <version>1.4.1</version>
+  <description>This package implements a text-to-speech plugin based on acapela</description>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license> PAL Robotics S.L. </license>
+  <author email="david.fernandez@pal-robotics.com">David Fernandez</author>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>acapela</build_depend>
+  <build_depend>audio_common_msgs</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tts_engine</build_depend>
+
+  <exec_depend>acapela</exec_depend>
+  <exec_depend>audio_common_msgs</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tts_engine</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

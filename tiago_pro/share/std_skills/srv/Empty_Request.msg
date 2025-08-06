@@ -1,0 +1,2 @@
+# empty service definition, only containing generic skill-related metadata
+std_skills/Meta meta

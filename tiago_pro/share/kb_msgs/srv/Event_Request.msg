@@ -1,0 +1,9 @@
+# a set of partially bound statements (ie, some terms in the statement(s) are
+# variables, starting with a '?')
+string[] patterns
+
+# if true, the event is automatically removed after it is triggered once
+bool one_shot
+
+string[] models
+

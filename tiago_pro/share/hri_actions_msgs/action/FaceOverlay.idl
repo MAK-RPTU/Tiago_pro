@@ -1,0 +1,83 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hri_actions_msgs/action/FaceOverlay.action
+// generated code does not contain a copyright notice
+
+
+module hri_actions_msgs {
+  module action {
+    module FaceOverlay_Goal_Constants {
+      @verbatim (language="comment", text=
+        "LAYER" "\n"        "display the image in the background (the eye's iris/pupil will be drawn on" "\n"        "top of the overlay")
+      const uint8 BACKGROUND = 0;
+      @verbatim (language="comment", text=
+        "display the image on top of the eye (the eye's iris/pupil will be occluded by" "\n"        "the image, except where transparent)")
+      const uint8 FOREGROUND = 1;
+      @verbatim (language="comment", text=
+        "LAYOUT" "\n"        "extend the provided image to cover both eyes." "\n"        "Note: this typically is the only sensible option for robot with a single face panel")
+      const uint8 EXTEND = 0;
+      @verbatim (language="comment", text=
+        "on robots with 2 panels (one per eye), copy the provided image onto each eye")
+      const uint8 COPY = 1;
+      @verbatim (language="comment", text=
+        "on robots with 2 panels (one per eye), mirror the provided image onto each eyes (symmetry over the vertical axis)")
+      const uint8 MIRROR = 2;
+      @verbatim (language="comment", text=
+        "on robots with 2 panels (one per eye), only display the image on the left eye")
+      const uint8 LEFT_EYE_ONLY = 3;
+      @verbatim (language="comment", text=
+        "on robots with 2 panels (one per eye), only display the image on the right eye")
+      const uint8 RIGHT_EYE_ONLY = 4;
+    };
+    struct FaceOverlay_Goal {
+      @verbatim (language="comment", text=
+        "URL of the picture/animation to overlay on the face; currently only supports" "\n"
+        "absolute local path")
+      string media_url;
+
+      @verbatim (language="comment", text=
+        "duration, in seconds, of the overlay visibility" "\n"
+        "- if the duration is larger than the duration of the animation, the animation" "\n"
+        "will loop." "\n"
+        "- a duration of 0 means 'forever'. In this case, the action *will never" "\n"
+        "complete* on its own. Cancelling the action will remove the overlay from the" "\n"
+        "face.")
+      float duration;
+
+      @verbatim (language="comment", text=
+        "one of BACKGROUND or FOREGROUND")
+      uint8 layer;
+
+      @verbatim (language="comment", text=
+        "one of the layout constant defined above")
+      uint8 layout;
+
+      @verbatim (language="comment", text=
+        "scale of the image: 1.0 (default) means full width of the face/eye (depending" "\n"
+        "on the chosen layout); 0.1 means 10% of the width." "\n"
+        "Note that any value <= 0.0 is ignored (replaced by 1.0)")
+      float scale;
+
+      @verbatim (language="comment", text=
+        "position offset, expressed as a proportion of the face or eye's width/height. Values" "\n"
+        "in [-1.0, 1.0] range." "\n"
+        "" "\n"
+        "(0.0, 0.0) means that the image is centered with the face/eye" "\n"
+        "(-1.0, 1.0) means that the image's center would be located in the top left" "\n"
+        "corner of the face/eye panel.")
+      float offset_x;
+
+      float offset_y;
+
+      @verbatim (language="comment", text=
+        "EFFECTS" "\n"
+        "if true, the overlay will fade in/fade out")
+      boolean fade;
+    };
+    struct FaceOverlay_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct FaceOverlay_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

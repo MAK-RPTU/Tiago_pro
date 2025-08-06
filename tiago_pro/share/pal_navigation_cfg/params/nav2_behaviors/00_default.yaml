@@ -1,0 +1,2 @@
+/behavior_server:
+  use_preset: "spin_backup_wait.yaml"

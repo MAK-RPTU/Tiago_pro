@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pal_metapkg_development_tiago_pro</name>
+  <version>0.3.0</version>
+  <description>The pal_metapkg_development_tiago_pro package</description>
+
+  <maintainer email="david.terkuile@pal-robotics.com">David ter Kuile</maintainer>
+
+  <license>Proprietary</license>
+
+  <author email="david.terkuile@pal-robotics.com">David ter Kuile</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>pal_metapkg_development</exec_depend>
+  <exec_depend>tiago_pro_robot</exec_depend>
+  <exec_depend>tiago_pro_simulation</exec_depend>
+  <exec_depend>tiago_pro_navigation</exec_depend>
+  <exec_depend>pal_maps</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>key_teleop</exec_depend>
+  <exec_depend>cyclone_dev_cfg</exec_depend>
+
+  <!-- For headers -->
+  <build_export_depend>pal_metapkg_development</build_export_depend>
+
+  <!-- For HRI packages -->
+  <exec_depend>pal_metapkg_development_interactive_robot</exec_depend>
+  <exec_depend>social_perception_cfg_tiago_pro</exec_depend>
+  <exec_depend>chatbot_rasa_default_models_tiago_pro_en_us</exec_depend>
+  <exec_depend>speech_processing_cfg_tiago_pro</exec_depend>
+  <exec_depend>expressiveness_cfg_tiago_pro</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>

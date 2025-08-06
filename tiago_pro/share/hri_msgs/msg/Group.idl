@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/Group.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    struct Group {
+      std_msgs::msg::Header header;
+
+      string group_id;
+
+      @verbatim (language="comment", text=
+        "List of person IDs of the people in this group")
+      sequence<string> members;
+    };
+  };
+};

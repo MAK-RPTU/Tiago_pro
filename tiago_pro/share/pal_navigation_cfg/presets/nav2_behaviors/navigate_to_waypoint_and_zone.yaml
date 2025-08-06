@@ -1,0 +1,19 @@
+ros__parameters:
+  costmap_topic: global_costmap/costmap_raw
+  footprint_topic: global_costmap/published_footprint
+  cycle_frequency: 2.0
+  behavior_plugins: ["navigate_to_waypoint", "navigate_to_zone"]
+  navigate_to_waypoint:
+    plugin: "pal_nav2_behaviors/NavigateToWaypoint"
+  navigate_to_zone:
+    plugin: "pal_nav2_behaviors/NavigateToZone"
+    feasible_pose_search_plugin: "gaussian_search"
+    pose_generator_plugin: "centroid_pose_generator"
+    gaussian_search:
+      plugin: "ncl::algorithms::FeasiblePoseGaussianSearch"
+    centroid_pose_generator:
+      plugin: "ncl::algorithms::PoseCentroidGenerator"
+  global_frame: "map"
+  robot_base_frame: "base_link"
+  transform_tolerance: 0.1
+  use_sim_time: false

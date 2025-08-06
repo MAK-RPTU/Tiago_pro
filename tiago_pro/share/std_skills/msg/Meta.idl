@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from std_skills/msg/Meta.msg
+// generated code does not contain a copyright notice
+
+
+module std_skills {
+  module msg {
+    module Meta_Constants {
+      @verbatim (language="comment", text=
+        "priority of this call. Higher values mean higher priority." "\n"        "May be used by the skill implementation to either replace a current skill" "\n"        "execution with the new request, or reject/ignore the skill call." "\n"        "" "\n"        "Priorities above 200 are reserved for critical system functions.")
+      const uint8 LOWEST_PRIORITY = 0;
+      const uint8 NORMAL_PRIORITY = 128;
+      const uint8 HIGHEST_PRIORITY = 255;
+    };
+    @verbatim (language="comment", text=
+      "name of the node calling the skill")
+    struct Meta {
+      string caller;
+
+      uint8 priority;
+    };
+  };
+};

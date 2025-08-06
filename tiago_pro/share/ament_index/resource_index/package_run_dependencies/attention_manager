@@ -1,0 +1,1 @@
+attention_manager_msgs;geometry_msgs;hri;lifecycle_msgs;rclcpp;rclcpp_lifecycle;std_msgs;tf2_ros;tf2_geometry_msgs;launch_pal;ament_cmake_gmock;ament_lint_auto;ament_lint_common

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from ui_msgs/srv/SetUiFragment.srv
+// generated code does not contain a copyright notice
+
+
+module ui_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "path to a directory containing QML documents, to" "\n"
+      "be imported by the display manager to display the" "\n"
+      "QML fragment referenced by qml_fragment." "\n"
+      "" "\n"
+      "See https://doc.qt.io/qt-6/qtqml-syntax-directoryimports.html" "\n"
+      "for the specific rules applying to this directory.")
+    struct SetUiFragment_Request {
+      string qml_import_path;
+
+      @verbatim (language="comment", text=
+        "should be the name (relative to qml_import_path) of a" "\n"
+        "qml file. This qml file will be loaded and displayed over the" "\n"
+        "full useful area of the user display.")
+      string qml_fragment;
+    };
+    struct SetUiFragment_Response {
+      string error_msg;
+
+      string result;
+    };
+  };
+};

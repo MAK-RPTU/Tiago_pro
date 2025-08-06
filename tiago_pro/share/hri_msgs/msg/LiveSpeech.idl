@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/LiveSpeech.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This message encodes the live result of a speech recognition process." "\n"
+      "A series of incremental results might be provided, until a final recognition" "\n"
+      "hypothesis is returned.")
+    struct LiveSpeech {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "incremental recognition results")
+      string incremental;
+
+      @verbatim (language="comment", text=
+        "final recognised text")
+      string final;
+
+      @verbatim (language="comment", text=
+        "confidence of the final recognised speech,")
+      @unit (value="0-1")
+      double confidence;
+
+      @verbatim (language="comment", text=
+        "The desired locale, using following format:" "\n"
+        "the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)," "\n"
+        "lower case, followed by an underscore," "\n"
+        "followed by the [ISO 3166-1 alpha-2 region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)," "\n"
+        "upper case." "\n"
+        "" "\n"
+        "For example, 'en_GB' specifies British English.")
+      string locale;
+
+      @verbatim (language="comment", text=
+        "TMP -- to be removed")
+      string language;
+    };
+  };
+};

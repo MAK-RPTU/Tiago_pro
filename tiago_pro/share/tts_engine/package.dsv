@@ -1,0 +1,4 @@
+source;share/tts_engine/local_setup.bash
+source;share/tts_engine/local_setup.dsv
+source;share/tts_engine/local_setup.sh
+source;share/tts_engine/local_setup.zsh

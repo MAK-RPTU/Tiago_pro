@@ -1,0 +1,1 @@
+diagnostic_msgs;hri;hri_msgs;hri_privacy_msgs;libdlib-dev;libopencv-dev;rclcpp;rclcpp_lifecycle;ament_index_cpp;diagnostic_updater;fmt;image_transport;launch_pal;libblas-dev;libtclap-dev;liblapack-dev;libsqlite3-dev;lifecycle_msgs;nlohmann-json-dev;ament_lint_auto;ament_lint_common;ament_cmake_gtest;sensor_msgs

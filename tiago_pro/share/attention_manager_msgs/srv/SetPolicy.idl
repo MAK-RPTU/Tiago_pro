@@ -1,0 +1,43 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from attention_manager_msgs/srv/SetPolicy.srv
+// generated code does not contain a copyright notice
+
+
+module attention_manager_msgs {
+  module srv {
+    module SetPolicy_Request_Constants {
+      const int8 DISABLED = 0;
+      @verbatim (language="comment", text=
+        "randomly look around, with short fixations")
+      const int8 RANDOM = 1;
+      @verbatim (language="comment", text=
+        "the robot will look around for faces, with fixations on detected faces")
+      const int8 IDLE_SOCIAL = 2;
+      @verbatim (language="comment", text=
+        "focus the robot's attention on a specific frame (typically, a person)," "\n"        "provided as the `frame` parameter. If not `frame` parameter is set, the" "\n"        "attention manager will focus on the last tracked frame (if any)")
+      const int8 FOCUSED_SOCIAL = 3;
+      const string STATUS = "status";
+    };
+    @verbatim (language="comment", text=
+      "the attention manager will not control the robot's focus of attention")
+    struct SetPolicy_Request {
+      int8 policy;
+
+      @verbatim (language="comment", text=
+        "only used for policies that expect a specific focus on attention")
+      string frame;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct SetPolicy_Response {
+      @verbatim (language="comment", text=
+        "true if the action was successfully performed")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

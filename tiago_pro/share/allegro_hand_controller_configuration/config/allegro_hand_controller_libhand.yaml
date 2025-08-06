@@ -1,0 +1,53 @@
+gripper_${WHICH_HAND}_controller:
+  ros__parameters:
+    type: allegro_hand_controller/AllegroHandController
+    joints: 
+    - gripper_${WHICH_HAND}_thumb_rotatory_joint
+    - gripper_${WHICH_HAND}_thumb_flexor_1_joint
+    - gripper_${WHICH_HAND}_thumb_flexor_2_joint
+    - gripper_${WHICH_HAND}_thumb_flexor_3_joint
+
+    - gripper_${WHICH_HAND}_finger_1_rotatory_joint
+    - gripper_${WHICH_HAND}_finger_1_flexor_1_joint
+    - gripper_${WHICH_HAND}_finger_1_flexor_2_joint
+    - gripper_${WHICH_HAND}_finger_1_flexor_3_joint
+
+    - gripper_${WHICH_HAND}_finger_2_rotatory_joint
+    - gripper_${WHICH_HAND}_finger_2_flexor_1_joint
+    - gripper_${WHICH_HAND}_finger_2_flexor_2_joint
+    - gripper_${WHICH_HAND}_finger_2_flexor_3_joint
+
+    - gripper_${WHICH_HAND}_finger_3_rotatory_joint
+    - gripper_${WHICH_HAND}_finger_3_flexor_1_joint
+    - gripper_${WHICH_HAND}_finger_3_flexor_2_joint
+    - gripper_${WHICH_HAND}_finger_3_flexor_3_joint
+
+    which_hand: ${WHICH_HAND}
+
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+    update_rate: 500
+
+    gains:
+
+      gripper_${WHICH_HAND}_thumb_rotatory_joint: {p: 1280.0, i: 0.0, d: 17.0}
+      gripper_${WHICH_HAND}_thumb_flexor_1_joint: {p: 2250.0, i: 0.0, d: 40.0}
+      gripper_${WHICH_HAND}_thumb_flexor_2_joint: {p: 2280.0, i: 0.0, d: 35.0}
+      gripper_${WHICH_HAND}_thumb_flexor_3_joint: {p: 1400.0, i: 0.0, d: 17.0}
+
+      gripper_${WHICH_HAND}_finger_1_rotatory_joint: {p: 1250.0, i: 0.0, d: 17.0}
+      gripper_${WHICH_HAND}_finger_1_flexor_1_joint: {p: 2250.0, i: 0.0, d: 40.0}
+      gripper_${WHICH_HAND}_finger_1_flexor_2_joint: {p: 2280.0, i: 0.0, d: 35.0}
+      gripper_${WHICH_HAND}_finger_1_flexor_3_joint: {p: 1400.0, i: 0.0, d: 17.0}
+
+      gripper_${WHICH_HAND}_finger_2_rotatory_joint: {p: 1280.0, i: 0.0, d: 26.0}
+      gripper_${WHICH_HAND}_finger_2_flexor_1_joint: {p: 2250.0, i: 0.0, d: 40.0}
+      gripper_${WHICH_HAND}_finger_2_flexor_2_joint: {p: 2280.0, i: 0.0, d: 35.0}
+      gripper_${WHICH_HAND}_finger_2_flexor_3_joint: {p: 1500.0, i: 0.0, d: 25.0}
+
+      gripper_${WHICH_HAND}_finger_3_rotatory_joint: {p: 1250.0, i: 0.0, d: 17.0}
+      gripper_${WHICH_HAND}_finger_3_flexor_1_joint: {p: 2250.0, i: 0.0, d: 40.0}
+      gripper_${WHICH_HAND}_finger_3_flexor_2_joint: {p: 2280.0, i: 0.0, d: 35.0}
+      gripper_${WHICH_HAND}_finger_3_flexor_3_joint: {p: 1400.0, i: 0.0, d: 17.0}

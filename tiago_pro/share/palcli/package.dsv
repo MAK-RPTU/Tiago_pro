@@ -1,0 +1,2 @@
+source;share/palcli/environment/pal-argcomplete.bash
+source;share/palcli/environment/pal-argcomplete.zsh

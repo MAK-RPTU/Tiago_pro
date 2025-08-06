@@ -1,0 +1,8 @@
+/gaze_manager:
+  ros__parameters:
+    visualize_trajectory: False
+    head_aligning_frame: head_front_camera_rgb_frame
+    P: 0.4
+    D: 0.01
+    error_threshold: 0.1
+    eyes_available: False

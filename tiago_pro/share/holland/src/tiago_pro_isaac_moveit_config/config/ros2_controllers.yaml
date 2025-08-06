@@ -1,0 +1,99 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    arm_left_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    arm_right_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    torso_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    head_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gripper_left_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gripper_right_controller_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_left_controller_controller:
+  ros__parameters:
+    joints:
+      - arm_left_1_joint
+      - arm_left_2_joint
+      - arm_left_3_joint
+      - arm_left_4_joint
+      - arm_left_5_joint
+      - arm_left_6_joint
+      - arm_left_7_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+arm_right_controller_controller:
+  ros__parameters:
+    joints:
+      - arm_right_1_joint
+      - arm_right_2_joint
+      - arm_right_3_joint
+      - arm_right_4_joint
+      - arm_right_5_joint
+      - arm_right_6_joint
+      - arm_right_7_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+torso_controller_controller:
+  ros__parameters:
+    joints:
+      - torso_lift_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+head_controller_controller:
+  ros__parameters:
+    joints:
+      - head_1_joint
+      - head_2_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+gripper_left_controller_controller:
+  ros__parameters:
+    joints:
+      - gripper_left_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+gripper_right_controller_controller:
+  ros__parameters:
+    joints:
+      - gripper_right_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

@@ -1,0 +1,77 @@
+ros__parameters:
+  camera_name: "rgbd_camera"
+  device_type: d435i
+  serial_no: ""
+  json_file_path: ${find realsense_camera_cfg}/json/low_contrast.json
+  log_level: info
+  output: screen
+
+  reconnect_timeout: 6.0
+  wait_for_device_timeout: -1.0
+  initial_reset: true
+  diagnostics_period: 8.0
+
+  publish_tf: true
+  tf_publish_rate: 60.0
+  base_frame_id: link
+
+  enable_depth: false
+  enable_sync: false
+  enable_color: true
+  enable_confidence: true
+  depth_module.profile: 1280,720,30
+  depth_module.exposure.1: 7500
+  depth_module.gain.1: 16
+  depth_module.exposure.2: 1
+  depth_module.gain.2: 16
+  depth_module.exposure: 8500
+  depth_module.hdr_enabled: false
+  depth_module.enable_auto_exposure: true
+  depth_module.emitter_always_on: true
+  align_depth.enable: false
+  hdr_merge.enable: false
+  clip_distance: -2.0
+  colorizer.enable: false
+
+  decimation_filter.enable: true
+  decimation_filter.filter_magnitude: 5
+
+  enable_infra1: false
+  enable_infra2: false
+
+  depth_qos: SENSOR_DATA
+  depth_info_qos: SENSOR_DATA
+
+  pointcloud.enable: false
+  pointcloud.stream_filter: 2
+  pointcloud.stream_index_filter: 0
+  pointcloud.ordered_pc: false
+  pointcloud_frame_skip: 1
+  pointcloud.allow_no_texture_points: true
+  pointcloud.pointcloud_qos: SENSOR_DATA
+
+  rgb_camera.profile: 1280,720,30
+  rgb_camera.enable_auto_exposure: true
+  infra_rgb: false
+
+  color_info_qos: SENSOR_DATA
+  color_qos: SENSOR_DATA
+
+  enable_fisheye1: false
+  enable_fisheye2: false
+
+  unite_imu_method: 2
+
+  enable_gyro: false
+  gyro_fps: 400
+  gyro_qos: SENSOR_DATA
+  gyro_info_qos: SENSOR_DATA
+
+  enable_accel: false
+  accel_fps: 250
+  linear_accel_cov: 0.01
+  accel_qos: SENSOR_DATA
+  accel_info_qos: SENSOR_DATA
+
+  enable_pose: false
+  pose_fps: 200

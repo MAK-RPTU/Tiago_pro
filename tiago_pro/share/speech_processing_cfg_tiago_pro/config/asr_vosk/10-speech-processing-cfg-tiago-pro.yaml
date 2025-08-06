@@ -1,0 +1,4 @@
+/asr_vosk:
+  remappings:
+    audio/channel0: audio_in/raw
+    audio/voice_detected: audio_in/voice_detected

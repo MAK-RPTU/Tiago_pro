@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/Lookup.srv
+// generated code does not contain a copyright notice
+
+
+module kb_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Search the knowledge base for a term matching a string. The search is" "\n"
+      "performed both on terms' names and on label." "\n"
+      "" "\n"
+      "Returns the list of found terms, alongside with their type (one of instance," "\n"
+      "class, datatype_property, object_property, literal)")
+    struct Lookup_Request {
+      string query;
+
+      sequence<string> models;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct Lookup_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "a JSON-encoded list of triples, representing the result of the ABOUT" "\n"
+        "method.")
+      string json;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

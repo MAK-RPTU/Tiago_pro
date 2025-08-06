@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_actions_msgs/msg/ClosedCaption.msg
+// generated code does not contain a copyright notice
+
+
+module hri_actions_msgs {
+  module msg {
+    module ClosedCaption_Constants {
+      const string SPEAKER_ID_SYSTEM = "__system__";
+      const string SPEAKER_ID_UNKNOWN = "__unknown__";
+    };
+    @verbatim (language="comment", text=
+      "The ID of the speaker who is uttering the text." "\n"
+      "If the speaker is the system, the ID is SPEAKER_ID_SYSTEM." "\n"
+      "An empty speaker_id is equivalent to setting it to SPEAKER_ID_UNKNOWN")
+    struct ClosedCaption {
+      string speaker_id;
+
+      @verbatim (language="comment", text=
+        "The text which is being spoken.")
+      string text;
+
+      @verbatim (language="comment", text=
+        "The localei of the caption, using following format:" "\n"
+        "the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)," "\n"
+        "lower case, followed by an underscore," "\n"
+        "followed by the [ISO 3166-1 alpha-2 region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)," "\n"
+        "upper case." "\n"
+        "" "\n"
+        "For example, 'en_GB' specifies British English.")
+      string locale;
+    };
+  };
+};

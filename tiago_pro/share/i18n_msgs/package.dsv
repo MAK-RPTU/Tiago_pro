@@ -1,0 +1,4 @@
+source;share/i18n_msgs/local_setup.bash
+source;share/i18n_msgs/local_setup.dsv
+source;share/i18n_msgs/local_setup.sh
+source;share/i18n_msgs/local_setup.zsh

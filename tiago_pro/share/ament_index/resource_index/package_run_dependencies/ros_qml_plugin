@@ -1,0 +1,1 @@
+hri_msgs;hri_actions_msgs;image_transport;i18n_msgs;libqt5-core;libqt5-multimedia;libqt5-qml;libqt5-quick;rclcpp;rclcpp_action;std_msgs;std_srvs;ui_msgs;ament_lint_auto;ament_lint_common

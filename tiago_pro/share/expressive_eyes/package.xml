@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>expressive_eyes</name>
+  <version>5.4.8</version>
+  <description>The expressive_eyes package</description>
+
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>lifecycle_msgs</build_depend>
+  <build_depend>pal_module_cmake</build_depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>launch_pal</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>yaml_cpp_vendor</depend>
+  <depend>generate_parameter_library</depend>
+  <depend>ament_index_cpp</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>diagnostic_updater</depend>
+
+  <depend>std_msgs</depend>
+  <depend>hri_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <depend>libopencv-dev</depend>
+  <depend>libglfw3-dev</depend>
+  <depend>skia</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from std_skills/msg/Feedback.msg
+// generated code does not contain a copyright notice
+
+
+module std_skills {
+  module msg {
+    struct Feedback {
+      boolean data_bool;
+
+      uint16 data_int;
+
+      float data_float;
+
+      string data_str;
+    };
+  };
+};

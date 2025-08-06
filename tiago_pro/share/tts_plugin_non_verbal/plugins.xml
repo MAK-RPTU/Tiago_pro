@@ -1,0 +1,5 @@
+<library path="tts_plugin_non_verbal">
+  <class type="tts_plugin_non_verbal::TTSEngineNonVerbal" base_class_type="tts_engine::TTSEngineBase">
+    <description>Non verbal TTS Server plugin</description>
+  </class>
+</library>

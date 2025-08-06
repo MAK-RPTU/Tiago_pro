@@ -1,0 +1,2 @@
+communication_hub:
+  launch: "communication_hub communication_hub.launch.py"

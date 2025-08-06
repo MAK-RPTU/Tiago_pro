@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pal_metapkg_core</name>
+  <version>2.0.4</version>
+  <description>The pal_metapkg_core package</description>
+
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+
+  <license>Proprietary</license>
+
+  <author email="jordan.palacios@pal-robotics.com">Jordan Palacios</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- utils -->
+  <exec_depend>aptitude</exec_depend>
+  <exec_depend>bash-completion</exec_depend>
+  <exec_depend>htop</exec_depend>
+  <exec_depend>openssh-server</exec_depend>
+  <exec_depend>rsync</exec_depend>
+  <exec_depend>stress</exec_depend>
+  <exec_depend>vim</exec_depend>
+
+  <!-- pal environment -->
+  <exec_depend>pal_ros_workspace</exec_depend>
+
+  <!-- CLI -->
+  <exec_depend>palcli_apt</exec_depend>
+
+  <!-- ros 2 -->
+  <exec_depend>ros_base</exec_depend>
+  <exec_depend>rmw_cyclonedds_cpp</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

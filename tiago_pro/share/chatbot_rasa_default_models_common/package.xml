@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>chatbot_rasa_default_models_common</name>
+  <version>2.7.0</version>
+  <description>Common files for RASA chatbots installed on PAL robots (includes common RASA actions)</description>
+  <maintainer email="luka.juricic@pal-robotics.com">Luka Juricic</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <test_depend>chatbot_rasa</test_depend>
+  <exec_depend>hri_actions_msgs</exec_depend>
+  <exec_depend>python3-requests</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_index_python</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>chatbot_rasa</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

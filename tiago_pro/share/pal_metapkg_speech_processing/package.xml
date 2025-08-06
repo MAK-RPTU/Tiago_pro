@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pal_metapkg_speech_processing</name>
+  <version>3.2.0</version>
+  <description>Meta-package that depends on the full stack for speech processing, including speech recognition and dialogue management.</description>
+
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>pal_module_cmake</build_depend>
+
+  <!-- note that only en_US is installed; additional language models are dependencies of each robot's specifics -->
+
+  <exec_depend>communication_hub</exec_depend>
+
+  <!-- i18n_manager, to set and change active languages -->
+  <exec_depend>i18n_manager</exec_depend>
+
+  <!-- speech recognition -->
+  <exec_depend>asr_vosk</exec_depend>
+  <exec_depend>asr_vosk_language_model_en_us_small</exec_depend>
+
+  <!-- wake-up word -->
+  <exec_depend>soft_wakeup_word</exec_depend>
+
+  <!-- dialogue management/chatbot -->
+  <exec_depend>chatbot_rasa</exec_depend>
+  <exec_depend>chatbot_rasa_default_models_common</exec_depend>
+
+  <!-- TTS -->
+  <exec_depend>tts_engine</exec_depend>
+  <exec_depend>tts_plugin_non_verbal</exec_depend>
+  <exec_depend>tts_plugin_acapela</exec_depend>
+  <exec_depend>acapela-lang-en-us</exec_depend>
+
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

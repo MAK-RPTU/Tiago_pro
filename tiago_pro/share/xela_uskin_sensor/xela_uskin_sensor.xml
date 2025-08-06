@@ -1,0 +1,9 @@
+<library path="xela_uskin_sensor">
+  <class name="xela_uskin_sensor/XelaUskinSensor"
+         type="xela_uskin_sensor::XelaUskinSensor"
+         base_class_type="hardware_interface::SensorInterface">
+    <description>
+      Xela Uskin Sensor for ros2_control
+    </description>
+  </class>
+</library>

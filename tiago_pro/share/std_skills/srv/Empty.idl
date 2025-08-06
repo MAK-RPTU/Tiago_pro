@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from std_skills/srv/Empty.srv
+// generated code does not contain a copyright notice
+
+#include "std_skills/msg/Meta.idl"
+#include "std_skills/msg/Result.idl"
+
+module std_skills {
+  module srv {
+    @verbatim (language="comment", text=
+      "empty service definition, only containing generic skill-related metadata")
+    struct Empty_Request {
+      std_skills::msg::Meta meta;
+    };
+    struct Empty_Response {
+      std_skills::msg::Result result;
+    };
+  };
+};

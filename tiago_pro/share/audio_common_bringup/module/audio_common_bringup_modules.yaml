@@ -1,0 +1,9 @@
+audio_capture:
+  launch: "audio_common_bringup audio_capture.launch.py"
+  waits: ["pulseaudio"]
+audio_play:
+  launch: "audio_common_bringup audio_play.launch.py"
+  waits: ["pulseaudio"]
+pulseaudio:
+  exec: "wait_pulseaudio"
+  finishes: True

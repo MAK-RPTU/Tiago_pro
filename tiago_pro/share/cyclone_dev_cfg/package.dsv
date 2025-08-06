@@ -1,0 +1,4 @@
+source;share/cyclone_dev_cfg/local_setup.bash
+source;share/cyclone_dev_cfg/local_setup.dsv
+source;share/cyclone_dev_cfg/local_setup.sh
+source;share/cyclone_dev_cfg/local_setup.zsh

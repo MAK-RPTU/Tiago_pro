@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hri_actions_msgs/action/PointTrajectory.action
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/Header.idl"
+
+module hri_actions_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "the header's frame applies to ALL points in the trajectory")
+    struct PointTrajectory_Goal {
+      std_msgs::msg::Header header;
+
+      sequence<geometry_msgs::msg::Point> targets;
+
+      sequence<builtin_interfaces::msg::Duration> times_from_start;
+    };
+    struct PointTrajectory_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct PointTrajectory_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

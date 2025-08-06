@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hri_visualization</name>
+  <version>2.3.0</version>
+  <description>ROS4HRI-compatible node to visualize body and face detection results</description>
+
+  <maintainer email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</maintainer>
+  <maintainer email="sara.cooper@pal-robotics.com">Sara Cooper</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</author>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>pyhri</exec_depend>
+  <exec_depend>hri_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>diagnostic_msgs</exec_depend>
+  <exec_depend>python3-pil</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>launch_pal</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+

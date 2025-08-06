@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="tiago_ft">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.0004587 0.00019238 0.011064" rpy="0 0 0" />
+      <mass value="0.077013" />
+      <inertia ixx="3.7638E-05" ixy="6.5947E-07" ixz="1.7831E-07" iyy="4.0868E-05" iyz="3.7283E-08" izz="7.4732E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/base_link.STL" />
+      </geometry>
+      <material name="pal/DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="ft_sensor_link">
+    <inertial>
+      <origin xyz="-0.0010016 0.00099433 -0.0081076" rpy="0 0 0" />
+      <mass value="0.068524" />
+      <inertia ixx="1.1292E-05" ixy="1.0587E-06" ixz="-2.5242E-07" iyy="1.1125E-05" iyz="2.4515E-07" izz="1.9659E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/ft_sensor_link.STL" />
+      </geometry>
+      <material name="pal/DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/ft_sensor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ft_sensor_joint" type="fixed">
+    <origin xyz="0 0 0.033998" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="ft_sensor_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="ft_out_link">
+    <inertial>
+      <origin xyz="-0.0018748 0.0028583 -0.0014148" rpy="0 0 0" />
+      <mass value="0.082473" />
+      <inertia ixx="1.74E-05" ixy="-1.3726E-06" ixz="-1.6642E-07" iyy="2.0744E-05" iyz="-2.9811E-09" izz="3.6674E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/ft_out_link.STL" />
+      </geometry>
+      <material name="pal/DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiago_ft/meshes/ft_out_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ft_out_joint" type="fixed">
+    <origin xyz="0 0 0.039998" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="ft_out_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+</robot>

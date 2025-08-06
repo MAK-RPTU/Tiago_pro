@@ -1,0 +1,4 @@
+source;share/allegro_hand_controller_configuration/local_setup.bash
+source;share/allegro_hand_controller_configuration/local_setup.dsv
+source;share/allegro_hand_controller_configuration/local_setup.sh
+source;share/allegro_hand_controller_configuration/local_setup.zsh

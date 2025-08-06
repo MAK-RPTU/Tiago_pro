@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>cyclone_dev_cfg</name>
+  <version>0.1.5</version>
+  <description>Configuration and env hooks for setting up Cyclone unicast discovery in the dev container</description>
+  <maintainer email="oscar.martinez@pal-robotics.com">Oscar Martinez</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <exec_depend>rmw_cyclonedds_cpp</exec_depend>
+  <exec_depend>iproute2</exec_depend>
+  <exec_depend>iputils-ping</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,1 @@
+builtin_interfaces;diagnostic_msgs;hri_msgs;launch;launch_pal;launch_ros;lifecycle_msgs;python3-mediapipe;cv_bridge;python3-numpy;python3-opencv;python3-pil;python3-scipy;python3-tk;python3-transforms3d;rcl_interfaces;rclpy;sensor_msgs;std_msgs;tf2_ros;tf_transformations;ament_lint_auto;ament_lint_common

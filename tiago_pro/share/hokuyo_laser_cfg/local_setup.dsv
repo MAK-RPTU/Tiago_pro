@@ -1,0 +1,2 @@
+source;share/hokuyo_laser_cfg/environment/ament_prefix_path.sh
+source;share/hokuyo_laser_cfg/environment/path.sh

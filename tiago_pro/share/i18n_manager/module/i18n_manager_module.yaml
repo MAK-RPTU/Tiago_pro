@@ -1,0 +1,3 @@
+i18n_manager:
+  launch: "i18n_manager i18n_manager.launch.py"
+  

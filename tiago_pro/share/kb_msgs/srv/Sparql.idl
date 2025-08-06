@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/Sparql.srv
+// generated code does not contain a copyright notice
+
+
+module kb_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Performs a raw SPARQL query on a given model.")
+    struct Sparql_Request {
+      @verbatim (language="comment", text=
+        "The SPARQL PREFIX and BASE are automatically added, no need to do it" "\n"
+        "manually (even though you can if you want to use non-standard prefixes)." "\n"
+        "" "\n"
+        "Note that you are responsible for writing a syntactically corret SPARQL" "\n"
+        "query. In particualar, all non-literal/non-variable terms must have a" "\n"
+        "namespace (or a prefix)." "\n"
+        "" "\n"
+        "Results is returned as a JSON object that follow the standard JSON" "\n"
+        "serialization of SPARQL Results." "\n"
+        "See: https://www.w3.org/TR/2013/REC-sparql11-results-json-20130321/")
+      string query;
+
+      sequence<string> models;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct Sparql_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "a JSON-encoded list of dictionaries, representing the result of the FIND" "\n"
+        "method. Each key in the dictionaries correspond to one varaible.")
+      string json;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

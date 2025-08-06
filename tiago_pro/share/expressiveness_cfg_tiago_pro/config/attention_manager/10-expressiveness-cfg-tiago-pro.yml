@@ -1,0 +1,5 @@
+/attention_manager:
+  ros__parameters:
+    use_saliency: true
+    eye_frame: sellion_link
+    base_frame: base_link

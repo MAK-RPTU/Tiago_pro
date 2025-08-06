@@ -1,0 +1,6 @@
+/i18n_manager:
+  ros__parameters:
+    localized_nodes:
+      - /asr_vosk
+      - /chatbot_rasa
+      - /tts_engine

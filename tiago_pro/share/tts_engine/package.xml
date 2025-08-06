@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tts_engine</name>
+  <version>1.4.1</version>
+  <description>PAL package for text-to-speech</description>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license> PAL Robotics S.L. </license>
+  <author email="david.fernandez@pal-robotics.com">David Fernandez</author>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <buildtool_depend>pal_module_cmake</buildtool_depend>
+
+  <build_depend>fmt</build_depend>
+  <build_depend>pluginlib</build_depend>
+
+  <exec_depend>fmt</exec_depend>
+  <exec_depend>launch_pal</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+
+  <depend>audio_common_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>i18n_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>std_msgs</depend>
+  <depend>tts_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,1 @@
+action_msgs;builtin_interfaces;chatbot_msgs;diagnostic_msgs;fmt;geometry_msgs;hri;hri_actions_msgs;hri_msgs;kb_msgs;magic_enum;nlohmann-json-dev;pal_device_msgs;play_motion2_msgs;rclcpp;rclcpp_action;rclcpp_lifecycle;rosidl_default_generators;std_msgs;ament_index_cpp;diagnostic_updater;lifecycle_msgs;rcl_interfaces;tts_msgs;ament_lint_auto;ament_lint_common

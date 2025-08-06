@@ -1,0 +1,10 @@
+<class_libraries>
+  <library path="laser_scan_filters">
+    <class name="pal_laser_filters/LaserScanFootprintFilter" type="pal_laser_filters::LaserScanFootprintFilter" 
+	    base_class_type="filters::FilterBase&lt;sensor_msgs::msg::LaserScan&gt;">
+      <description>
+	    This is a filter which filters points out of a laser scan which are inside the robot footprint.
+      </description>
+    </class>
+  </library>
+</class_libraries>

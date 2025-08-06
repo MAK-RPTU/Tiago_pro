@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1280"
+   height="800"
+   viewBox="0 0 338.66666 211.66667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="foreground_flowers.svg"
+   inkscape:export-filename="/home/severinlemaignan/src/ros4hri/src/expressive-eyes/expressive_eyes_cfg_tiago2/data/foreground.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       oposite_fuse="false"
+       fuse_paths="true"
+       discard_orig_path="false"
+       mode="free"
+       is_visible="true"
+       id="path-effect843"
+       center_point="160.63988,176.20752"
+       end_point="160.63988,191.77517"
+       start_point="160.63988,160.63987"
+       effect="mirror_symmetry" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="160.63988,160.63987"
+       end_point="160.63988,191.77517"
+       center_point="160.63988,176.20752"
+       id="path-effect839"
+       is_visible="true"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="493.66276"
+     inkscape:cy="381.14934"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="flowers">
+    <path
+       style="opacity:1;vector-effect:none;fill:#3771c8;fill-opacity:0.89803922;stroke:none;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 42.693149,22.3034 a 12.707104,12.707104 0 0 0 -12.707234,12.707236 12.707104,12.707104 0 0 0 0.153477,1.898592 12.707104,12.707104 0 0 0 -6.957198,11.330575 12.707104,12.707104 0 0 0 11.236008,12.613182 12.707104,12.707104 0 0 0 11.298533,6.897769 12.707104,12.707104 0 0 0 8.900232,-3.642153 12.707104,12.707104 0 0 0 2.43913,0.240294 A 12.707104,12.707104 0 0 0 69.76333,51.641662 12.707104,12.707104 0 0 0 69.551457,49.362213 12.707104,12.707104 0 0 0 70.897112,43.704162 12.707104,12.707104 0 0 0 58.190392,30.996926 12.707104,12.707104 0 0 0 54.880518,31.439793 12.707104,12.707104 0 0 0 42.693149,22.3034 Z"
+       id="circle942"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path951"
+       d="m 276.16331,29.491918 a 12.707104,12.707104 45 0 0 4.65117,17.358402 12.707104,12.707104 45 0 0 1.72097,0.816387 12.707104,12.707104 45 0 0 6.33396,11.690399 12.707104,12.707104 45 0 0 16.54134,-3.424079 12.707104,12.707104 45 0 0 11.62292,-6.335938 12.707104,12.707104 45 0 0 1.29591,-9.528902 12.707104,12.707104 45 0 0 1.42767,-1.992201 12.707104,12.707104 45 0 0 -4.65117,-17.358401 12.707104,12.707104 45 0 0 -2.08,-0.956239 12.707104,12.707104 45 0 0 -4.22719,-3.994393 12.707104,12.707104 45 0 0 -17.35815,4.650724 12.707104,12.707104 45 0 0 -1.2714,3.087865 12.707104,12.707104 45 0 0 -14.00603,5.986376 z"
+       style="opacity:1;vector-effect:none;fill:#c837ab;fill-opacity:0.89803922;stroke:none;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

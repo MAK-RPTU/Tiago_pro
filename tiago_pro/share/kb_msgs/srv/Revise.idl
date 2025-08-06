@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/Revise.srv
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Duration.idl"
+
+module kb_msgs {
+  module srv {
+    module Revise_Request_Constants {
+      const string UPDATE = "update";
+      @verbatim (language="comment", text=
+        "alias for update")
+      const string ADD = "update";
+      const string RETRACT = "retract";
+      @verbatim (language="comment", text=
+        "alias for RETRACT")
+      const string REMOVE = "retract";
+      @verbatim (language="comment", text=
+        "alias for RETRACT")
+      const string DELETE = "retract";
+    };
+    @verbatim (language="comment", text=
+      "Modify the knowledge base (add,retract,update statements)")
+    struct Revise_Request {
+      string method;
+
+      sequence<string> statements;
+
+      sequence<string> models;
+
+      @verbatim (language="comment", text=
+        "only relevant for UPDATE. Lifespan of 0 (default) means no expiration.")
+      builtin_interfaces::msg::Duration lifespan;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct Revise_Response {
+      @verbatim (language="comment", text=
+        "true if the action was successfully performed")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

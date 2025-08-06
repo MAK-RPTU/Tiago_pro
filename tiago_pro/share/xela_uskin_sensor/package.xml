@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>xela_uskin_sensor</name>
+  <version>1.2.1</version>
+  <description>ROS2 control sensor for the Xela USkin</description>
+
+  <author email="jordan.palacios@pal-robotics.com">Jordan Palacios</author>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <depend>hardware_interface</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>xela_uskin_diagnostics</depend>
+
+  <build_depend>pluginlib</build_depend>
+  <build_depend>xela_uskin_driver</build_depend>
+
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>xela_uskin_driver</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

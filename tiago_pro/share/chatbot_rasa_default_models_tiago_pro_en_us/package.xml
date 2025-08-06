@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>chatbot_rasa_default_models_tiago_pro_en_us</name>
+  <version>2.7.0</version>
+  <description>Default RASA chatbots installed on PAL robots (include chitchat, diagnostics services, and basic command support) - American English version</description>
+  <maintainer email="luka.juricic@pal-robotics.com">Luka Juricic</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="antonio.andriella@pal-robotics.com">Antonio Andriella</author>
+  <author email="sara.cooper@pal-robotics.com">Sara Cooper</author>
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <exec_depend>chatbot_rasa_default_models_common</exec_depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

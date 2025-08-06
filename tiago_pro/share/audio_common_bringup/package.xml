@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>audio_common_bringup</name>
+  <version>1.3.0</version>
+  <description>The PAL bringup for audio_common packages</description>
+  <maintainer email="luka.juricic@pal-robotics.com">Luka Juricic</maintainer>
+  <license>Proprietary</license>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>pal_module_cmake</build_depend>
+
+  <exec_depend>audio_capture</exec_depend>
+  <exec_depend>audio_play</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,53 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/IdsMatch.msg
+// generated code does not contain a copyright notice
+
+
+module hri_msgs {
+  module msg {
+    module IdsMatch_Constants {
+      const int8 UNSET = 0;
+      const int8 PERSON = 1;
+      const int8 FACE = 2;
+      const int8 BODY = 3;
+      const int8 VOICE = 4;
+    };
+    @verbatim (language="comment", text=
+      "This message encodes possible matches between transient IDs (face, body," "\n"
+      "voice) and permanent IDs (person), with their corresponding confidence level." "\n"
+      "Such messages should be published on the /humans/candidate_matches topic." "\n"
+      "" "\n"
+      "confidence == 0.0 has the special meaning of: those two IDs are *not* associated." "\n"
+      "This can be use for instance if one of the ID (eg, a face id) is not valid anymore" "\n"
+      "(face not tracked anymore)" "\n"
+      "" "\n"
+      "Note that setting only one of `id1` or `id2` is invalid. Likewise, `id1` and" "\n"
+      "`id2` can not be equal." "\n"
+      "" "\n"
+      "## Examples" "\n"
+      "" "\n"
+      "For instance, a face recognition module might publish the following message" "\n"
+      "to indicate that face 'a3eb4' has been recognised with 63% confidence as" "\n"
+      "person 'b31ad':" "\n"
+      "" "\n"
+      "{id1: 'a3eb4', id1_type: FACE, id2: 'b31ad', id2_type: PERSON, confidence:" "\n"
+      "0.63, }" "\n"
+      "" "\n"
+      "Another example: a module that detect both faces and skeleton might publish a" "\n"
+      "100% confidence match between the two:" "\n"
+      "" "\n"
+      "{id1: 'ff424', id1_type: FACE, id2: '850d1', id2_type: BODY, confidence:" "\n"
+      "1.0, }")
+    struct IdsMatch {
+      string id1;
+
+      int8 id1_type;
+
+      string id2;
+
+      int8 id2_type;
+
+      float confidence;
+    };
+  };
+};

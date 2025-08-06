@@ -1,0 +1,10 @@
+/communication_hub:
+  ros__parameters:
+    mode: verbal # selects the communication modality ('verbal' or 'non_verbal')
+    chatbot_model: default # chatbot model to use; available models depends on the chatbot backend (rasa, llms...)
+    dialogue_timeout: 10. # Close on-going dialogue after dialogue_timeout seconds of inactivity
+    multi_modal_expression_timeout: 60. # Maximum execution duration a full multi-modal expression in seconds
+    markup_action_timeout: 10. # Maximum execution duration of markup actions in seconds
+    markup_libraries: ["config/default_markup_libraries.json"] # Paths to the JSON files defining available markup actions and variables
+    disabled_markup_actions: ["motion"] # List of markup actions to be disabled
+    disable_chatbot: false # Disable the use of the chatbot for the user utterances

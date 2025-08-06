@@ -1,0 +1,7 @@
+source;share/pal_ros_workspace/environment/ament_prefix_path.sh
+source;share/pal_ros_workspace/environment/library_path.sh
+source;share/pal_ros_workspace/environment/multiarch_library_paths.sh
+source;share/pal_ros_workspace/environment/pal_distro.sh
+source;share/pal_ros_workspace/environment/path.sh
+source;share/pal_ros_workspace/environment/path.sh
+source;share/pal_ros_workspace/environment/pythonpath.sh

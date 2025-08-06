@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hri_actions_msgs/action/ApplicationControl.action
+// generated code does not contain a copyright notice
+
+
+module hri_actions_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "an (optional) JSON-encoded string passed to the underlying application" "\n"
+      "controller.")
+    struct ApplicationControl_Goal {
+      string parameters;
+    };
+    struct ApplicationControl_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct ApplicationControl_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

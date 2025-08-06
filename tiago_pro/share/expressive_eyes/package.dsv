@@ -1,0 +1,4 @@
+source;share/expressive_eyes/local_setup.bash
+source;share/expressive_eyes/local_setup.dsv
+source;share/expressive_eyes/local_setup.sh
+source;share/expressive_eyes/local_setup.zsh

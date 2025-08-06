@@ -1,0 +1,3 @@
+source;share/i18n_manager/environment/ament_prefix_path.sh
+source;share/i18n_manager/environment/library_path.sh
+source;share/i18n_manager/environment/path.sh

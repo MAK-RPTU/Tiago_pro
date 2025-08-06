@@ -1,0 +1,20 @@
+##
+## Service to manage the knowledge base, including
+## clearing all content and loading external ontologies
+##
+
+# fully reset the knowledge base: remove all statements
+# and delete all existing models
+string CLEAR=clear
+# loads an external ontology (XML/RDF, n3, turtle or n-triple format)
+# into the knowledge base
+string LOAD=load
+# saves the knowledge base to the RDF format.
+# `parameters` should be [path, basename].
+# The knowledge base will then be saved as `path/basename-<model>.rdf`
+string SAVE=save
+string STATUS=status
+
+string action
+string[] parameters
+string[] models

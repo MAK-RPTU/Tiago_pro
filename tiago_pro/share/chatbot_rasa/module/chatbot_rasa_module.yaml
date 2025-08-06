@@ -1,0 +1,2 @@
+chatbot_rasa:
+  launch: "chatbot_rasa chatbot_rasa.launch.py"

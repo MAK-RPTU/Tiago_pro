@@ -1,0 +1,30 @@
+/tts_engine:
+  ros__parameters:
+    # Selects the non-verbal engine instead of the verbal one
+    non_verbal_mode: false
+    # Engine used if 'non_verbal_mode' is false
+    verbal_engine: acapela
+    # Default locale used by the verbal engine
+    default_locale: en_US
+    # Default voices, in the pattern `default_voices.<engine>[.<locale>]`
+    default_voices:
+      acapela.ar_AE: Nizar  # available: Leila, Mehdi, Nizar, Salma
+      acapela.ca_ES: Laia  # available: Laia
+      acapela.de_DE: Andreas  # available: Andreas, ClaudiaSmile, Julia, Klaus, Sarah
+      acapela.el_GR: Dimitris  # available: Dimitris, DimitrisHappy, DimitrisSad
+      acapela.en_GB: Peter  # available: Graham, Lucy, Nizareng, Peter, PeterHappy, PeterSad, Queenelizabeth, Rachel
+      acapela.en_US: Will  # available: Karen, Kenny, Laura, Micah, Nelly, Rod, Ryan, Saul, Sharona, Tracy, Will, WillHappy, WillSad, Willbadguy, Willfromafar, Willlittlecreature, Willoldman, Willupclose
+      acapela.es_ES: Antonio  # available: Antonio, Ines, Maria
+      acapela.fi_FI: Sanna  # available: Sanna
+      acapela.fr_FR: Bruno  # available: Alice, Anais, Antoine, AntoineHappy, AntoineSad, Antoinefromafar, Antoineupclose, Bruno, Claire, Julie, Manon, Margaux, MargauxHappy, MargauxSad, Robot
+      acapela.it_IT: Vittorio  # available: Chiara, Fabiana, Vittorio
+      acapela.ja_JP: Sakura  # available: Sakura
+      acapela.ko_KR: minji  # available: minji
+      acapela.nl_NL: Daan  # available: Daan, Femke, Jasmijn, Max
+      acapela.pl_PL: Ania  # available: Ania
+      acapela.pt_BR: Marcia  # available: Marcia
+      acapela.pt_PT: Celia  # available: Celia
+      acapela.ru_RU: Alyona  # available: Alyona
+      acapela.zh_CN: Lulu  # available: Lulu
+      # non_verbal engine does not have locale configuration
+      non_verbal: tiago  # available: r2d2, tiago

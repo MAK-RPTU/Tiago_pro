@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/About.srv
+// generated code does not contain a copyright notice
+
+
+module kb_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Returns the list of triples where `term` is either subject," "\n"
+      "predicate or object")
+    struct About_Request {
+      string term;
+
+      sequence<string> models;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct About_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "a JSON-encoded list of triples, representing the result of the ABOUT" "\n"
+        "method.")
+      string json;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

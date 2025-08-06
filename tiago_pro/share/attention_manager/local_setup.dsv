@@ -1,0 +1,3 @@
+source;share/attention_manager/environment/ament_prefix_path.sh
+source;share/attention_manager/environment/library_path.sh
+source;share/attention_manager/environment/path.sh

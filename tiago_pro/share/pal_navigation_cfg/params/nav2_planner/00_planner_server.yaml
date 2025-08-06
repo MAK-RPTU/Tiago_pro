@@ -1,0 +1,2 @@
+/planner_server:
+  use_preset: "smac_2D.yaml"

@@ -1,0 +1,31 @@
+# the attention manager will not control the robot's focus of attention
+int8 DISABLED=0
+
+# randomly look around, with short fixations
+int8 RANDOM=1
+
+# the robot will look around for faces, with fixations on detected faces
+int8 IDLE_SOCIAL=2
+
+# focus the robot's attention on a specific frame (typically, a person),
+# provided as the `frame` parameter. If not `frame` parameter is set, the
+# attention manager will focus on the last tracked frame (if any)
+int8 FOCUSED_SOCIAL=3
+
+string STATUS=status
+
+int8 policy
+
+# only used for policies that expect a specific focus on attention
+string frame
+
+---
+# Result:
+
+# true if the action was successfully performed
+bool success
+
+# if success = False, error_msg might contain additional information about the
+# failure.
+string error_msg
+

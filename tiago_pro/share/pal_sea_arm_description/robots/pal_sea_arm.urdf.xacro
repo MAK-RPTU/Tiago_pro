@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!-- 
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ -->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="pal_sea_arm">
+
+  <!-- ARGUMENTS -->
+
+  <!-- no-end-effector, pal-pro-gripper -->
+  <xacro:arg name="end_effector" default="pal-pro-gripper"/>
+
+  <!-- spherical-wrist, straight-wrist -->
+  <xacro:arg name="wrist_model" default="spherical-wrist"/>
+
+  <!-- no-ft-sensor, rokubi, ati-tc -->
+  <xacro:arg name="ft_sensor" default="rokubi"/>
+
+  <!-- pal-sea-arm-standalone, tiago-pro, tiago-sea, tiago-sea-dual -->
+  <xacro:arg name="arm_type" default="pal-sea-arm-standalone"/>
+
+  <!-- False, True -->
+  <xacro:arg name="tool_changer" default="True"/>
+
+  <!-- Common args -->
+  <xacro:arg name="use_sim" default="False"/>
+  <xacro:arg name="namespace" default=""/>
+
+  <!-- PROPERTIES -->
+  <xacro:property name="end_effector" value="$(arg end_effector)" />
+  <xacro:property name="wrist_model" value="$(arg wrist_model)" />
+  <xacro:property name="ft_sensor" value="$(arg ft_sensor)" />
+  <xacro:property name="arm_type" value="$(arg arm_type)" />
+  <xacro:property name="tool_changer" value="$(arg tool_changer)" />
+  <xacro:property name="nsp" value="$(arg namespace)" />
+
+  <xacro:if value="${end_effector not in ['no-end-effector', 'pal-pro-gripper', 'custom']}">
+    <xacro:wrong_end_effector/>
+  </xacro:if>
+  <xacro:if value="${wrist_model not in ['straight-wrist', 'spherical-wrist']}">
+    <xacro:wrong_wrist_model/>
+  </xacro:if>
+  <xacro:if value="${ft_sensor not in ['no-ft-sensor', 'rokubi', 'ati']}">
+    <xacro:wrong_ft_sensor/>
+  </xacro:if>
+  <xacro:if value="${arm_type not in ['pal-sea-arm-standalone', 'tiago-pro', 'tiago-pro-s',  'tiago-sea', 'tiago-sea-dual']}">
+    <xacro:wrong_arm_type/>
+  </xacro:if>
+
+  <!-- Compatibility check within TC and ft sensors-->
+  <!-- <xacro:if value="${ft_sensor == 'rokubi' and wrist_model=='spherical-wrist'}">
+    <xacro:error_rokubi_not_compatible_with_spherical_wrist />
+  </xacro:if>
+  <xacro:if value="${ft_sensor == 'rokubi' and tool_changer}">
+    <xacro:error_rokubi_not_compatible_with_tc />
+  </xacro:if>
+  <xacro:if value="${ft_sensor == 'ati' and not tool_changer}">
+    <xacro:error_ati_not_compatible_without_tc />
+  </xacro:if>
+  <xacro:if value="${not tool_changer and wrist_model=='spherical-wrist'}">
+    <xacro:error_spherical_wrist_always_comes_with_tc />
+  </xacro:if> -->
+
+  <xacro:property name="has_ft_sensor" value="${ft_sensor != 'no-ft-sensor'}"/>
+  <xacro:property name="has_end_effector" value="${end_effector not in ['no-end-effector']}"/>
+  <xacro:property name="end_effector_link" value="${'wrist_ft_tool_link' if has_ft_sensor else 'arm_tool_link'}"/>
+
+  <!--INCLUDES -->
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/materials.urdf.xacro" />
+  <xacro:include filename="$(find pal_sea_arm_description)/urdf/arm/arm.urdf.xacro"/>
+  <xacro:include filename="$(find pal_sea_arm_description)/urdf/end_effector/end_effector.urdf.xacro"/>
+  <xacro:include filename="$(find pal_sea_arm_description)/gazebo/gazebo.urdf.xacro" />
+
+  <!-- ROS2 control -->
+  <xacro:include filename="$(find pal_sea_arm_description)/ros2_control/ros2_control.urdf.xacro" />
+
+  <!-- Force Torque sensor -->
+  <xacro:if value="${has_ft_sensor}">
+    <xacro:include filename="$(find pal_sea_arm_description)/urdf/sensors/ft_sensor/ft_sensor.urdf.xacro" />
+    <xacro:include filename="$(find pal_sea_arm_description)/urdf/sensors/ft_sensor/ft_sensor.gazebo.xacro" />
+  </xacro:if>
+
+  <!-- ROBOT DEFINITION -->
+
+  <link name="world"/>
+
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="arm_root_link"/>
+  </joint>
+
+  <!-- BASE LINK -->
+  <link name="arm_root_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <mass value="0.28971" />
+      <inertia ixx="0.00022379" ixy="1.5836E-20" ixz="5.2063E-21" iyy="0.00022379" iyz="-5.1333E-21" izz="0.00019673" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://pal_sea_arm_description/meshes/arm_tiago_pro/base_link.stl" />
+      </geometry>
+      <material name="pal/DarkGrey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://pal_sea_arm_description/meshes/arm_tiago_pro/base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="arm_root_link">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+  </gazebo>
+
+  <!-- ARM -->
+  <xacro:pal_sea_arm name="arm" parent="arm_root_link" arm_type="${arm_type}" tool_changer="${tool_changer}" wrist_model="${wrist_model}" reflect="1" arm_1_offset="0" arm_2_offset="0" arm_3_offset="0" arm_4_offset="0" arm_5_offset="0" arm_6_offset="0" arm_7_offset="0">
+    <origin xyz="0 0 0" rpy="0 0 3.1416" />
+  </xacro:pal_sea_arm>
+
+  <!-- Force Torque sensor-->
+  <xacro:if value="${has_ft_sensor}">
+    <xacro:ft_sensor type="${ft_sensor}" name="wrist" parent="arm_tool_link"/>
+    <!-- <xacro:force_torque_sensor_gazebo name="wrist_ft" update_rate="100"/>-->
+  </xacro:if>
+
+  <!-- End effector -->
+  <xacro:pal_sea_arm_end_effector name="gripper" parent="${end_effector_link}" type="${end_effector}" tool_changer="${tool_changer}" reflect="1"/>
+
+  <!-- ROS2 control -->
+  <xacro:pal_sea_arm_ros2_control use_sim="$(arg use_sim)" />
+
+</robot>

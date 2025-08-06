@@ -1,0 +1,12 @@
+name: tiago_pro
+locale: en_US
+path: models/en_US_tiago_pro.tar.gz
+chatbots:
+  - basic_command_base
+  - basic_command_robot_specific
+  - chitchat_base
+  - chitchat_robot_specific
+  - diagnostics_base
+  - system_base
+catalogues:
+  - locales/actions_i8n.yml

@@ -1,0 +1,4 @@
+/map_server:
+  ros__parameters:
+    use_sim_time: false
+    yaml_filename: "/opt/pal/alum/share/pal_maps/maps/pal_office/map.yaml"

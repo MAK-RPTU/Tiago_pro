@@ -1,0 +1,256 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/FacialActionUnits.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    typedef float float__99[99];
+    module FacialActionUnits_Constants {
+      @verbatim (language="comment", text=
+        "AU codes" "\n"        "List taken from https://en.wikipedia.org/wiki/Facial_Action_Coding_System" "\n"        "Main codes" "\n"        "Neutral face")
+      const uint8 NEUTRAL_FACE = 0;
+      @verbatim (language="comment", text=
+        "Inner brow raiser")
+      const uint8 INNER_BROW_RAISER = 1;
+      @verbatim (language="comment", text=
+        "Outer brow raiser")
+      const uint8 OUTER_BROW_RAISER = 2;
+      @verbatim (language="comment", text=
+        "Brow lowerer")
+      const uint8 BROW_LOWERER = 4;
+      @verbatim (language="comment", text=
+        "Upper lid raiser")
+      const uint8 UPPER_LID_RAISER = 5;
+      @verbatim (language="comment", text=
+        "Cheek raiser")
+      const uint8 CHEEK_RAISER = 6;
+      @verbatim (language="comment", text=
+        "Lid tightener")
+      const uint8 LID_TIGHTENER = 7;
+      @verbatim (language="comment", text=
+        "Lips toward each other")
+      const uint8 LIPS_TOWARD_EACH_OTHER = 8;
+      @verbatim (language="comment", text=
+        "Nose wrinkler")
+      const uint8 NOSE_WRINKLER = 9;
+      @verbatim (language="comment", text=
+        "Upper lip raiser")
+      const uint8 UPPER_LIP_RAISER = 10;
+      @verbatim (language="comment", text=
+        "Nasolabial deepener")
+      const uint8 NASOLABIAL_DEEPENER = 11;
+      @verbatim (language="comment", text=
+        "Lip corner puller")
+      const uint8 LIP_CORNER_PULLER = 12;
+      @verbatim (language="comment", text=
+        "Sharp lip puller")
+      const uint8 SHARP_LIP_PULLER = 13;
+      @verbatim (language="comment", text=
+        "Dimpler")
+      const uint8 DIMPLER = 14;
+      @verbatim (language="comment", text=
+        "Lip corner depressor")
+      const uint8 LIP_CORNER_DEPRESSOR = 15;
+      @verbatim (language="comment", text=
+        "Lower lip depressor")
+      const uint8 LOWER_LIP_DEPRESSOR = 16;
+      @verbatim (language="comment", text=
+        "Chin raiser")
+      const uint8 CHIN_RAISER = 17;
+      @verbatim (language="comment", text=
+        "Lip pucker")
+      const uint8 LIP_PUCKER = 18;
+      @verbatim (language="comment", text=
+        "Tongue show")
+      const uint8 TONGUE_SHOW = 19;
+      @verbatim (language="comment", text=
+        "Lip stretcher")
+      const uint8 LIP_STRETCHER = 20;
+      @verbatim (language="comment", text=
+        "Neck tightener")
+      const uint8 NECK_TIGHTENER = 21;
+      @verbatim (language="comment", text=
+        "Lip funneler")
+      const uint8 LIP_FUNNELER = 22;
+      @verbatim (language="comment", text=
+        "Lip tightener")
+      const uint8 LIP_TIGHTENER = 23;
+      @verbatim (language="comment", text=
+        "Lip pressor")
+      const uint8 LIP_PRESSOR = 24;
+      @verbatim (language="comment", text=
+        "Lips part")
+      const uint8 LIPS_PART = 25;
+      @verbatim (language="comment", text=
+        "Jaw drop")
+      const uint8 JAW_DROP = 26;
+      @verbatim (language="comment", text=
+        "Mouth stretch")
+      const uint8 MOUTH_STRETCH = 27;
+      @verbatim (language="comment", text=
+        "Lip suck")
+      const uint8 LIP_SUCK = 28;
+      @verbatim (language="comment", text=
+        "Head movement codes" "\n"        "Head turn left")
+      const uint8 HEAD_TURN_LEFT = 51;
+      @verbatim (language="comment", text=
+        "Head turn right")
+      const uint8 HEAD_TURN_RIGHT = 52;
+      @verbatim (language="comment", text=
+        "Head up")
+      const uint8 HEAD_UP = 53;
+      @verbatim (language="comment", text=
+        "Head down")
+      const uint8 HEAD_DOWN = 54;
+      @verbatim (language="comment", text=
+        "Head tilt left")
+      const uint8 HEAD_TILT_LEFT = 55;
+      @verbatim (language="comment", text=
+        "Head tilt right")
+      const uint8 HEAD_TILT_RIGHT = 56;
+      @verbatim (language="comment", text=
+        "Head forward")
+      const uint8 HEAD_FORWARD = 57;
+      @verbatim (language="comment", text=
+        "Head back")
+      const uint8 HEAD_BACK = 58;
+      @verbatim (language="comment", text=
+        "Eye movement codes" "\n"        "Eyes turn left")
+      const uint8 EYES_TURN_LEFT = 61;
+      @verbatim (language="comment", text=
+        "Eyes turn right")
+      const uint8 EYES_TURN_RIGHT = 62;
+      @verbatim (language="comment", text=
+        "Eyes up")
+      const uint8 EYES_UP = 63;
+      @verbatim (language="comment", text=
+        "Eyes down")
+      const uint8 EYES_DOWN = 64;
+      @verbatim (language="comment", text=
+        "Walleye")
+      const uint8 WALLEYE = 65;
+      @verbatim (language="comment", text=
+        "Cross-eye")
+      const uint8 CROSS_EYE = 66;
+      @verbatim (language="comment", text=
+        "Eyes positioned to look at other person : The 4, 5, or 7, alone or in combination, occurs while the eye position is fixed on the other person in the conversation.")
+      const uint8 EYES_POSITIONED_TO_LOOK_AT_OTHER_PERSON = 69;
+      @verbatim (language="comment", text=
+        "Visibility codes" "\n"        "Brows and forehead not visible")
+      const uint8 BROWS_AND_FOREHEAD_NOT_VISIBLE = 70;
+      @verbatim (language="comment", text=
+        "Eyes not visible")
+      const uint8 EYES_NOT_VISIBLE = 71;
+      @verbatim (language="comment", text=
+        "Lower face not visible")
+      const uint8 LOWER_FACE_NOT_VISIBLE = 72;
+      @verbatim (language="comment", text=
+        "Entire face not visible")
+      const uint8 ENTIRE_FACE_NOT_VISIBLE = 73;
+      @verbatim (language="comment", text=
+        "Unsociable")
+      const uint8 UNSOCIABLE = 74;
+      @verbatim (language="comment", text=
+        "Gross behavior codes" "\n"        "Jaw thrust")
+      const uint8 JAW_THRUST = 29;
+      @verbatim (language="comment", text=
+        "Jaw sideways")
+      const uint8 JAW_SIDEWAYS = 30;
+      @verbatim (language="comment", text=
+        "Jaw clencher : masseter")
+      const uint8 JAW_CLENCHER = 31;
+      @verbatim (language="comment", text=
+        "bite")
+      const uint8 LIP_BITE = 32;
+      @verbatim (language="comment", text=
+        "blow")
+      const uint8 CHEEK_BLOW = 33;
+      @verbatim (language="comment", text=
+        "puff")
+      const uint8 CHEEK_PUFF = 34;
+      @verbatim (language="comment", text=
+        "suck")
+      const uint8 CHEEK_SUCK = 35;
+      @verbatim (language="comment", text=
+        "bulge")
+      const uint8 TONGUE_BULGE = 36;
+      @verbatim (language="comment", text=
+        "Lip wipe")
+      const uint8 LIP_WIPE = 37;
+      @verbatim (language="comment", text=
+        "Nostril dilator : nasalis (pars alaris)")
+      const uint8 NOSTRIL_DILATOR = 38;
+      @verbatim (language="comment", text=
+        "Nostril compressor : nasalis (pars transversa) and depressor septi nasi")
+      const uint8 NOSTRIL_COMPRESSOR = 39;
+      @verbatim (language="comment", text=
+        "Sniff")
+      const uint8 SNIFF = 40;
+      @verbatim (language="comment", text=
+        "Lid droop : Levator palpebrae superioris (relaxation)")
+      const uint8 LID_DROOP = 41;
+      @verbatim (language="comment", text=
+        "Slit : Orbicularis oculi muscle")
+      const uint8 SLIT = 42;
+      @verbatim (language="comment", text=
+        "Eyes closed : Relaxation of Levator palpebrae superioris")
+      const uint8 EYES_CLOSED = 43;
+      @verbatim (language="comment", text=
+        "Squint : Corrugator supercilii and orbicularis oculi muscle")
+      const uint8 SQUINT = 44;
+      @verbatim (language="comment", text=
+        "Blink : Relaxation of Levator palpebrae superioris; contraction of orbicularis oculi (pars palpebralis)")
+      const uint8 BLINK = 45;
+      @verbatim (language="comment", text=
+        "Wink : orbicularis oculi")
+      const uint8 WINK = 46;
+      @verbatim (language="comment", text=
+        "Speech")
+      const uint8 SPEECH = 50;
+      @verbatim (language="comment", text=
+        "Swallow")
+      const uint8 SWALLOW = 80;
+      @verbatim (language="comment", text=
+        "Chewing")
+      const uint8 CHEWING = 81;
+      @verbatim (language="comment", text=
+        "Shoulder shrug")
+      const uint8 SHOULDER_SHRUG = 82;
+      @verbatim (language="comment", text=
+        "Head shake back and forth")
+      const uint8 HEAD_SHAKE_BACK_AND_FORTH = 84;
+      @verbatim (language="comment", text=
+        "Head nod up and down")
+      const uint8 HEAD_NOD_UP_AND_DOWN = 85;
+      @verbatim (language="comment", text=
+        "Flash")
+      const uint8 FLASH = 91;
+      @verbatim (language="comment", text=
+        "Partial flash")
+      const uint8 PARTIAL_FLASH = 92;
+      @verbatim (language="comment", text=
+        "Shiver/tremble")
+      const uint8 SHIVER_TREMBLE = 97;
+      @verbatim (language="comment", text=
+        "Fast up-down look")
+      const uint8 FAST_UP_DOWN_LOOK = 98;
+    };
+    @verbatim (language="comment", text=
+      "This message the intensity of each actions unit (AU), with their confidence, for a specific face." "\n"
+      "" "\n"
+      "It follows the naming convention of the  Facial Action Coding System (FACS) developed by Ekman.")
+    struct FacialActionUnits {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "array of 99 AUs intensities, one per AU, ordered per AU codes")
+      float__99 intensity;
+
+      @verbatim (language="comment", text=
+        "array of 99 AUs intensity confidences, one per AU, ordered per AU codes")
+      float__99 confidence;
+    };
+  };
+};

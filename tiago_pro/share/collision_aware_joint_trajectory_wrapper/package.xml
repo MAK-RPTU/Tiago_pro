@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>collision_aware_joint_trajectory_wrapper</name>
+  <version>2.0.0</version>
+  <description>The collision_aware_joint_trajectory_wrapper package</description>
+
+  <maintainer email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</maintainer>
+  <author email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</author>
+  <author email="sam.pfeiffer@pal-robotics.com">Sam Pfeiffer</author>
+
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>moveit_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>generate_parameter_library</depend>
+  <depend>moveit_core</depend>
+  <depend>moveit_ros_planning</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

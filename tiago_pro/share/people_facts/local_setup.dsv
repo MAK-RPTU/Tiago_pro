@@ -1,0 +1,3 @@
+source;share/people_facts/environment/ament_prefix_path.sh
+source;share/people_facts/environment/library_path.sh
+source;share/people_facts/environment/path.sh

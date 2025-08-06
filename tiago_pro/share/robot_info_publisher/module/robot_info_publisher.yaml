@@ -1,0 +1,2 @@
+robot_info_publisher:
+  run: "robot_info_publisher robot_info_publisher"

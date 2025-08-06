@@ -1,0 +1,51 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from chatbot_msgs/action/Dialogue.action
+// generated code does not contain a copyright notice
+
+
+module chatbot_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Starts a dialogue with a defined purpose," "\n"
+      "which can be simply to \"chat\" or something more focused like \"ask for something\".")
+    struct Dialogue_Goal {
+      @verbatim (language="comment", text=
+        "The keyword indicating the purpose of the dialogue." "\n"
+        "The purpose is used to determine the type of dialogue to be conducted." "\n"
+        "For example, if the purpose is 'ask_info', the dialogue could be a questionnaire." "\n"
+        "Depending on the chatbot implementation, the purpose could be used to select the appropriate model and story/prompt.")
+      string purpose;
+
+      @verbatim (language="comment", text=
+        "The JSON dictionary of variables used to specify a generic purpose." "\n"
+        "For example, if the purpose is 'ask_info', the dictionary could contain the following keys:" "\n"
+        "- 'info': the list of info to retrieve through the dialogue")
+      string variables;
+
+      @verbatim (language="comment", text=
+        "(Optional) The desired locale, using following format:" "\n"
+        "the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), lower-case" "\n"
+        "followed by an underscore," "\n"
+        "followed by the [ISO 3166-1 alpha-2 region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), upper-case." "\n"
+        "For example, 'en_GB' specifies British English." "\n"
+        "If not provided, the system should use the default locale.")
+      string locale;
+    };
+    struct Dialogue_Result {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "The JSON dictionary of results obtained from the dialogue, based on the purpose." "\n"
+      "For example, if the purpose is 'ask_info', and the variables '{info:}'," "\n"
+      "the dictionary could contain the following keys:" "\n"
+      "- 'speaker_name': the name of the speaker")
+    struct Dialogue_Feedback {
+      string results;
+
+      @verbatim (language="comment", text=
+        "The error message." "\n"
+        "This is not empty only if the dialogue has been aborted.")
+      string error_msg;
+    };
+  };
+};

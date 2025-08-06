@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from pal_statistics_msgs/msg/StatisticsValues.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module pal_statistics_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "header")
+    struct StatisticsValues {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Statistics")
+      sequence<double> values;
+
+      @verbatim (language="comment", text=
+        "The values vector corresponds to the name vector with the same name")
+      uint32 names_version;
+    };
+  };
+};

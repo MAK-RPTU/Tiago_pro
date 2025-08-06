@@ -1,0 +1,2 @@
+/local_costmap:
+  use_preset: "local_costmap.yaml"

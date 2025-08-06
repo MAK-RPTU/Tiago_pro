@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dlo_core</name>
+  <version>0.0.3</version>
+  <description>The dlo_core library implements a laser odometry
+  correction system based on the estimation of the planar motion
+  between two 2D point clouds by nonlinear optimization</description>
+
+  <author email="jose.garcia@pal-robotics.com">josecarlos</author>
+  <maintainer email="jose.garcia@pal-robotics.com">josecarlos</maintainer>
+
+  <license>Propietary</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <depend>dll2d</depend>
+  <depend>eigen</depend>
+  <depend>libboost-dev</depend>
+  <depend>libceres-dev</depend>
+
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

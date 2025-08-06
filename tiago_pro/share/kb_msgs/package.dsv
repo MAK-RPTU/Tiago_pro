@@ -1,0 +1,4 @@
+source;share/kb_msgs/local_setup.bash
+source;share/kb_msgs/local_setup.dsv
+source;share/kb_msgs/local_setup.sh
+source;share/kb_msgs/local_setup.zsh

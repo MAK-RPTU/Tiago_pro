@@ -1,0 +1,4 @@
+source;share/attention_manager_msgs/local_setup.bash
+source;share/attention_manager_msgs/local_setup.dsv
+source;share/attention_manager_msgs/local_setup.sh
+source;share/attention_manager_msgs/local_setup.zsh

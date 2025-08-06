@@ -1,0 +1,13 @@
+
+# Result:
+bool success
+
+# a JSON-encoded list of triples, representing the result of the ABOUT
+# method.
+string json
+
+# if success = False, error_msg might contain additional information about the
+# failure.
+string error_msg
+
+

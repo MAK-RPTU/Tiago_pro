@@ -1,0 +1,4 @@
+source;share/ncl_rosbag/local_setup.bash
+source;share/ncl_rosbag/local_setup.dsv
+source;share/ncl_rosbag/local_setup.sh
+source;share/ncl_rosbag/local_setup.zsh

@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/NormalizedPointOfInterest2D.msg
+// generated code does not contain a copyright notice
+
+
+module hri_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This contains the position of a point of interest (typically in an image)" "\n"
+      "the coordinates are always normalized and must belong to [0.,1.]." "\n"
+      "c is a confidence level (between 0. and 1.) associated to that POI")
+    struct NormalizedPointOfInterest2D {
+      float x;
+
+      float y;
+
+      float c;
+    };
+  };
+};

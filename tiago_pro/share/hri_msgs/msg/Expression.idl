@@ -1,0 +1,62 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/Expression.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    module Expression_Constants {
+      @verbatim (language="comment", text=
+        "the list of expressions is based on Chambers MSc thesis, Bristol Robotics Lab 2020, and includes the six basic emotions in Eckman's model." "\n"        "" "\n"        "Note that a node making use of this message definition is not supposed or" "\n"        "expected to handle all listed expressions." "\n"        "" "\n"        "This list might change based on future needs/requests.")
+      const string NEUTRAL = "neutral";
+      const string ANGRY = "angry";
+      const string SAD = "sad";
+      const string HAPPY = "happy";
+      const string SURPRISED = "surprised";
+      const string DISGUSTED = "disgusted";
+      const string SCARED = "scared";
+      const string PLEADING = "pleading";
+      const string VULNERABLE = "vulnerable";
+      const string DESPAIRED = "despaired";
+      const string GUILTY = "guilty";
+      const string DISAPPOINTED = "disappointed";
+      const string EMBARRASSED = "embarrassed";
+      const string HORRIFIED = "horrified";
+      const string SKEPTICAL = "skeptical";
+      const string ANNOYED = "annoyed";
+      const string FURIOUS = "furious";
+      const string SUSPICIOUS = "suspicious";
+      const string REJECTED = "rejected";
+      const string BORED = "bored";
+      const string TIRED = "tired";
+      const string ASLEEP = "asleep";
+      const string CONFUSED = "confused";
+      const string AMAZED = "amazed";
+      const string EXCITED = "excited";
+    };
+    @verbatim (language="comment", text=
+      "Represents a human facial expression, either in a categorical way, or" "\n"
+      "using the valence/arousal model of emotions")
+    struct Expression {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "one of the listed expressions")
+      string expression;
+
+      @verbatim (language="comment", text=
+        "Valence/Arousal model of emotions" "\n"
+        "from -1.0 to +1.0")
+      float valence;
+
+      @verbatim (language="comment", text=
+        "from -1.0 to +1.0")
+      float arousal;
+
+      @verbatim (language="comment", text=
+        "from 0.0 to 1.0")
+      float confidence;
+    };
+  };
+};

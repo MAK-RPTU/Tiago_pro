@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_actions_msgs/msg/LookAtWithStyle.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PointStamped.idl"
+
+module hri_actions_msgs {
+  module msg {
+    module LookAtWithStyle_Constants {
+      @verbatim (language="comment", text=
+        "default policy: both eyes and head joints (eg neck) are used, the resulting" "\n"        "'style' is a smooth combination of both")
+      const int8 DEFAULT = 0;
+      @verbatim (language="comment", text=
+        "eyes-only policy: only the eyes (if available) should move")
+      const int8 EYES_ONLY = 1;
+      @verbatim (language="comment", text=
+        "head-only policy: only the head joints (typically, the neck) should move")
+      const int8 HEAD_ONLY = 2;
+    };
+    @verbatim (language="comment", text=
+      "Specify the target of the robot's gaze as a 3D point. A desired 'style'" "\n"
+      "policy can be specified to control how the gaze motion should be executed" "\n"
+      "(for instance, sudden movement, slow shift, etc.)")
+    struct LookAtWithStyle {
+      int8 style;
+
+      geometry_msgs::msg::PointStamped target;
+    };
+  };
+};

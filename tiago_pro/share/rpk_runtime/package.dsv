@@ -1,0 +1,4 @@
+source;share/rpk_runtime/local_setup.bash
+source;share/rpk_runtime/local_setup.dsv
+source;share/rpk_runtime/local_setup.sh
+source;share/rpk_runtime/local_setup.zsh

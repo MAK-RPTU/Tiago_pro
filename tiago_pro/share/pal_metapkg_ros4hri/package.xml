@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pal_metapkg_ros4hri</name>
+  <version>2.6.1</version>
+  <description>The pal_metapkg_ros4hri package</description>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>pal_module_cmake</build_depend>
+
+  <build_depend condition="$PAL_DISTRO >= alum">pal_module_cmake</build_depend>  
+
+  <!-- human perception -->
+  <exec_depend>hri</exec_depend>
+  <exec_depend>hri_actions_msgs</exec_depend>
+  <exec_depend>hri_face_body_matcher</exec_depend>
+  <exec_depend>hri_face_detect</exec_depend>
+  <exec_depend>hri_face_identification</exec_depend>
+  <exec_depend>hri_body_detect</exec_depend>
+  <exec_depend>hri_msgs</exec_depend>
+  <exec_depend>hri_person_manager</exec_depend>
+  <exec_depend>hri_engagement</exec_depend>
+  <exec_depend>hri_emotion_recognizer</exec_depend>
+  <exec_depend>hri_emotion_models</exec_depend>
+
+  <!-- symbolic reasoning -->
+  <exec_depend>knowledge_core</exec_depend>
+  <exec_depend>oro</exec_depend>
+  <exec_depend>people_facts</exec_depend>
+
+  <!-- debug/display -->
+  <exec_depend>hri_rviz</exec_depend>
+  <exec_depend>rqt_human_radar</exec_depend>
+  <!--<exec_depend>hri_visualization</exec_depend>-->
+
+  <!-- privacy controls -->
+  <!-- <exec_depend>pal_wt_privacy</exec_depend> -->
+  <exec_depend>hri_privacy_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,40 @@
+ros__parameters:
+  use_sim_time: false
+  controller_frequency: 50.0
+  initial_perception_timeout: 30.0
+  wait_charge_timeout: 1.0
+  dock_approach_timeout: 60.0
+  undock_linear_tolerance: 0.05
+  undock_angular_tolerance: 0.1
+  max_retries: 3
+  base_frame: "base_footprint"
+  fixed_frame: "odom"
+  dock_backwards: false
+  dock_prestaging_tolerance: 0.5
+
+  # Types of docks
+  dock_plugins: ["pal_charging_dock"]
+  pal_charging_dock:
+    plugin: "pal_nav2_docking::ChargingDock"
+    external_detection_timeout: 30.0
+    target_detector:
+      action_name: "detect_dock"
+      detector: "laser_target_detector"
+      target_id: 0
+    staging_x_offset: -1.0
+    use_docked_status: false # whether to use power_status to detect docking
+    charging_connector_frame_id: "base_dock_link"
+    docking_threshold: 0.05 # only used if use_docked_status is false
+
+  controller:
+    k_phi: 5.0
+    k_delta: 3.0
+    beta: 0.5
+    lambda: 1.0
+    v_linear_min: 0.05
+    v_linear_max: 0.1
+    v_angular_max: 0.75
+    slowndown_radius: 0.5
+
+remappings:
+  cmd_vel: "/docking_vel"

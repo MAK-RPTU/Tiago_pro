@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from std_skills/action/Empty.action
+// generated code does not contain a copyright notice
+
+#include "std_skills/msg/Feedback.idl"
+#include "std_skills/msg/Meta.idl"
+#include "std_skills/msg/Result.idl"
+
+module std_skills {
+  module action {
+    @verbatim (language="comment", text=
+      "empty action, only containing generic skill metadata")
+    struct Empty_Goal {
+      std_skills::msg::Meta meta;
+    };
+    struct Empty_Result {
+      std_skills::msg::Result result;
+    };
+    struct Empty_Feedback {
+      std_skills::msg::Feedback feedback;
+    };
+  };
+};

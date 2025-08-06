@@ -1,0 +1,4 @@
+source;share/audio_common_bringup/local_setup.bash
+source;share/audio_common_bringup/local_setup.dsv
+source;share/audio_common_bringup/local_setup.sh
+source;share/audio_common_bringup/local_setup.zsh

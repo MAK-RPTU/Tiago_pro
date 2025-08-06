@@ -1,0 +1,2 @@
+source;share/pal_metapkg_ros4hri/environment/ament_prefix_path.sh
+source;share/pal_metapkg_ros4hri/environment/path.sh

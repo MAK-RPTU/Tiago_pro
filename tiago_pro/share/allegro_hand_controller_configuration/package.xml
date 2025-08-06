@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>allegro_hand_controller_configuration</name>
+  <version>1.4.0</version>
+  <description>The allegro_hand_controller_configuration package</description>
+  <maintainer email="aina.irisarri@pal-robotics.com">Aina Irisarri</maintainer>
+  <author email="aina.irisarri@pal-robotics.com">Aina Irisarri</author>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <exec_depend>launch_pal</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>pid_controller</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>controller_manager</test_depend>
+  <test_depend>pid_controller</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

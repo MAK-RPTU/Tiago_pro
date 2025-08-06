@@ -1,0 +1,2 @@
+attention_manager:
+  launch: "attention_manager attention_manager.launch.py"

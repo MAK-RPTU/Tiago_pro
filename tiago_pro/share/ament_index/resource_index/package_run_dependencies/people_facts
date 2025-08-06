@@ -1,0 +1,1 @@
+diagnostic_msgs;hri;hri_msgs;kb_msgs;rclcpp;rclcpp_lifecycle;lifecycle_msgs;diagnostic_updater;ament_lint_auto;ament_lint_common;ament_cmake_gmock;std_msgs;rcl_interfaces;rosgraph_msgs

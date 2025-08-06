@@ -1,0 +1,7 @@
+/volume:
+  ros__parameters:
+    playback: 60
+    capture: 80
+    playback_saturation_level: 72
+    capture_use_respeaker: True
+    respeaker_node: "/audio_in/respeaker" 

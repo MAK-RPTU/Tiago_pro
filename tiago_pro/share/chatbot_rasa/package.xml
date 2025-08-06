@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>chatbot_rasa</name>
+  <version>2.3.1</version>
+  <description>RASA chatbot</description>
+  <maintainer email="luka.juricic@pal-robotics.com">Luka Juricic</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <exec_depend>action_msgs</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>chatbot_msgs</exec_depend>
+  <exec_depend>diagnostic_msgs</exec_depend>
+  <exec_depend>hri_actions_msgs</exec_depend>
+  <exec_depend>i18n_msgs</exec_depend>
+  <exec_depend>launch_pal</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+  <exec_depend>python3-flask</exec_depend>
+  <exec_depend>python3-requests</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-werkzeug</exec_depend>
+  <exec_depend>rasa</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

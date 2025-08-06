@@ -1,0 +1,10 @@
+/hri_body_detect:
+  ros__parameters:
+    use_depth: False
+    detection_conf_thresh: 0.5
+    use_cmc: False
+  remappings:
+    image: /head_front_camera/color/image_raw
+    camera_info: /head_front_camera/color/camera_info
+    depth_image: /head_front_camera/depth/image_rect_raw
+    depth_info: /head_front_camera/depth/camera_info

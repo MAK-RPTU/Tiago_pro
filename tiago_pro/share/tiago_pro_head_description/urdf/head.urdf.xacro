@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<!--
+
+  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!--File includes-->
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro" />
+
+  <!-- Tools -->
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+  <!--Constant parameters-->
+  <xacro:property name="head_friction" value="1.0" />
+  <xacro:property name="head_damping" value="0.5" />
+  <xacro:property name="head_max_vel" value="3.0" />
+  <xacro:property name="head_1_lower_limit" value="-1.309"/>
+  <xacro:property name="head_1_upper_limit" value="1.309"/>
+  <xacro:property name="head_2_lower_limit" value="-1.0472"/>
+  <xacro:property name="head_2_upper_limit" value="0.34907"/>
+
+  <xacro:property name="head_eps" value="${0.07}" />
+
+  <xacro:macro name="tiago_pro_head" params="name parent camera_model use_sim_time:=^|false">
+
+    <!-- Head Link 1-->
+    <link name="${name}_1_link">
+      <inertial>
+        <origin xyz="-0.0037459 -4.6685E-05 0.1055" rpy="0 0 0" />
+        <mass value="0.15566" />
+        <inertia ixx="0.0005208" ixy="3.0453E-07" ixz="-6.1005E-05"
+          iyy="0.00035021" iyz="5.8627E-07"
+          izz="0.00033341" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_pro_head_description/meshes/head_1_link.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="0.29804 0.29804 0.29804 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_pro_head_description/meshes/head_1_link_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${name}_1_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="head_1_link" />
+      <axis xyz="0 0 1" />
+      <limit lower="${head_1_lower_limit}" upper="${head_1_upper_limit}" effort="5.197" velocity="${head_max_vel}" />
+      <dynamics damping="${head_damping}" friction="${head_friction}"/>
+      <safety_controller k_position="20" k_velocity="20" soft_lower_limit="${head_1_lower_limit + head_eps}" soft_upper_limit="${head_1_upper_limit - head_eps}" />
+    </joint>
+
+    <!-- Head link 2-->
+    <link name="${name}_2_link">
+      <inertial>
+        <origin xyz="0.01201 -0.10656 -0.00075"  rpy="0 0 0" />
+        <mass value="1.32153" />
+        <inertia ixx="0.01065" ixy="-0.00119" ixz="0.00001"
+          iyy="0.00878" iyz="-0.00003"
+          izz="0.00627" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_pro_head_description/meshes/${camera_model}_cover_link.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_pro_head_description/meshes/head_2_link.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_pro_head_description/meshes/head_2_link_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="head_2_joint" type="revolute">
+      <origin xyz="0.0425 0 0.10585" rpy="-1.5708 0 0" />
+      <parent link="${name}_1_link" />
+      <child link="${name}_2_link" />
+      <axis xyz="0 0 -1" />
+      <limit lower="${head_2_lower_limit}" upper="${head_2_upper_limit}" effort="2.77" velocity="${head_max_vel}" />
+      <dynamics damping="${head_damping}" friction="${head_friction}"/>
+      <safety_controller k_position="20" k_velocity="20" soft_lower_limit="${head_2_lower_limit + head_eps}" soft_upper_limit="${head_2_upper_limit - head_eps}" />
+    </joint>
+
+    <link name="${name}_screen_link">
+      <visual>
+        <origin rpy="${90.0 * deg_to_rad} 0 ${90.0 * deg_to_rad}" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.17282 0.10824 0.005"/>
+        </geometry>
+        <material name="">
+          <color rgba="0 0 0 1" />
+        </material>
+      </visual>
+    </link>
+
+    <gazebo reference="${name}_screen_link">
+      <visual>
+        <plugin name="${name}_video_stream" filename="libgazebo_ros_video.so">
+          <ros>
+            <!-- Add a namespace -->
+            <namespace></namespace>
+            <!-- remap image subscribe topic -->
+            <remapping>~/image_raw:=robot_face/image_raw</remapping>
+          </ros>
+          <height>480</height>
+          <width>640</width>
+        </plugin>
+      </visual>
+    </gazebo>
+
+    <joint name="${name}_screen_joint" type="fixed">
+      <parent link="${name}_2_link" />
+      <child link="${name}_screen_link" />
+      <origin xyz="0.05584 -0.083935 0.0" rpy="1.5708 0 0" />
+    </joint>
+
+    <gazebo reference="${name}_1_link">
+      <material>Gazebo/DarkGrey</material>
+      <mu1>0.9</mu1>
+      <mu2>0.9</mu2>
+    </gazebo>
+    <gazebo reference="${name}_2_link">
+      <material>Gazebo/White</material>
+      <mu1>0.9</mu1>
+      <mu2>0.9</mu2>
+    </gazebo>
+
+    <gazebo reference="${name}_1_joint">
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="${name}_2_joint">
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
+
+    <!-- Cameras-->
+
+    <!-- Head camera:Intel D435 -->
+    <xacro:if value="${camera_model == 'realsense-d435'}">
+      <xacro:sensor_d435 parent="${name}_2_link" name="${name}_front_camera" topics_ns="${name}_front_camera" use_nominal_extrinsics="${use_sim_time}">
+        <origin xyz="0.0416 -0.1555 0" rpy="1.5708 0 0" />
+      </xacro:sensor_d435>
+    </xacro:if>
+
+    <!-- Head camera:Intel D455 -->
+    <xacro:if value="${camera_model == 'realsense-d455'}">
+      <xacro:sensor_d455 parent="${name}_2_link" name="${name}_front_camera" topics_ns="${name}_front_camera" use_nominal_extrinsics="${use_sim_time}">
+        <origin xyz="0.040453 -0.1565 0" rpy="1.5708 0 0" />
+      </xacro:sensor_d455>
+    </xacro:if>
+
+  </xacro:macro>
+
+  <!-- EYE FRAMES -->
+  <link name="sellion_link"/>
+
+  <joint name="sellion_joint" type="fixed">
+    <origin xyz="0.04 -0.09205 0" rpy="1.5708 0 0"/>
+    <child link="sellion_link" />
+    <parent link="head_2_link"/>
+  </joint>
+
+  <link name="eye_right_link"/>
+
+  <joint name="eye_right_joint" type="fixed">
+    <origin xyz="0.0 -0.1 0" rpy="0 0 0"/>
+    <child link="eye_right_link" />
+    <parent link="sellion_link"/>
+  </joint>
+
+  <link name="eye_left_link"/>
+
+  <joint name="eye_left_joint" type="fixed">
+    <origin xyz="0 0.1 0" rpy="0 0 0"/>
+    <child link="eye_left_link" />
+    <parent link="sellion_link"/>
+  </joint>
+
+</robot>

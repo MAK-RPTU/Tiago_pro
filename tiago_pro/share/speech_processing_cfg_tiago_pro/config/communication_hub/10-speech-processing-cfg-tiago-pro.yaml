@@ -1,0 +1,4 @@
+/communication_hub:
+  remappings:
+    chatbot/get_response: chatbot_rasa/get_response
+    chatbot/reset: chatbot_rasa/reset

@@ -1,0 +1,5 @@
+<library path="tts_plugin_acapela">
+  <class type="tts_plugin_acapela::TTSEngineAcapela" base_class_type="tts_engine::TTSEngineBase">
+    <description>Acapela TTS Server plugin</description>
+  </class>
+</library>

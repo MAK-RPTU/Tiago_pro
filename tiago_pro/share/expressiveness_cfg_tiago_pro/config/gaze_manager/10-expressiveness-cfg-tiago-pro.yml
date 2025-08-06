@@ -1,0 +1,9 @@
+/gaze_manager:
+  ros__parameters:
+    visualize_trajectory: false
+    head_aligning_frame: sellion_link
+    P: 0.5
+    D: 0.015
+    error_threshold: 0.1
+    eyes_available: true
+    use_sim_time: false

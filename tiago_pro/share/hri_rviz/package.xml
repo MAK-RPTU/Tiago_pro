@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hri_rviz</name>
+  <version>2.1.0</version>
+  <description>Set of rviz plugins for ROS4HRI data visualization</description>
+  <maintainer email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</maintainer>
+  <license>Apache License 2.0</license>
+  <author email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <depend>rcpputils</depend>
+  <depend>rclcpp</depend>
+  <depend>hri</depend>
+  <depend>hri_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>rviz_common</depend>
+  <depend>rviz_default_plugins</depend>
+  <depend>cv_bridge</depend>
+  <depend>rviz_ogre_vendor</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

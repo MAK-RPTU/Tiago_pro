@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from pal_statistics_msgs/msg/Statistic.msg
+// generated code does not contain a copyright notice
+
+
+module pal_statistics_msgs {
+  module msg {
+    struct Statistic {
+      string name;
+
+      double value;
+    };
+  };
+};

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tts_plugin_non_verbal</name>
+  <version>1.4.1</version>
+  <description>This package implements a non verbal (with beeps) text-to-speech plugin. It converts each letter to a specific sound.</description>
+
+  <author email="ferran.gebelli@pal-robotics.com">Ferran Gebellí Guinjoan</author>
+
+  <!-- author of the MIT AudioFile library, included in the source code of this repo -->
+  <author>Adam Stark</author>
+  <!-- author of the MIT ttastromech library, on which this package is based (incl. original WAV files for R2D2 voice) -->
+  <author>Hugo Schoch</author>
+
+  <maintainer email="ferran.gebelli@pal-robotics.com">Ferran Gebellí Guinjoan</maintainer>
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>ament_index_cpp</build_depend>
+  <build_depend>audio_common_msgs</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tts_engine</build_depend>
+
+  <exec_depend>ament_index_cpp</exec_depend>
+  <exec_depend>audio_common_msgs</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tts_engine</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

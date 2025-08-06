@@ -1,0 +1,4 @@
+source;share/i18n_manager/local_setup.bash
+source;share/i18n_manager/local_setup.dsv
+source;share/i18n_manager/local_setup.sh
+source;share/i18n_manager/local_setup.zsh

@@ -1,0 +1,35 @@
+/soft_wakeup_word:
+  ros__parameters:
+    default_locale: en_US  # Default locale used to detect the voice commands
+    wakeup_patterns:  # Regex patterns of voice commands recognized to wake up the robot, listed by locale
+      ca_ES:
+      - "^(hola|desperta) (robots?)$"
+      - "^(robots?) escolta$"
+      en_GB:
+      - "^(hey|hello|wake up) (robots?|robert)$"
+      - "^(robots?|robert)( please)? listen$" 
+      en_US:
+      - "^(hey|hello|wake up) (robots?|robert)$"
+      - "^(robots?|robert)( please)? listen$" 
+      es_ES:
+      - "^(hola|despierta) (robots?)$"
+      - "^(robots?) escucha$"
+      fr_FR:
+      - "^(bonjour|salut|debout|reveille-toi) robots?$"
+      - "^robots? écoute-moi$"
+      it_IT:
+      - "^(hey|ciao|sveglia) robot$"
+      - "^robot( per favore)? ascolta$"
+    sleep_patterns:  # Regex patterns of voice commands recognized to make the robot sleep, listed by locale
+      ca_ES:
+      - "^(adeu|deu|fins despres) robots?$"
+      en_GB:
+      - "^(robots?|robert)( please)? (stop listening|sleep)$"
+      en_US:
+      - "^(robots?|robert)( please)? (stop listening|sleep)$"
+      es_ES:
+      - "^(adios|hasta otra|hasta luego) robots?$"
+      fr_FR:
+      - "^(au revoir|aurevoir|bonne nuit) robots?$"
+      it_IT:
+      - "^robot( per favore)? (smetti di ascoltare|dormi)$"

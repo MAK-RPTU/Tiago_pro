@@ -1,0 +1,1 @@
+diagnostic_msgs;hri;rclcpp;rclcpp_lifecycle;diagnostic_updater;hri_msgs;libblas-dev;libdlib-dev;liblapack-dev;libopencv-dev;libsqlite3-dev;lifecycle_msgs;ament_lint_auto;ament_lint_common;ament_cmake_gmock;rcl_interfaces;rclpy;rosgraph_msgs

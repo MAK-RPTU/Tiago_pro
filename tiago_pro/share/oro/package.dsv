@@ -1,0 +1,4 @@
+source;share/oro/local_setup.bash
+source;share/oro/local_setup.dsv
+source;share/oro/local_setup.sh
+source;share/oro/local_setup.zsh

@@ -1,0 +1,2 @@
+rgbd:
+  launch: "realsense_camera_cfg rgbd.launch.py"

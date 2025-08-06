@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from hri_actions_msgs/srv/ListActivities.srv
+// generated code does not contain a copyright notice
+
+#include "hri_actions_msgs/msg/ActivityList.idl"
+
+module hri_actions_msgs {
+  module srv {
+    struct ListActivities_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct ListActivities_Response {
+      hri_actions_msgs::msg::ActivityList activities;
+    };
+  };
+};

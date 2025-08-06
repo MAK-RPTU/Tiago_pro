@@ -1,0 +1,2 @@
+/global_costmap:
+  use_preset: "global_costmap.yaml"

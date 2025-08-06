@@ -1,0 +1,1 @@
+rclcpp;rclcpp_lifecycle;yaml_cpp_vendor;generate_parameter_library;ament_index_cpp;diagnostic_msgs;diagnostic_updater;std_msgs;hri_msgs;geometry_msgs;sensor_msgs;tf2_ros;tf2_geometry_msgs;libopencv-dev;libglfw3-dev;skia;rosidl_default_runtime;cv_bridge;launch_pal;lifecycle_msgs;ament_lint_auto;ament_lint_common

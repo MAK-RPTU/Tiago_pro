@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dll2d</name>
+  <version>4.0.2</version>
+  <description>The dll2d library allows estimating 
+  the planar motion between two 2D point clouds based
+  on non-linear optimization of the distance of the points</description>
+
+  <author email="jose.garcia@pal-robotics.com">JoseCarlos</author>
+  <maintainer email="jose.garcia@pal-robotics.com">JoseCarlos</maintainer>
+
+  <license>Propietary</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <depend>libceres-dev</depend>
+
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>xela_uskin_diagnostics</name>
+  <version>1.2.1</version>
+  <description>Diagnostics for the Xela Uskin</description>
+
+  <author email="jordan.palacios@pal-robotics.com">Jordan Palacios</author>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>diagnostic_updater</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

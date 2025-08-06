@@ -1,0 +1,2 @@
+/smoother_server:
+  use_preset: "savitzky_golay_smoother.yaml"

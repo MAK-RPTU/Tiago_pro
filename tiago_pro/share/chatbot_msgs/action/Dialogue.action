@@ -1,0 +1,34 @@
+# Starts a dialogue with a defined purpose,
+# which can be simply to "chat" or something more focused like "ask for something".
+
+# The keyword indicating the purpose of the dialogue.
+# The purpose is used to determine the type of dialogue to be conducted.
+# For example, if the purpose is 'ask_info', the dialogue could be a questionnaire.
+# Depending on the chatbot implementation, the purpose could be used to select the appropriate model and story/prompt.
+string purpose
+
+# The JSON dictionary of variables used to specify a generic purpose.
+# For example, if the purpose is 'ask_info', the dictionary could contain the following keys:
+# - 'info': the list of info to retrieve through the dialogue
+string variables
+
+# (Optional) The desired locale, using following format:
+# the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), lower-case
+# followed by an underscore,
+# followed by the [ISO 3166-1 alpha-2 region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), upper-case.
+# For example, 'en_GB' specifies British English.
+# If not provided, the system should use the default locale.
+string locale
+
+---
+
+---
+# The JSON dictionary of results obtained from the dialogue, based on the purpose.
+# For example, if the purpose is 'ask_info', and the variables '{info: ["speaker_name"]}',
+# the dictionary could contain the following keys:
+# - 'speaker_name': the name of the speaker
+string results
+
+# The error message.
+# This is not empty only if the dialogue has been aborted.
+string error_msg

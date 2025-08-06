@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hri_actions_msgs/action/SelfPresentation.action
+// generated code does not contain a copyright notice
+
+
+module hri_actions_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal definition")
+    struct SelfPresentation_Goal {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "Result definition")
+    struct SelfPresentation_Result {
+      boolean success;
+    };
+    @verbatim (language="comment", text=
+      "Feedback definition")
+    struct SelfPresentation_Feedback {
+      int32 current_phrase;
+
+      int32 total_phrases;
+    };
+  };
+};

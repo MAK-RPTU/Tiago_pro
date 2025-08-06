@@ -1,0 +1,3 @@
+/chatbot_rasa:
+  ros__parameters:
+    model: tiago_pro

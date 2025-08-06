@@ -1,0 +1,12 @@
+# path to a directory containing QML documents, to
+# be imported by the display manager to display the
+# QML fragment referenced by qml_fragment.
+#
+# See https://doc.qt.io/qt-6/qtqml-syntax-directoryimports.html
+# for the specific rules applying to this directory.
+string qml_import_path
+
+# should be the name (relative to qml_import_path) of a
+# qml file. This qml file will be loaded and displayed over the 
+# full useful area of the user display.
+string qml_fragment

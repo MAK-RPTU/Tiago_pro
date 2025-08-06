@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dlo_ros</name>
+  <version>0.2.0</version>
+  <description>The dlo_ros package implements a ROS2 wrapper over dlo_core </description>
+  <author email="jose.garcia@pal-robotics.com">Jose Carlos Garcia Moreno</author>
+  <maintainer email="jose.garcia@pal-robotics.com">Jose Carlos Garcia Moreno</maintainer>
+  
+  <license>Propietary</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <build_depend>pal_configuration_cmake</build_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>message_filters</depend>
+  <depend>nav_msgs</depend>
+  <depend>nav2_util</depend>
+  <depend>ncl_rosbag</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
+  <depend>rosbag2_cpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>dll2d</depend>
+  <depend>dlo_core</depend>
+  <depend>scan_quality_estimator</depend>
+
+  <exec_depend>ros2launch</exec_depend>
+  
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_index_cpp</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

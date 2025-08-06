@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ui_server</name>
+  <version>0.3.2</version>
+  <description>UI display 'server' using ROS 2 and QML</description>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license>PAL Robotics S.L.</license>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <depend>ui_msgs</depend>
+
+  <depend>rclcpp</depend>
+  <depend>libqt5-core</depend>
+  <depend>libqt5-quick</depend>
+  <depend>ros_qml_plugin</depend>
+
+  <build_depend>qtbase5-dev</build_depend>
+  <build_depend>qtdeclarative5-dev</build_depend>
+  <build_depend>qtmultimedia5-dev</build_depend>
+  <build_depend>pal_module_cmake</build_depend>
+
+  <exec_depend>qml-module-qtquick-controls2</exec_depend>
+  <exec_depend>qml-module-qtquick-window2</exec_depend>
+  <exec_depend>qml-module-qtmultimedia</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

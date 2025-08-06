@@ -1,0 +1,49 @@
+${EE_SIDE_PREFIX}_controller_pids:
+  ros__parameters:
+    type: pid_controller/PidController
+    dof_names:
+    - ${EE_SIDE_PREFIX}_thumb_rotatory_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_thumb_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_1_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_2_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint
+
+    - ${EE_SIDE_PREFIX}_finger_3_rotatory_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint
+    - ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint
+
+    command_interface: effort
+
+    reference_and_state_interfaces: ["position", "velocity"]
+
+    gains:
+
+      ${EE_SIDE_PREFIX}_thumb_rotatory_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_thumb_flexor_1_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_thumb_flexor_2_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_thumb_flexor_3_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+
+      ${EE_SIDE_PREFIX}_finger_1_rotatory_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_1_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_2_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_1_flexor_3_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+
+      ${EE_SIDE_PREFIX}_finger_2_rotatory_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_1_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_2_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_2_flexor_3_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+
+      ${EE_SIDE_PREFIX}_finger_3_rotatory_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_1_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_2_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}
+      ${EE_SIDE_PREFIX}_finger_3_flexor_3_joint: {p: 0.1, i: 0.0, d: 0.1, i_clamp_max: 5.0, i_clamp_min: -5.0}

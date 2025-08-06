@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from std_skills/msg/ColorRGBA.msg
+// generated code does not contain a copyright notice
+
+#include "std_skills/msg/Meta.idl"
+
+module std_skills {
+  module msg {
+    @verbatim (language="comment", text=
+      "This is provided as an example message." "\n"
+      "It is recommended to create your own semantically meaningful message.")
+    struct ColorRGBA {
+      std_skills::msg::Meta meta;
+
+      float r;
+
+      float g;
+
+      float b;
+
+      float a;
+    };
+  };
+};

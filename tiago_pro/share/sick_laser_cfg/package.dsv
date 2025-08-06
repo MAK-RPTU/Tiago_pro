@@ -1,0 +1,4 @@
+source;share/sick_laser_cfg/local_setup.bash
+source;share/sick_laser_cfg/local_setup.dsv
+source;share/sick_laser_cfg/local_setup.sh
+source;share/sick_laser_cfg/local_setup.zsh

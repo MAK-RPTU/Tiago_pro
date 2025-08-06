@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>i18n_manager</name>
+  <version>2.4.0</version>
+  <description>Manages locales available on the robot, and exposes API to easily change the active one.</description>
+  <maintainer email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</maintainer>
+  <license>PAL Robotics S.L.</license>
+  <author email="severin.lemaignan@pal-robotics.com">Séverin Lemaignan</author>
+  <author email="luka.juricic@pal-robotics.com">Luka Juricic</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <buildtool_depend>pal_module_cmake</buildtool_depend>
+
+  <build_depend>ament_index_cpp</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>fmt</build_depend>
+  <build_depend>nlohmann-json-dev</build_depend>
+  <build_depend>rcl_interfaces</build_depend>
+  <build_depend>yaml_cpp_vendor</build_depend>
+
+  <exec_depend>ament_index_cpp</exec_depend>
+  <exec_depend>diagnostic_updater</exec_depend>
+  <exec_depend>fmt</exec_depend>
+  <exec_depend>nlohmann-json-dev</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
+  <exec_depend>yaml_cpp_vendor</exec_depend>
+
+  <depend>diagnostic_msgs</depend>
+  <depend>i18n_msgs</depend>
+  <depend>lifecycle_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_lifecycle</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

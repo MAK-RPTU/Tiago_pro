@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot_info_publisher</name>
+  <version>0.2.1</version>
+  <description>Robot info publisher</description>
+
+  <maintainer email="noel.jimenez@pal-robotics.com">Noel Jimenez</maintainer>
+
+  <license>PAL Robotics S.L.</license>
+
+  <author email="noel.jimenez@pal-robotics.com">Noel Jimenez</author>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>robot_info_msgs</exec_depend>
+
+  <exec_depend>ament_copyright</exec_depend>
+  <exec_depend>ament_flake8</exec_depend>
+  <exec_depend>ament_pep257</exec_depend>
+  <exec_depend>ament_xmllint</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/NormalizedRegionOfInterest2D.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This contains the top-leftmost and bottom-rightmost coordinates of a region of interest (typically in an image)" "\n"
+      "the coordinates are always normalized and must belong to [0.,1.]." "\n"
+      "The (xmin, ymin) tuple stores the top-leftmost coordinates of the ROI, while (xmax, ymax) represents the" "\n"
+      "bottom-rightmost coordinates." "\n"
+      "c is a confidence level (between 0. and 1.) associated to that ROI")
+    struct NormalizedRegionOfInterest2D {
+      @verbatim (language="comment", text=
+        "Header timestamp should be acquisition time of the original image")
+      std_msgs::msg::Header header;
+
+      float xmin;
+
+      float ymin;
+
+      float xmax;
+
+      float ymax;
+
+      float c;
+    };
+  };
+};

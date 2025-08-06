@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/Gesture.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    module Gesture_Constants {
+      @verbatim (language="comment", text=
+        "Additional gestures might be added in the future, please open" "\n"        "issues/pull requests to suggest new ones." "\n"        "gesture constants")
+      const uint8 HANDS_ON_FACE = 1;
+      const uint8 ARMS_CROSSED = 2;
+      const uint8 LEFT_HAND_RAISED = 3;
+      const uint8 RIGHT_HAND_RAISED = 4;
+      const uint8 BOTH_HANDS_RAISED = 5;
+      @verbatim (language="comment", text=
+        "eg, greeting someone with the hand")
+      const uint8 WAVING = 6;
+      const uint8 CLOSED_FIST = 7;
+      const uint8 OPEN_PALM = 8;
+      const uint8 POINTING_UP = 9;
+      const uint8 THUMB_DOWN = 10;
+      const uint8 THUMB_UP = 11;
+      const uint8 VICTORY = 12;
+      const uint8 LOVE = 13;
+      const uint8 OTHER = 0;
+      @verbatim (language="comment", text=
+        "gesture handedness")
+      const uint8 RIGHT = 1;
+      const uint8 LEFT = 2;
+      const uint8 INDEPENDENT = 0;
+    };
+    @verbatim (language="comment", text=
+      "Describes body language/attitude/gesture detected from a body.")
+    struct Gesture {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "one of the above gesture constants")
+      uint8 gesture;
+
+      @verbatim (language="comment", text=
+        "one of the above handedness constants")
+      uint8 handedness;
+    };
+  };
+};

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>scan_quality_estimator</name>
+  <version>1.0.0</version>
+  <description>The scan_quality_estimator library allows to estimate
+  the quality of a scan for localization purposes by providing
+  a weighted metric</description>
+
+  <author email="jose.garcia@pal-robotics.com">josecarlos</author>
+  <maintainer email="jose.garcia@pal-robotics.com">josecarlos</maintainer>
+
+  <license>Propietary</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <depend>eigen</depend>
+
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_auto</test_depend>
+  <test_depend condition="$ROS_VERSION == 2">ament_lint_common</test_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+
+</package>

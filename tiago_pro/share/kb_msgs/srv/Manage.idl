@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from kb_msgs/srv/Manage.srv
+// generated code does not contain a copyright notice
+
+
+module kb_msgs {
+  module srv {
+    module Manage_Request_Constants {
+      @verbatim (language="comment", text=
+        "fully reset the knowledge base: remove all statements" "\n"        "and delete all existing models")
+      const string CLEAR = "clear";
+      @verbatim (language="comment", text=
+        "loads an external ontology (XML/RDF, n3, turtle or n-triple format)" "\n"        "into the knowledge base")
+      const string LOAD = "load";
+      @verbatim (language="comment", text=
+        "saves the knowledge base to the RDF format." "\n"        "`parameters` should be [path, basename]." "\n"        "The knowledge base will then be saved as `path/basename-<model>.rdf`")
+      const string SAVE = "save";
+      const string STATUS = "status";
+    };
+    @verbatim (language="comment", text=
+      "Service to manage the knowledge base, including" "\n"
+      "clearing all content and loading external ontologies")
+    struct Manage_Request {
+      string action;
+
+      sequence<string> parameters;
+
+      sequence<string> models;
+    };
+    @verbatim (language="comment", text=
+      "Result:")
+    struct Manage_Response {
+      @verbatim (language="comment", text=
+        "true if the action was successfully performed")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "JSON-encoded result of the action, if any")
+      string json;
+
+      @verbatim (language="comment", text=
+        "if success = False, error_msg might contain additional information about the" "\n"
+        "failure.")
+      string error_msg;
+    };
+  };
+};

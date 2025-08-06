@@ -1,0 +1,10 @@
+/audio_play:
+  ros__parameters:
+    dst: alsasink
+    device: ""
+    do_timestamp: true
+    format: mp3
+    channels: 1
+    depth: 16
+    sample_rate: 16000
+    sample_format: S16LE

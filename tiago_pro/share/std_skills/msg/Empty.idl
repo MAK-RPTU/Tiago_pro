@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from std_skills/msg/Empty.msg
+// generated code does not contain a copyright notice
+
+#include "std_skills/msg/Meta.idl"
+
+module std_skills {
+  module msg {
+    @verbatim (language="comment", text=
+      "this is an 'Empty' skill message, only containing generic skill metadata")
+    struct Empty {
+      std_skills::msg::Meta meta;
+    };
+  };
+};

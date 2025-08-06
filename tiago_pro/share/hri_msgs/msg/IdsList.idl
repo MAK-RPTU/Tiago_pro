@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hri_msgs/msg/IdsList.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module hri_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This message encodes a list of ROS4HRI IDs (eg face ids, body ids, person" "\n"
+      "ids...)." "\n"
+      "It is for instance published on /humans/faces/tracked to access the list of" "\n"
+      "currently detected faces.")
+    struct IdsList {
+      std_msgs::msg::Header header;
+
+      sequence<string> ids;
+    };
+  };
+};

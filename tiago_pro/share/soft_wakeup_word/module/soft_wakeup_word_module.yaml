@@ -1,0 +1,2 @@
+soft_wakeup_word:
+  launch: "soft_wakeup_word soft_wakeup_word.launch.py"

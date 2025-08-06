@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from chatbot_msgs/srv/ResetModel.srv
+// generated code does not contain a copyright notice
+
+
+module chatbot_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request to reset the conversation history for a chatbot model.")
+    struct ResetModel_Request {
+      @verbatim (language="comment", text=
+        "(Optional) The model family name to be reset." "\n"
+        "If left empty, all models will be reset.")
+      string model;
+    };
+    struct ResetModel_Response {
+      string error;
+    };
+  };
+};

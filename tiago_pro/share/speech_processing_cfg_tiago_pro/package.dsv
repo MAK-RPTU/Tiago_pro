@@ -1,0 +1,4 @@
+source;share/speech_processing_cfg_tiago_pro/local_setup.bash
+source;share/speech_processing_cfg_tiago_pro/local_setup.dsv
+source;share/speech_processing_cfg_tiago_pro/local_setup.sh
+source;share/speech_processing_cfg_tiago_pro/local_setup.zsh

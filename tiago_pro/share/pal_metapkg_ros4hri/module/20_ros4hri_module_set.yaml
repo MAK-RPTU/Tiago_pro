@@ -1,0 +1,11 @@
+ros4hri:
+  - hri_body_detect
+  - hri_face_body_matcher
+  - hri_face_detect
+  - hri_face_identification
+  - hri_person_manager
+  - hri_engagement
+  - hri_emotion_recognizer
+  - knowledge_core
+  - people_facts
+

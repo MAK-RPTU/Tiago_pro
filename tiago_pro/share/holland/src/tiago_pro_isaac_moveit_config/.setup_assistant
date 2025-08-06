@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: tiago_pro_description
+    relative_path: robots/tiago_pro.urdf.xacro
+  srdf:
+    relative_path: config/tiago_pro.srdf
+  package_settings:
+    author_name: Konugolu Mohan
+    author_email: konudroid@gmail.com
+    generated_timestamp: 1747755140
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from i18n_msgs/action/SetLocale.action
+// generated code does not contain a copyright notice
+
+
+module i18n_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "The desired locale, using the ISO 639-1 2 letters language code, followed by" "\n"
+      "an hyphen, followed by the ISO 3166-1 2 letter region." "\n"
+      "" "\n"
+      "For instance: en_GB, fr_FR, ca_ES")
+    struct SetLocale_Goal {
+      string locale;
+    };
+    @verbatim (language="comment", text=
+      "If false, `msg` should contain an error message")
+    struct SetLocale_Result {
+      boolean ok;
+
+      string error_msg;
+    };
+    @verbatim (language="comment", text=
+      "The `progress` feedback string is expected to be a JSON string" "\n"
+      "reporting how the change of locale is progressing." "\n"
+      "The possible values are not limited." "\n"
+      "" "\n"
+      "For example:" "\n"
+      "{\"rasa\": \"loading model\"," "\n"
+      " \"tts\": \"complete\"," "\n"
+      " \"vosk\": \"complete\"}")
+    struct SetLocale_Feedback {
+      string progress;
+    };
+  };
+};

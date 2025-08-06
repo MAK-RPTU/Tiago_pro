@@ -1,0 +1,1 @@
+diagnostic_msgs;hri;hri_actions_msgs;hri_msgs;i18n_msgs;rclcpp;rclcpp_action;rclcpp_lifecycle;std_msgs;std_srvs;diagnostic_updater;fmt;ament_lint_auto;ament_lint_common
