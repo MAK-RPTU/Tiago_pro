@@ -1,0 +1,59 @@
+xhost +local:root
+
+docker start 1ecead2ed6a9
+
+docker exec -it tiago_pro bash
+
+terminator
+
+INside your container 
+cd /opt/pal/alum/share/holland
+
+source install/setup.bash
+
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True
+
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False world_name:=tabletop_cube use_sim_time:=True
+
+
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py slam:=True navigation:=True 
+
+
+ros2 launch tiago_pro_moveit_config moveit_rviz.launch.py use_sim_time:=True
+
+
+ros2 launch octomap_server octomap_mapping.launch.xml
+
+
+ros2 run topic_tools relay /head_front_camera/depth/color/points /throttle_filtering_points/filtered_points
+
+ros2 run tf2_ros tf2_echo base_footprint gripper_right_base_link
+
+ps aux
+
+kil -9 <PID>
+
+TO fix sudo permissions from host system that is the EC2 cloud system not inside container run 
+Then whenever we save the code in VS code no need to enter the password again.
+sudo chown -R $USER:$USER holland/
+
+
+
+----------------tiago_hello_moveit + visual tools-----------------
+ros2 run hello_tiago_moveit hello_tiago_moveit
+
+
+----------------tiago pro teleop----------------------------------
+NOTE: is_public_sim should be false
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True
+
+ros2 run key_teleop key_teleop
+
+Feature1
+----------------tiago pro teleop using python script which is scripted motion------
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True
+
+ros2 run teleop_tiago motion_commands
+
+Feature2
+

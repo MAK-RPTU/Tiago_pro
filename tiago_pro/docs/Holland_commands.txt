@@ -1,0 +1,12 @@
+Commands:
+
+cd isaacsim/
+./isaac-sim.selector.sh
+
+
+cd isaacsim/
+./python.sh ~/Holland\ System/holland_scripts/flask_task_server.py
+
+
+cd isaacsim/
+curl -X POST -H "Content-Type: application/json" -d '{"robot_name": "Holland", "task": {"task_id": "T1710000005", "command_provided": "I am issuing a system command to fetch one medication item and deliver it to the designated location. Task Specification selected is Medication Fetching.", "sequence": [{"action": 1, "skill": "GoTo", "input": [-20, -26, 0.5, 0.0]}, {"action": 2, "skill": "Pick", "input": "/World/Medication_1"}, {"action": 3, "skill": "GoTo", "input": [-14, -25, 0.5, 0.0]}, {"action": 4, "skill": "Place", "input": [3.0, 4.0, 0.5, 0.0, 0.0, 0.0]}, {"action": 5, "skill": "Idle", "input": "None"}]}}' http://localhost:5000/task

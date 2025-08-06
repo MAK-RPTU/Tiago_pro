@@ -1,0 +1,34 @@
+moveit2 tutorials:
+
+cd ws_moveit2
+
+Tutorial 1:
+Simple movements and visual tools
+
+ros2 launch moveit2_tutorials demo.launch.py
+
+Turn off motion planning query goal state in rviz
+Add rviz visual tool from panel
+Add marker array
+
+ros2 run hello_moveit hello_moveit
+
+Then press NExt in rviz visual tool
+
+SElect /rviz_visual_tool topic in marker array to see the visualization of path and points
+
+DEBUGGING/VERFICATION: ros2 run tf2_ros tf2_echo world panda_hand
+
+Tutorial 2:
+MTC
+
+ros2 launch moveit2_tutorials mtc_demo.launch.py
+
+ros2 launch moveit2_tutorials pick_place_demo.launch.py
+
+mtc_node.cpp is the complete code for big task such as pick/place
+
+/home/ubuntu/ws_moveit2/src/moveit2_tutorials/doc/tutorials/pick_and_place_with_moveit_task_constructor/src/mtc_node.cpp
+
+Below is the smallest version of my code for MTC:
+ros2 launch mtc_tutorial pick_place_demo.launch.py
