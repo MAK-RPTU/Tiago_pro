@@ -27,6 +27,7 @@ ros2 launch octomap_server octomap_mapping.launch.xml
 
 ros2 run topic_tools relay /head_front_camera/depth/color/points /throttle_filtering_points/filtered_points
 
+-------------DEbugging commands-----------------------------------------------
 ros2 run tf2_ros tf2_echo base_footprint gripper_right_base_link
 
 ps aux
@@ -37,23 +38,118 @@ TO fix sudo permissions from host system that is the EC2 cloud system not inside
 Then whenever we save the code in VS code no need to enter the password again.
 sudo chown -R $USER:$USER holland/
 
+To create symbolic link:
+ln -s /home/ubuntu/workspace/tiago_pro/docs/start_docker.sh ~/Desktop/start_docker.sh
 
 
-----------------tiago_hello_moveit + visual tools-----------------
+----------------Expose gazebo states lib service--------------------------
+Go to world file and place this snippet after <world name='default'>
+
+  <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+    <ros>
+    <namespace>/gazebo</namespace>
+    </ros>
+    <update_rate>1.0</update_rate>
+  </plugin>
+  
+Testing: 
+ros2 service list
+
+ros2 service call /gazebo/get_entity_state gazebo_msgs/srv/GetEntityState "{name: 'wooden_peg_board', reference_frame: 'base_footprint'}"
+
+-----To find the pose of model e.g table from gazebo and then add in planning scene-------
+-----Need for moveit planning scene collision detection-----------------------------------
+In gazebo find the geometry attribute inside your model:links and then get dimensions
+e.g. In case of table we have surface and legs so for a box x-y will be correct from surface but for z need to add the surface height and the legs length
+
+Then the pose of the gazebo model can be retrieved via:
+ros2 service call /gazebo/get_entity_state gazebo_msgs/srv/GetEntityState "{name: 'table', reference_frame: 'base_footprint'}"
+
+Use the x,y values as pose and the z value should be the height/2. Just as reminder the height is the one we calculated while calculating the box dimensions above.
+
+The orientation values if very small then assume as 0,0,0,1.0 in Quaternion x,y,z,w.
+
+To correctly calculate x,y offsets use below command:
+ros2 run tf2_ros tf2_echo gripper_left_fingertip_left_link gripper_left_fingertip_right_link
+
+----Package_name: tiago_hello_moveit + visual tools-----------------
+NOTE: An example of using moveit and visualization tools in rviz. Dont forget to add rviz visual
+tools from panel on top of rviz to proceed further after running below command
 ros2 run hello_tiago_moveit hello_tiago_moveit
 
-
-----------------tiago pro teleop----------------------------------
+----------------tiago pro manual teleop----------------------------------
 NOTE: is_public_sim should be false
 ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True
 
 ros2 run key_teleop key_teleop
 
-Feature1
-----------------tiago pro teleop using python script which is scripted motion------
+
+----------------tiago pro head controller-------------------------
+rostopic pub /head_controller/joint_trajectory trajectory_msgs/JointTrajectory "{
+  joint_names: ['head_1_joint', 'head_2_joint'],
+  points: [
+    {
+      positions: [0.5, -0.3],  # yaw 0.5 rad, pitch -0.3 rad
+      time_from_start: {secs: 2}
+    }
+  ]
+}" -1
+
+---------------------------------------------------------------------------
+Feature1: Package_name: teleop_tiago
+----------------tiago pro teleop using python script which is scripted teleop------
 ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True
 
-ros2 run teleop_tiago motion_commands
+ros2 run teleop_tiago motion_commands //Some testing commands to test the linear and angular motion
 
-Feature2
+//Below command is to move the tiago_pro robot using arguments as inputs
+ros2 run teleop_tiago teleop --ros-args -p linear_speed:=0.2 -p linear_distance:=-1.2
+
+ros2 run teleop_tiago teleop --ros-args -p linear_speed:=0.2 -p linear_distance:=0.7
+
+---------------------------------------------------------------------------
+Feature2: Package_name: gazebo_object_pose
+----------------To get the poses of object from gazebo entity state---------
+ros2 service call /gazebo/get_entity_state gazebo_msgs/srv/GetEntityState "{name: 'world', reference_frame: 'base_footprint'}"
+
+ros2 service call /gazebo/get_entity_state gazebo_msgs/srv/GetEntityState "{name: 'wooden_peg_board', reference_frame: 'world'}"
+
+---------------------------------------------------------------------------
+Feature3: Package_name: attach_gazebo_client and attach_gazebo_interfaces
+----------------To attach the objects for grasping in gazebo-------
+Terminal1
+ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True world_name:=table_woodenpeg
+
+Terminal2
+ros2 run attach_gazebo_client attach_gazebo   --ros-args   -p reference_frame:=gripper_right_fingertip_right_link   -p model_name:=coke_can_slim   -p z_offset:=-0.12
+
+OR For example:
+
+ros2 run attach_gazebo_client attach_gazebo \
+  --ros-args \
+  -p reference_frame:=gripper_right_fingertip_right_link \
+  -p model_name:=coke_can_slim \
+  -p x_offset:=0.05 \
+  -p y_offset:=0.0 \
+  -p z_offset:=-0.12 \
+  -p orientation_x:=0.0 \
+  -p orientation_y:=0.0 \
+  -p orientation_z:=0.7071 \
+  -p orientation_w:=0.7071
+
+Attach client for tiago_pro left gripper:
+ros2 run attach_gazebo_client attach_gazebo   --ros-args   -p reference_frame:=gripper_left_fingertip_right_link   -p model_name:=coke_can_slim   -p x_offset:=-0.045   -p y_offset:=0.05   -p z_offset:=0.0   -p orientation_x:=0.0   -p orientation_y:=0.0   -p orientation_z:=0.7071   -p orientation_w:=1.0
+
+Attach client for tiago_pro right gripper:
+ros2 run attach_gazebo_client attach_gazebo   --ros-args   -p reference_frame:=gripper_right_fingertip_left_link   -p model_name:=coke_can_slim   -p x_offset:=-0.045   -p y_offset:=0.05   -p z_offset:=0.0   -p orientation_x:=0.0   -p orientation_y:=0.0   -p orientation_z:=0.7071   -p orientation_w:=1.0
+
+Terminal3
+ros2 service call /attach_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'close'}"
+
+ros2 service call /attach_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'open'}"
+
+---------------------------------------------------------------------------
+Feature4: Pick place node
+-----------------------------
+ros2 run cartesian_mover pick_cube_node 
 
