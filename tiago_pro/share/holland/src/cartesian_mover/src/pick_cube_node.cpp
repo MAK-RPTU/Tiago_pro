@@ -1,5 +1,6 @@
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
+#include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include <geometry_msgs/msg/pose.hpp>
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -10,56 +11,104 @@ class TiagoPickPlace
 public:
   explicit TiagoPickPlace(const rclcpp::Node::SharedPtr &node) : node_(node)
   {
+    // MoveIt groups for Tiago Pro
     move_group_arm_right_torso_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "arm_right_torso");
-    move_group_arm_right_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "arm_right");
-    move_group_gripper_right_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "gripper_right");
+    move_group_arm_left_torso_  = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "arm_left_torso");
+    move_group_both_arms_torso_  = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "both_arms_torso");
+    move_group_arm_right_       = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "arm_right");
+    move_group_arm_left_        = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "arm_left");
+    move_group_gripper_right_   = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "gripper_right");
+    move_group_gripper_left_   = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node_, "gripper_left");
 
-    move_group_arm_right_torso_->setMaxVelocityScalingFactor(0.5);
-    move_group_arm_right_torso_->setMaxAccelerationScalingFactor(0.5);
-    move_group_arm_right_torso_->setPlanningTime(10.0);
+    // Common motion settings for both torso arms
+    for (auto &group : {move_group_arm_right_torso_, move_group_arm_left_torso_, move_group_both_arms_torso_})
+    {
+      group->setMaxVelocityScalingFactor(0.5);
+      group->setMaxAccelerationScalingFactor(0.5);
+      group->setPlanningTime(10.0);
+    }
+
+    planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
   }
 
-  void moveToHomePosition()
+  // Add cube for collision avoidance
+  void addCollisionBox()
   {
-    std::vector<double> home_position = {0.34, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    move_group_arm_right_torso_->setJointValueTarget(home_position);
-    executeMovement(*move_group_arm_right_torso_, "Moved to home position successfully.", "Failed to move to home position.");
+    moveit_msgs::msg::CollisionObject cube;
+    cube.header.frame_id = move_group_arm_right_torso_->getPlanningFrame();
+    cube.id = "table_cube";
+
+    shape_msgs::msg::SolidPrimitive primitive;
+    primitive.type = primitive.BOX;
+    primitive.dimensions = {1.0, 0.8, 0.83}; // X, Y, Z in meters
+
+    geometry_msgs::msg::Pose cube_pose;
+    cube_pose.position.x = 1.127;
+    cube_pose.position.y = -0.112;
+    cube_pose.position.z = 0.83 / 2.0; // Half height
+    cube_pose.orientation.w = 1.0;
+
+    cube.primitives.push_back(primitive);
+    cube.primitive_poses.push_back(cube_pose);
+    cube.operation = cube.ADD;
+
+    planning_scene_interface_->applyCollisionObject(cube);
+    RCLCPP_INFO(node_->get_logger(), "Added collision cube to planning scene.");
   }
 
-  void moveToPregraspPosition()
+  // Move both arms to home
+  void moveBothArmsHome()
+  {
+      std::vector<double> home_position;
+
+      double torso_pos = 0.1;  // meters
+      home_position.push_back(torso_pos);
+
+      // Right arm joints in degrees → radians
+      std::vector<double> right_arm_deg = {21.0, -105.0, 27.0, -135.0, 0.0, -69.0, 0.0};
+      for (double deg : right_arm_deg)
+          home_position.push_back(deg * M_PI / 180.0);
+
+      // Left arm joints in degrees → radians
+      std::vector<double> left_arm_deg = {-21.0, -105.0, -27.0, -135.0, 0.0, -69.0, 0.0};
+      for (double deg : left_arm_deg)
+          home_position.push_back(deg * M_PI / 180.0);
+
+      move_group_both_arms_torso_->setJointValueTarget(home_position);
+      executeMovement(*move_group_both_arms_torso_, "Moved both arms to home position.", "Failed to move both arms to home position.");
+  }
+
+  void moveToPregraspPositionLeftarmTorso()
   {
     geometry_msgs::msg::Pose target_pose;
-    target_pose.position.x = 0.497;
-    target_pose.position.y = -0.564;
-    target_pose.position.z = 1.127;
-    target_pose.orientation.w = 1.0;
+    target_pose.position.x = 0.424;
+    target_pose.position.y = 0.6;
+    target_pose.position.z = 1.0;
+    target_pose.orientation.x = 0.563;
+    target_pose.orientation.y = -0.385;
+    target_pose.orientation.z = 0.623;
+    target_pose.orientation.w = 0.383;
+
+    move_group_arm_left_torso_->setPoseTarget(target_pose);
+    executeMovement(*move_group_arm_left_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
+  }
+
+  void moveToPregraspPositionRightarmTorso()
+  {
+    geometry_msgs::msg::Pose target_pose;
+    target_pose.position.x = 0.45;
+    target_pose.position.y = -0.77;
+    target_pose.position.z = 0.93;
+    target_pose.orientation.x = 0.68;
+    target_pose.orientation.y = 0.39;
+    target_pose.orientation.z = 0.59;
+    target_pose.orientation.w = -0.19;
 
     move_group_arm_right_torso_->setPoseTarget(target_pose);
-    executeMovement(*move_group_arm_right_torso_, "Moved to pregrasp position successfully.", "Failed to move to pregrasp position.");
+    executeMovement(*move_group_arm_right_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
   }
 
-  void safe_position(const std::vector<double> &joint_angles_input)
-  {
-    if (joint_angles_input.size() != 8)
-    {
-      RCLCPP_ERROR(node_->get_logger(), "Input vector must have exactly 8 elements (1 torso + 7 arm joints).");
-      return;
-    }
-
-    std::vector<double> target_joint_values;
-    target_joint_values.push_back(joint_angles_input[0]);
-
-    for (size_t i = 1; i < joint_angles_input.size(); ++i)
-    {
-      double angle_rad = joint_angles_input[i] * (M_PI / 180.0);
-      target_joint_values.push_back(angle_rad);
-    }
-
-    move_group_arm_right_torso_->setJointValueTarget(target_joint_values);
-    executeMovement(*move_group_arm_right_torso_, "Moved to safe position successfully.", "Failed to move to safe position.");
-  }
-
-  void moveTograspPosition()
+  void moveTograspPositionRightarm()
   {
     geometry_msgs::msg::Pose target_pose;
     target_pose.position.x = 0.370;
@@ -67,90 +116,55 @@ public:
     target_pose.position.z = 1.147;
     target_pose.orientation.w = 1.0;
 
-    move_group_arm_right_torso_->setPoseTarget(target_pose);
-    executeMovement(*move_group_arm_right_torso_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
+    move_group_arm_right_->setPoseTarget(target_pose);
+    executeMovement(*move_group_arm_right_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
   }
 
-  void rotate_ee(double wrist_angle)
+  void moveTograspPositionLeftarm()
   {
-    std::vector<double> joint_values = move_group_arm_right_torso_->getCurrentJointValues();
-    if (!joint_values.empty())
-    {
-      joint_values.back() = wrist_angle;
-      move_group_arm_right_torso_->setJointValueTarget(joint_values);
-      executeMovement(*move_group_arm_right_torso_, "Rotated end-effector successfully.", "Failed to rotate end-effector.");
-    }
-    else
-    {
-      RCLCPP_ERROR(node_->get_logger(), "Joint state vector is empty!");
-    }
-  }
+    geometry_msgs::msg::Pose target_pose;
+    target_pose.position.x = 0.703;
+    target_pose.position.y = 0.081;
+    target_pose.position.z = 1.052;
+    target_pose.orientation.x = 0.563;
+    target_pose.orientation.y = -0.385;
+    target_pose.orientation.z = 0.623;
+    target_pose.orientation.w = 0.383;
 
-  void approachObject(double distance)
-  {
-    geometry_msgs::msg::Pose start_pose = move_group_arm_right_->getCurrentPose().pose;
-    std::vector<geometry_msgs::msg::Pose> waypoints = {start_pose};
-    start_pose.position.z -= distance;
-    waypoints.push_back(start_pose);
-
-    moveit_msgs::msg::RobotTrajectory trajectory;
-    double fraction = move_group_arm_right_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
-
-    if (fraction == 1.0)
-      executeTrajectory(*move_group_arm_right_, trajectory, "Approach executed successfully.", "Failed to execute approach.");
-    else
-      RCLCPP_ERROR(node_->get_logger(), "Failed to compute approach path.");
-  }
-
-  void retreatObject(double distance)
-  {
-    geometry_msgs::msg::Pose start_pose = move_group_arm_right_torso_->getCurrentPose().pose;
-    std::vector<geometry_msgs::msg::Pose> waypoints = {start_pose};
-    start_pose.position.z += distance;
-    waypoints.push_back(start_pose);
-
-    moveit_msgs::msg::RobotTrajectory trajectory;
-    double fraction = move_group_arm_right_torso_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
-    if (fraction == 1.0)
-      executeTrajectory(*move_group_arm_right_torso_, trajectory, "Retreat executed successfully.", "Failed to execute retreat.");
-    else
-      RCLCPP_ERROR(node_->get_logger(), "Failed to compute retreat path.");
+    move_group_arm_left_->setPoseTarget(target_pose);
+    executeMovement(*move_group_arm_left_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
   }
 
   void controlGripper(const std::string &action)
   {
-    std::vector<double> grip_positions;
+    double grip_position;
+    
     if (action == "close")
-      grip_positions = {0.023, 0.023};
+      grip_position = 0.04;  // closed position
     else if (action == "open")
-      grip_positions = {0.043, 0.043};
+      grip_position = 0.0; // open position
     else
     {
       RCLCPP_WARN(node_->get_logger(), "Unknown gripper command: %s", action.c_str());
       return;
     }
 
-    move_group_gripper_right_->setJointValueTarget(grip_positions);
+    move_group_gripper_right_->setJointValueTarget({grip_position});
     executeMovement(*move_group_gripper_right_, action + " gripper!", "Failed to " + action + " gripper!");
   }
 
-  void moveToPlacePosition()
-  {
-    geometry_msgs::msg::Pose target_pose;
-    target_pose.position.x = 0.541;
-    target_pose.position.y = -0.260;
-    target_pose.position.z = 1.13;
-    target_pose.orientation.w = 1.0;
-
-    move_group_arm_right_torso_->setPoseTarget(target_pose);
-    executeMovement(*move_group_arm_right_torso_, "Moved to place position successfully.", "Failed to move to place position.");
-  }
+  
 
 private:
   rclcpp::Node::SharedPtr node_;
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_right_torso_;
+  std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_left_torso_;
+  std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_both_arms_torso_;
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_right_;
+  std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_left_;
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_gripper_right_;
+  std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_gripper_left_;
+  std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
 
   void executeMovement(moveit::planning_interface::MoveGroupInterface &group, const std::string &success_msg, const std::string &fail_msg)
   {
@@ -161,14 +175,18 @@ private:
       RCLCPP_ERROR(node_->get_logger(), "%s", fail_msg.c_str());
   }
 
-  void executeTrajectory(moveit::planning_interface::MoveGroupInterface &group, const moveit_msgs::msg::RobotTrajectory &trajectory, const std::string &success_msg, const std::string &fail_msg)
+  void executeTrajectory(moveit::planning_interface::MoveGroupInterface &group,
+                       const moveit_msgs::msg::RobotTrajectory &trajectory,
+                       const std::string &success_msg,
+                       const std::string &fail_msg)
   {
     group.setStartStateToCurrentState();
     if (group.execute(trajectory) == moveit::planning_interface::MoveItErrorCode::SUCCESS)
-      RCLCPP_INFO(node_->get_logger(), "%s", success_msg.c_str());
+        RCLCPP_INFO(node_->get_logger(), "%s", success_msg.c_str());
     else
-      RCLCPP_ERROR(node_->get_logger(), "%s", fail_msg.c_str());
+        RCLCPP_ERROR(node_->get_logger(), "%s", fail_msg.c_str());
   }
+
 };
 
 int main(int argc, char **argv)
@@ -181,23 +199,32 @@ int main(int argc, char **argv)
   executor.add_node(node);
   std::thread spinner([&executor]() { executor.spin(); });
 
-  app->moveToHomePosition();
-  app->moveToPregraspPosition();
+  app->addCollisionBox();
 
-  std::vector<double> joints1 = {0.34, 22.0, 8.0, -122.0, 88.0, 84.0, -70.0, -54.0};
-  app->safe_position(joints1);
+  // Move both arms to home
+  app->moveBothArmsHome();
 
-  std::vector<double> joints2 = {0.213, 12.0, 26.0, -104.0, 102.0, 75.0, -64.0, -71.0};
-  app->safe_position(joints2);
+  app->moveToPregraspPositionLeftarmTorso();
+
+  app->moveToPregraspPositionRightarmTorso();
+
+  app->moveTograspPositionLeftarm();
 
   app->controlGripper("open");
-  app->approachObject(0.08);
-  app->retreatObject(0.08);
-  app->moveToPregraspPosition();
-  app->moveToPlacePosition();
-  app->rotate_ee(-M_PI);
-  app->approachObject(0.05);
-  app->controlGripper("open");
+  app->controlGripper("close");
+  // // Example Cartesian move for right arm
+  // geometry_msgs::msg::Pose cart_pose;
+  // cart_pose = app->getGroupByName("arm_right_torso")->getCurrentPose().pose;
+  // cart_pose.position.z += 0.1;
+  // app->cartesianMove("arm_right_torso", cart_pose);
+
+  // // Example joint-space move for left arm
+  // geometry_msgs::msg::Pose joint_pose;
+  // joint_pose.orientation.w = 1.0;
+  // joint_pose.position.x = 0.5;
+  // joint_pose.position.y = 0.2;
+  // joint_pose.position.z = 1.0;
+  // app->jointSpaceMove("arm_left_torso", joint_pose);
 
   rclcpp::shutdown();
   spinner.join();
