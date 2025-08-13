@@ -44,6 +44,18 @@ To attach: `ros2 service call /attach_control attach_gazebo_interfaces/srv/Attac
 
 To detach: `ros2 service call /attach_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'open'}"`
 
-5. Pick_place task
+5. Package_name: tiago_pro_base_anchor
+
+This package helps to fix the base to avoid drifts in gazebo simulation. JUst for simulation purpose
+
+`ros2 run tiago_pro_base_anchor base_anchor`
+
+In another terminal call the service
+
+`ros2 service call /base_anchor_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'hold'}"`
+
+`ros2 service call /base_anchor_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'release'}"`
+
+6. Pick_place task
 
 `ros2 run cartesian_mover pick_cube_node`
