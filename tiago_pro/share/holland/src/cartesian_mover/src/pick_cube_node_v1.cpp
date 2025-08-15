@@ -78,67 +78,36 @@ public:
       executeMovement(*move_group_both_arms_torso_, "Moved both arms to home position.", "Failed to move both arms to home position.");
   }
 
-  // void moveToPregraspPositionLeftarmTorso()
-  // {
-  //   geometry_msgs::msg::Pose target_pose;
-  //   target_pose.position.x = 0.424;
-  //   target_pose.position.y = 0.6;
-  //   target_pose.position.z = 1.0;
-  //   target_pose.orientation.x = 0.563;
-  //   target_pose.orientation.y = -0.385;
-  //   target_pose.orientation.z = 0.623;
-  //   target_pose.orientation.w = 0.383;
-
-  //   move_group_arm_left_torso_->setPoseTarget(target_pose);
-  //   executeMovement(*move_group_arm_left_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
-  // }
-
-  // void moveToPregraspPositionRightarmTorso()
-  // {
-  //   geometry_msgs::msg::Pose target_pose;
-  //   target_pose.position.x = 0.45;
-  //   target_pose.position.y = -0.77;
-  //   target_pose.position.z = 0.93;
-  //   target_pose.orientation.x = 0.68;
-  //   target_pose.orientation.y = 0.39;
-  //   target_pose.orientation.z = 0.59;
-  //   target_pose.orientation.w = -0.19;
-
-  //   move_group_arm_right_torso_->setPoseTarget(target_pose);
-  //   executeMovement(*move_group_arm_right_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
-  // }
-
   void moveToPregraspPositionLeftarmTorso()
   {
-      std::vector<double> pregrasp_position;
+    geometry_msgs::msg::Pose target_pose;
+    target_pose.position.x = 0.424;
+    target_pose.position.y = 0.6;
+    target_pose.position.z = 1.0;
+    target_pose.orientation.x = 0.563;
+    target_pose.orientation.y = -0.385;
+    target_pose.orientation.z = 0.623;
+    target_pose.orientation.w = 0.383;
 
-      // double torso_pos = 0.3;  // meters
-      // pregrasp_position.push_back(torso_pos);
-
-      // Right arm joints in degrees → radians
-      std::vector<double> left_arm_deg = {90.0, -89.0, -24, -79.0, 0.0, -57.0, -90.0};
-      for (double deg : left_arm_deg)
-          pregrasp_position.push_back(deg * M_PI / 180.0);
-
-      move_group_arm_left_->setJointValueTarget(pregrasp_position);
-      executeMovement(*move_group_arm_left_, "Moved right torso arms to pregrasp position.", "Failed to move both arms to home position.");
+    move_group_arm_left_torso_->setPoseTarget(target_pose);
+    executeMovement(*move_group_arm_left_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
   }
 
   void moveToPregraspPositionRightarmTorso()
   {
-      std::vector<double> pregrasp_position;
+    geometry_msgs::msg::Pose target_pose;
+    target_pose.position.x = 0.45;
+    target_pose.position.y = -0.77;
+    target_pose.position.z = 0.93;
+    target_pose.orientation.x = 0.68;
+    target_pose.orientation.y = 0.39;
+    target_pose.orientation.z = 0.59;
+    target_pose.orientation.w = -0.19;
 
-      double torso_pos = 0.3;  // meters
-      pregrasp_position.push_back(torso_pos);
-
-      // Right arm joints in degrees → radians
-      std::vector<double> right_arm_deg = {-90.0, -89.0, 24, -79.0, 0.0, -57.0, 90.0};
-      for (double deg : right_arm_deg)
-          pregrasp_position.push_back(deg * M_PI / 180.0);
-
-      move_group_arm_right_torso_->setJointValueTarget(pregrasp_position);
-      executeMovement(*move_group_arm_right_torso_, "Moved right torso arms to pregrasp position.", "Failed to move both arms to home position.");
+    move_group_arm_right_torso_->setPoseTarget(target_pose);
+    executeMovement(*move_group_arm_right_torso_, "Moved right arm torso to pregrasp position successfully.", "Failed to move to pregrasp position.");
   }
+
   // void moveTograspPositionRightarm()
   // {
   //   geometry_msgs::msg::Pose target_pose;
@@ -151,31 +120,16 @@ public:
   //   executeMovement(*move_group_arm_right_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
   // }
 
-  // void moveTograspPositionLeftarm()
-  // {
-  //   geometry_msgs::msg::Pose target_pose;
-  //   target_pose.position.x = 0.695;
-  //   target_pose.position.y = 0.256;
-  //   target_pose.position.z = 1.044;
-  //   target_pose.orientation.x = 0.563;
-  //   target_pose.orientation.y = -0.385;
-  //   target_pose.orientation.z = 0.623;
-  //   target_pose.orientation.w = 0.383;
-
-  //   move_group_arm_left_->setPoseTarget(target_pose);
-  //   executeMovement(*move_group_arm_left_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
-  // }
-
   void moveTograspPositionLeftarm()
   {
     geometry_msgs::msg::Pose target_pose;
-    target_pose.position.x = 0.625;
-    target_pose.position.y = 0.209;
-    target_pose.position.z = 1.074;
-    target_pose.orientation.x = 0.709;
-    target_pose.orientation.y = -0.144;
-    target_pose.orientation.z = 0.666;
-    target_pose.orientation.w = 0.185;
+    target_pose.position.x = 0.695;
+    target_pose.position.y = 0.256;
+    target_pose.position.z = 1.044;
+    target_pose.orientation.x = 0.563;
+    target_pose.orientation.y = -0.385;
+    target_pose.orientation.z = 0.623;
+    target_pose.orientation.w = 0.383;
 
     move_group_arm_left_->setPoseTarget(target_pose);
     executeMovement(*move_group_arm_left_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
@@ -184,137 +138,48 @@ public:
   void moveTograspPositionRightarm()
   {
     geometry_msgs::msg::Pose target_pose;
-    target_pose.position.x = 0.486;
-    target_pose.position.y = -0.343;
-    target_pose.position.z = 1.082;
-    target_pose.orientation.x = 0.710;
-    target_pose.orientation.y = 0.148;
-    target_pose.orientation.z = 0.665;
-    target_pose.orientation.w = -0.181;
+    target_pose.position.x = 0.535;
+    target_pose.position.y = -0.388;
+    target_pose.position.z = 1.035;
+    target_pose.orientation.x = 0.649;
+    target_pose.orientation.y = 0.332;
+    target_pose.orientation.z = 0.631;
+    target_pose.orientation.w = -0.264;
 
     move_group_arm_right_->setPoseTarget(target_pose);
     executeMovement(*move_group_arm_right_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
   }
 
-  // void moveTograspPositionRightarm()
-  // {
-  //   geometry_msgs::msg::Pose target_pose;
-  //   target_pose.position.x = 0.535;
-  //   target_pose.position.y = -0.388;
-  //   target_pose.position.z = 1.035;
-  //   target_pose.orientation.x = 0.649;
-  //   target_pose.orientation.y = 0.332;
-  //   target_pose.orientation.z = 0.631;
-  //   target_pose.orientation.w = -0.264;
-
-  //   move_group_arm_right_->setPoseTarget(target_pose);
-  //   executeMovement(*move_group_arm_right_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
-  // }
-
   void RightArmCartesian(double distance)
   {
-      move_group_arm_right_->setStartStateToCurrentState();
-  
-    // Set the reference frame
-      move_group_arm_right_->setPoseReferenceFrame("gripper_right_base_link");
+    geometry_msgs::msg::Pose start_pose = move_group_arm_right_->getCurrentPose().pose;
+    std::vector<geometry_msgs::msg::Pose> waypoints = {start_pose};
+    start_pose.position.z -= distance;
+    waypoints.push_back(start_pose);
 
-      // Get current pose
-      geometry_msgs::msg::Pose current_pose = move_group_arm_right_->getCurrentPose().pose;
+    moveit_msgs::msg::RobotTrajectory trajectory;
+    double fraction = move_group_arm_right_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
 
-      // Define target pose
-      geometry_msgs::msg::Pose target_pose = current_pose;
-      target_pose.position.z -= distance;
-
-      // Prepare waypoints
-      std::vector<geometry_msgs::msg::Pose> waypoints;
-      waypoints.push_back(target_pose);
-
-      // Plan Cartesian path
-      moveit_msgs::msg::RobotTrajectory trajectory;
-      const double jump_threshold = 0.0;
-      const double eef_step = 0.01;
-      double fraction = move_group_arm_right_->computeCartesianPath(
-          waypoints, eef_step, jump_threshold, trajectory);
-
-      if (fraction > 0.95)  // Ensure successful planning
-      {
-          RCLCPP_INFO(node_->get_logger(),
-                      "Right arm Cartesian path computed successfully (%.2f%% achieved)",
-                      fraction * 100.0);
-
-          // Create plan object and assign trajectory
-          moveit::planning_interface::MoveGroupInterface::Plan cartesian_plan;
-          cartesian_plan.trajectory_ = trajectory;
-
-          // Execute plan
-          if (move_group_arm_right_->execute(cartesian_plan) ==
-              moveit::planning_interface::MoveItErrorCode::SUCCESS)
-          {
-              RCLCPP_INFO(node_->get_logger(), "Right arm Cartesian path executed successfully.");
-          }
-          else
-          {
-              RCLCPP_ERROR(node_->get_logger(), "Failed to execute right arm Cartesian path.");
-          }
-      }
-      else
-      {
-          RCLCPP_ERROR(node_->get_logger(),
-                      "Right arm Cartesian path planning failed (%.2f%% achieved)",
-                      fraction * 100.0);
-      }
+    if (fraction == 1.0)
+      executeTrajectory(*move_group_arm_right_, trajectory, "Approach executed successfully.", "Failed to execute approach.");
+    else
+      RCLCPP_ERROR(node_->get_logger(), "Failed to compute approach path.");
   }
 
   void LeftArmCartesian(double distance)
   {
-      // Set the reference frame (adjust if left arm has different base link)
-      move_group_arm_left_->setStartStateToCurrentState();
+    geometry_msgs::msg::Pose start_pose = move_group_arm_left_->getCurrentPose().pose;
+    std::vector<geometry_msgs::msg::Pose> waypoints = {start_pose};
+    start_pose.position.z -= distance;
+    waypoints.push_back(start_pose);
 
-      move_group_arm_left_->setPoseReferenceFrame("gripper_left_base_link");
+    moveit_msgs::msg::RobotTrajectory trajectory;
+    double fraction = move_group_arm_left_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
 
-      // Get current pose
-      geometry_msgs::msg::Pose current_pose = move_group_arm_left_->getCurrentPose().pose;
-
-      // Define target pose
-      geometry_msgs::msg::Pose target_pose = current_pose;
-      target_pose.position.z -= distance;
-
-      // Prepare waypoints
-      std::vector<geometry_msgs::msg::Pose> waypoints;
-      waypoints.push_back(target_pose);
-
-      // Plan Cartesian path
-      moveit_msgs::msg::RobotTrajectory trajectory;
-      const double jump_threshold = 0.0;
-      const double eef_step = 0.01;
-      double fraction = move_group_arm_left_->computeCartesianPath(
-          waypoints, eef_step, jump_threshold, trajectory);
-
-      if (fraction > 0.95)
-      {
-          RCLCPP_INFO(node_->get_logger(),
-                      "Left arm Cartesian path computed successfully (%.2f%% achieved)",
-                      fraction * 100.0);
-
-          moveit::planning_interface::MoveGroupInterface::Plan cartesian_plan;
-          cartesian_plan.trajectory_ = trajectory;
-
-          if (move_group_arm_left_->execute(cartesian_plan) ==
-              moveit::planning_interface::MoveItErrorCode::SUCCESS)
-          {
-              RCLCPP_INFO(node_->get_logger(), "Left arm Cartesian path executed successfully.");
-          }
-          else
-          {
-              RCLCPP_ERROR(node_->get_logger(), "Failed to execute left arm Cartesian path.");
-          }
-      }
-      else
-      {
-          RCLCPP_ERROR(node_->get_logger(),
-                      "Left arm Cartesian path planning failed (%.2f%% achieved)",
-                      fraction * 100.0);
-      }
+    if (fraction == 1.0)
+      executeTrajectory(*move_group_arm_left_, trajectory, "Approach executed successfully.", "Failed to execute approach.");
+    else
+      RCLCPP_ERROR(node_->get_logger(), "Failed to compute approach path.");
   }
 
   void controlGripper(const std::string &action)
@@ -386,22 +251,20 @@ int main(int argc, char **argv)
   // Move both arms to home
   // app->moveBothArmsHome();
 
-  app->moveToPregraspPositionLeftarmTorso();
+  // app->moveToPregraspPositionLeftarmTorso();
 
-  app->moveToPregraspPositionRightarmTorso();
+  // app->moveToPregraspPositionRightarmTorso();
 
-  app->moveTograspPositionLeftarm();
+  // app->moveTograspPositionLeftarm();
 
-  app->moveTograspPositionRightarm();
+  // app->moveTograspPositionRightarm();
 
   app->controlGripper("open");
   app->controlGripper("close");
 
-  // app->moveBothArmsHome();
+  app->LeftArmCartesian(0.05);
 
-  app->LeftArmCartesian(0.1);
-
-  app->RightArmCartesian(0.1);
+  app->RightArmCartesian(0.05);
 
   // app->moveToPregraspPositionLeftarmTorso();
 
@@ -410,7 +273,7 @@ int main(int argc, char **argv)
 
   // app->moveToPregraspPositionLeftarmTorso();
 
-  app->moveBothArmsHome();
+  // app->moveBothArmsHome();
   // // Example Cartesian move for right arm
   // geometry_msgs::msg::Pose cart_pose;
   // cart_pose = app->getGroupByName("arm_right_torso")->getCurrentPose().pose;

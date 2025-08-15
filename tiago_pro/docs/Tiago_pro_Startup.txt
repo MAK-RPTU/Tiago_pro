@@ -42,6 +42,16 @@ To create symbolic link:
 ln -s /home/ubuntu/workspace/tiago_pro/docs/start_docker.sh ~/Desktop/start_docker.sh
 
 
+-------------ROS MIddleware-----------------------------------------------------
+# Set Fast-DDS
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+
+# Set CycloneDDS
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+echo $RMW_IMPLEMENTATION
+
+
 ----------------Expose gazebo states lib service--------------------------
 Go to world file and place this snippet after <world name='default'>
 
@@ -105,7 +115,7 @@ ros2 run teleop_tiago motion_commands //Some testing commands to test the linear
 //Below command is to move the tiago_pro robot using arguments as inputs
 ros2 run teleop_tiago teleop --ros-args -p linear_speed:=0.2 -p linear_distance:=-1.2
 
-ros2 run teleop_tiago teleop --ros-args -p linear_speed:=0.2 -p linear_distance:=0.7
+ros2 run teleop_tiago teleop --ros-args -p linear_speed:=0.2 -p linear_distance:=0.8
 
 ---------------------------------------------------------------------------
 Feature2: Package_name: gazebo_object_pose

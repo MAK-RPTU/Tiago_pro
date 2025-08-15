@@ -83,13 +83,6 @@
       <parent link="${name}_footprint"/>
     </joint>
 
-    <!-- Fixed joint to attach robot to the world -->
-    <!-- <joint name="${name}_world_fixed" type="fixed">
-      <parent link="world"/>
-      <child link="${name}_footprint"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </joint> -->
-
     <!-- Docking link -->
     <link name="${name}_dock_link">
       <inertial>
