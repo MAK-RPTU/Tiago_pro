@@ -30,6 +30,8 @@ ros2 run topic_tools relay /head_front_camera/depth/color/points /throttle_filte
 -------------DEbugging commands-----------------------------------------------
 ros2 run tf2_ros tf2_echo base_footprint gripper_right_base_link
 
+ros2 run tf2_ros tf2_echo base_footprint gripper_left_base_link
+
 ps aux
 
 kil -9 <PID>
@@ -129,6 +131,10 @@ Feature3: Package_name: attach_gazebo_client and attach_gazebo_interfaces
 ----------------To attach the objects for grasping in gazebo-------
 Terminal1
 ros2 launch tiago_pro_gazebo tiago_pro_gazebo.launch.py is_public_sim:=False use_sim_time:=True world_name:=table_woodenpeg
+
+For moveit:
+ros2 launch tiago_pro_moveit_config moveit_rviz.launch.py use_sim_time:=True
+
 
 Terminal2
 ros2 run attach_gazebo_client attach_gazebo   --ros-args   -p reference_frame:=gripper_right_fingertip_right_link   -p model_name:=coke_can_slim   -p z_offset:=-0.12

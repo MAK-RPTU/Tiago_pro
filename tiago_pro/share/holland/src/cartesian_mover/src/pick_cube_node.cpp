@@ -211,11 +211,11 @@ public:
   //   executeMovement(*move_group_arm_right_, "Moved to grasp position successfully.", "Failed to move to grasp position.");
   // }
 
-  void RightArmCartesian(double distance)
+  void RightArmCartesian(const std::string &axis, double distance)
   {
       move_group_arm_right_->setStartStateToCurrentState();
-  
-    // Set the reference frame
+
+      // Set the reference frame
       move_group_arm_right_->setPoseReferenceFrame("gripper_right_base_link");
 
       // Get current pose
@@ -223,7 +223,19 @@ public:
 
       // Define target pose
       geometry_msgs::msg::Pose target_pose = current_pose;
-      target_pose.position.z -= distance;
+
+      // Apply displacement on chosen axis
+      if (axis == "x")
+          target_pose.position.x += distance;
+      else if (axis == "y")
+          target_pose.position.y += distance;
+      else if (axis == "z")
+          target_pose.position.z += distance;
+      else
+      {
+          RCLCPP_ERROR(node_->get_logger(), "Invalid axis '%s'. Use 'x', 'y', or 'z'.", axis.c_str());
+          return;
+      }
 
       // Prepare waypoints
       std::vector<geometry_msgs::msg::Pose> waypoints;
@@ -265,11 +277,12 @@ public:
       }
   }
 
-  void LeftArmCartesian(double distance)
+
+  void LeftArmCartesian(const std::string &axis, double distance)
   {
-      // Set the reference frame (adjust if left arm has different base link)
       move_group_arm_left_->setStartStateToCurrentState();
 
+      // Set the reference frame
       move_group_arm_left_->setPoseReferenceFrame("gripper_left_base_link");
 
       // Get current pose
@@ -277,11 +290,21 @@ public:
 
       // Define target pose
       geometry_msgs::msg::Pose target_pose = current_pose;
-      target_pose.position.z -= distance;
+
+      if (axis == "x")
+          target_pose.position.x += distance;
+      else if (axis == "y")
+          target_pose.position.y += distance;
+      else if (axis == "z")
+          target_pose.position.z += distance;
+      else
+      {
+          RCLCPP_ERROR(node_->get_logger(), "Invalid axis '%s'. Use 'x', 'y', or 'z'.", axis.c_str());
+          return;
+      }
 
       // Prepare waypoints
-      std::vector<geometry_msgs::msg::Pose> waypoints;
-      waypoints.push_back(target_pose);
+      std::vector<geometry_msgs::msg::Pose> waypoints = {target_pose};
 
       // Plan Cartesian path
       moveit_msgs::msg::RobotTrajectory trajectory;
@@ -316,6 +339,7 @@ public:
                       fraction * 100.0);
       }
   }
+
 
   void controlGripper(const std::string &action)
   {
@@ -394,14 +418,36 @@ int main(int argc, char **argv)
 
   app->moveTograspPositionRightarm();
 
-  app->controlGripper("open");
-  app->controlGripper("close");
+//   app->controlGripper("open");
+//   app->controlGripper("close");
 
   // app->moveBothArmsHome();
 
-  app->LeftArmCartesian(0.1);
+  // app->LeftArmCartesian("z", -0.1);
+  app->LeftArmCartesian("x", -0.08);
+  app->LeftArmCartesian("x", +0.2);
+  app->LeftArmCartesian("y", -0.329);
+  app->LeftArmCartesian("z", -0.12);
+  app->LeftArmCartesian("x", -0.3);
+  app->LeftArmCartesian("x", +0.2);
+  app->LeftArmCartesian("z", -0.1);
 
-  app->RightArmCartesian(0.1);
+
+
+  // app->RightArmCartesian("z", -0.1);
+  app->RightArmCartesian("x", -0.08);
+  app->RightArmCartesian("x", +0.2);
+  app->RightArmCartesian("y", +0.265);
+  app->RightArmCartesian("x", -0.32);
+  app->RightArmCartesian("x", +0.2);
+  app->RightArmCartesian("z", -0.246);
+
+  // app->RightArmCartesian("x", -0.2);
+
+  // app->moveTograspPositionLeftarm();
+
+  // app->moveTograspPositionRightarm();
+
 
   // app->moveToPregraspPositionLeftarmTorso();
 
@@ -410,7 +456,7 @@ int main(int argc, char **argv)
 
   // app->moveToPregraspPositionLeftarmTorso();
 
-  app->moveBothArmsHome();
+  // app->moveBothArmsHome();
   // // Example Cartesian move for right arm
   // geometry_msgs::msg::Pose cart_pose;
   // cart_pose = app->getGroupByName("arm_right_torso")->getCurrentPose().pose;
