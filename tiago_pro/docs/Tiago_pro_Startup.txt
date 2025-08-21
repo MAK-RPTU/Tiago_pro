@@ -164,6 +164,10 @@ ros2 service call /attach_control attach_gazebo_interfaces/srv/AttachCommand "{c
 
 ros2 service call /attach_control attach_gazebo_interfaces/srv/AttachCommand "{command: 'open'}"
 
+ros2 service call /attach_control_left attach_gazebo_interfaces/srv/AttachCommand "{command: 'close'}"
+
+ros2 service call /attach_control_right attach_gazebo_interfaces/srv/AttachCommand "{command: 'open'}"
+
 ---------------------------------------------------------------------------
 Feature4: Package_name: tiago_pro_base_anchor
 -----------------------------
@@ -180,5 +184,12 @@ ros2 service call /base_anchor_control attach_gazebo_interfaces/srv/AttachComman
 ---------------------------------------------------------------------------
 Feature5: Package_name: Cartesian_mover --- Pick place node
 -----------------------------
-ros2 run cartesian_mover pick_cube_node 
+ros2 run cartesian_mover pick_cube_node
+
+
+--------------For complete launch file to see all inaction-----------------
+COMPLETE LAUNCH FILE------------------
+---------------------------------------------------------------------------
+
+ros2 launch cartesian_mover pick_place_pipeline.launch.py
 

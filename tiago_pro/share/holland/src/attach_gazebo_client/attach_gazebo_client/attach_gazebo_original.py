@@ -1,3 +1,4 @@
+# This service is only for single gripper either left or right one at a time.
 import rclpy
 from rclpy.node import Node
 from gazebo_msgs.srv import SetEntityState
@@ -51,13 +52,7 @@ class AttachServer(Node):
             self.get_logger().info('Waiting for /gazebo/set_entity_state service...')
 
         self.attach_timer = None
-
-        # Add a parameter for unique service name
-        self.declare_parameter('service_name', 'attach_control')
-        service_name = self.get_parameter('service_name').get_parameter_value().string_value
-        # Create service with custom name
-        self.service = self.create_service(AttachCommand, service_name, self.handle_request)
-        # self.service = self.create_service(AttachCommand, 'attach_control', self.handle_request)
+        self.service = self.create_service(AttachCommand, 'attach_control', self.handle_request)
         self.get_logger().info('Attach server is ready.')
 
     def handle_request(self, request, response):

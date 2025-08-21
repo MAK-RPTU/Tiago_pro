@@ -62,6 +62,47 @@ def generate_launch_description():
         actions=[call_base_anchor_service]
     )
 
+    # Left gripper attach (2s after base anchor service call)
+    attach_left_gripper = TimerAction(
+        period=2.0,
+        actions=[ExecuteProcess(
+            cmd=['ros2', 'run', 'attach_gazebo_client', 'attach_gazebo',
+                 '--ros-args',
+                 '-p', 'reference_frame:=gripper_left_fingertip_right_link',
+                 '-p', 'model_name:=coke_can_slim',
+                 '-p', 'service_name:=attach_control_left',
+                 '-p', 'x_offset:=-0.045',
+                 '-p', 'y_offset:=0.05',
+                 '-p', 'z_offset:=0.0',
+                 '-p', 'orientation_x:=0.0',
+                 '-p', 'orientation_y:=0.0',
+                 '-p', 'orientation_z:=0.7071',
+                 '-p', 'orientation_w:=1.0'],
+            output='screen'
+        )]
+    )
+
+    # Right gripper attach (3s after base anchor service call)
+    attach_right_gripper = TimerAction(
+        period=3.0,
+        actions=[ExecuteProcess(
+            cmd=['ros2', 'run', 'attach_gazebo_client', 'attach_gazebo',
+                 '--ros-args',
+                 '-p', 'reference_frame:=gripper_right_fingertip_left_link',
+                 '-p', 'model_name:=coke_can_slim_clone',
+                 '-p', 'service_name:=attach_control_right',
+                 '-p', 'x_offset:=-0.045',
+                 '-p', 'y_offset:=0.05',
+                 '-p', 'z_offset:=0.0',
+                 '-p', 'orientation_x:=0.0',
+                 '-p', 'orientation_y:=0.0',
+                 '-p', 'orientation_z:=0.7071',
+                 '-p', 'orientation_w:=1.0'],
+            output='screen'
+        )]
+    )
+
+
     # Step 6: Pick and place node (after base anchor service call completes)
     pick_place_node = ExecuteProcess(
         cmd=['ros2', 'run', 'cartesian_mover', 'pick_cube_node'],
@@ -83,6 +124,20 @@ def generate_launch_description():
         )
     )
 
+    attach_left_gripper_service = RegisterEventHandler(
+        OnProcessExit(
+            target_action=call_base_anchor_service,
+            on_exit=[attach_left_gripper]
+        )
+    )
+
+    attach_right_gripper_service = RegisterEventHandler(
+        OnProcessExit(
+            target_action=call_base_anchor_service,
+            on_exit=[attach_right_gripper]
+        )
+    )
+
     start_pick_place_after_service = RegisterEventHandler(
         OnProcessExit(
             target_action=call_base_anchor_service,
@@ -96,5 +151,7 @@ def generate_launch_description():
         teleop_delayed,
         start_base_anchor_after_teleop,
         call_service_after_base_anchor,
+        attach_left_gripper_service,
+        attach_right_gripper_service,
         start_pick_place_after_service
     ])

@@ -4,6 +4,7 @@
 #include <geometry_msgs/msg/pose.hpp>
 #include <moveit_msgs/msg/robot_trajectory.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <attach_gazebo_interfaces/srv/attach_command.hpp>
 #include <thread>
 
 class TiagoPickPlace
@@ -75,6 +76,28 @@ public:
           home_position.push_back(deg * M_PI / 180.0);
 
       move_group_both_arms_torso_->setJointValueTarget(home_position);
+      executeMovement(*move_group_both_arms_torso_, "Moved both arms to home position.", "Failed to move both arms to home position.");
+  }
+
+  // Move both arms to nav pose
+  void moveBothArmsNavPose()
+  {
+      std::vector<double> nav_position;
+
+      double torso_pos = 0.1;  // meters
+      nav_position.push_back(torso_pos);
+
+      // Right arm joints in degrees → radians
+      std::vector<double> right_arm_deg = {21.0, -105.0, 27.0, -135.0, 0.0, 0.0, 0.0};
+      for (double deg : right_arm_deg)
+          nav_position.push_back(deg * M_PI / 180.0);
+
+      // Left arm joints in degrees → radians
+      std::vector<double> left_arm_deg = {-21.0, -105.0, -27.0, -135.0, 0.0, 0.0, 0.0};
+      for (double deg : left_arm_deg)
+          nav_position.push_back(deg * M_PI / 180.0);
+
+      move_group_both_arms_torso_->setJointValueTarget(nav_position);
       executeMovement(*move_group_both_arms_torso_, "Moved both arms to home position.", "Failed to move both arms to home position.");
   }
 
@@ -359,7 +382,89 @@ public:
     executeMovement(*move_group_gripper_right_, action + " gripper!", "Failed to " + action + " gripper!");
   }
 
-  
+
+  void callAttachService(const std::string &service_name, const std::string &command)
+  {
+      // Create a temporary node for service call
+      auto temp_node = rclcpp::Node::make_shared("attach_client_node");
+      auto client = temp_node->create_client<attach_gazebo_interfaces::srv::AttachCommand>(service_name);
+
+      // Wait for service
+      if (!client->wait_for_service(std::chrono::seconds(5))) {
+          RCLCPP_ERROR(node_->get_logger(), "Service %s not available", service_name.c_str());
+          return;
+      }
+
+      auto request = std::make_shared<attach_gazebo_interfaces::srv::AttachCommand::Request>();
+      request->command = command;
+
+      // Send request
+      auto future = client->async_send_request(request);
+
+      // Use spin_until_future_complete on the temp node
+      if (rclcpp::spin_until_future_complete(temp_node, future) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+      {
+          auto response = future.get();
+          if (response->success)
+              RCLCPP_INFO(node_->get_logger(), "Service %s executed with command: %s",
+                          service_name.c_str(), command.c_str());
+          else
+              RCLCPP_WARN(node_->get_logger(), "Service %s failed to execute command: %s",
+                          service_name.c_str(), command.c_str());
+      }
+      else
+      {
+          RCLCPP_ERROR(node_->get_logger(), "Failed to call service %s", service_name.c_str());
+      }
+  }
+
+  void callBaseAnchorService(const std::string &command)
+  {
+      auto temp_node = rclcpp::Node::make_shared("base_anchor_client");
+      auto client = temp_node->create_client<attach_gazebo_interfaces::srv::AttachCommand>("/base_anchor_control");
+
+      if (!client->wait_for_service(std::chrono::seconds(5))) {
+          RCLCPP_ERROR(node_->get_logger(), "Base anchor service not available");
+          return;
+      }
+
+      auto request = std::make_shared<attach_gazebo_interfaces::srv::AttachCommand::Request>();
+      request->command = command;
+
+      auto future = client->async_send_request(request);
+
+      if (rclcpp::spin_until_future_complete(temp_node, future) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+      {
+          auto response = future.get();
+          if (response->success)
+              RCLCPP_INFO(node_->get_logger(), "Base anchor %s succeeded", command.c_str());
+          else
+              RCLCPP_WARN(node_->get_logger(), "Base anchor %s failed", command.c_str());
+      }
+      else {
+          RCLCPP_ERROR(node_->get_logger(), "Failed to call base anchor service");
+      }
+  }
+
+  void runTeleop(double speed, double distance)
+  {
+      std::stringstream cmd;
+      cmd << "ros2 run teleop_tiago teleop --ros-args "
+          << "-p linear_speed:=" << speed
+          << " -p linear_distance:=" << distance;
+
+      RCLCPP_INFO(node_->get_logger(), "Executing teleop: %s", cmd.str().c_str());
+
+      int ret = std::system(cmd.str().c_str());
+
+      if (ret == 0)
+          RCLCPP_INFO(node_->get_logger(), "Teleop motion complete.");
+      else
+          RCLCPP_ERROR(node_->get_logger(), "Teleop failed with code %d", ret);
+  }
+
 
 private:
   rclcpp::Node::SharedPtr node_;
@@ -407,15 +512,9 @@ int main(int argc, char **argv)
 
   app->addCollisionBox();
 
-  // Move both arms to home
-  // app->moveBothArmsHome();
-
   app->moveToPregraspPositionLeftarmTorso();
-
   app->moveToPregraspPositionRightarmTorso();
-
   app->moveTograspPositionLeftarm();
-
   app->moveTograspPositionRightarm();
 
 //   app->controlGripper("open");
@@ -423,12 +522,23 @@ int main(int argc, char **argv)
 
   // app->moveBothArmsHome();
 
-  // app->LeftArmCartesian("z", -0.1);
   app->LeftArmCartesian("x", -0.08);
+  app->callAttachService("/attach_control_left", "close");
   app->LeftArmCartesian("x", +0.2);
+
+  // Release base before moving
+  app->callBaseAnchorService("release");
+  // Move base with teleop
+  app->runTeleop(0.2, -0.2);
+  app->runTeleop(0.2, +0.2);
+  // Hold base again after motion
+  app->callBaseAnchorService("hold");
+
+  // app->moveBothArmsNavPose();
   app->LeftArmCartesian("y", -0.329);
   app->LeftArmCartesian("z", -0.12);
   app->LeftArmCartesian("x", -0.3);
+  app->callAttachService("/attach_control_left", "open");
   app->LeftArmCartesian("x", +0.2);
   app->LeftArmCartesian("z", -0.1);
 
@@ -436,27 +546,27 @@ int main(int argc, char **argv)
 
   // app->RightArmCartesian("z", -0.1);
   app->RightArmCartesian("x", -0.08);
+  app->callAttachService("/attach_control_right", "close");
   app->RightArmCartesian("x", +0.2);
   app->RightArmCartesian("y", +0.265);
   app->RightArmCartesian("x", -0.32);
+  app->callAttachService("/attach_control_right", "open");
   app->RightArmCartesian("x", +0.2);
   app->RightArmCartesian("z", -0.246);
 
   // app->RightArmCartesian("x", -0.2);
 
   // app->moveTograspPositionLeftarm();
-
   // app->moveTograspPositionRightarm();
 
 
   // app->moveToPregraspPositionLeftarmTorso();
-
   // app->moveToPregraspPositionRightarmTorso();
 
 
   // app->moveToPregraspPositionLeftarmTorso();
 
-  // app->moveBothArmsHome();
+  app->moveBothArmsHome();
   // // Example Cartesian move for right arm
   // geometry_msgs::msg::Pose cart_pose;
   // cart_pose = app->getGroupByName("arm_right_torso")->getCurrentPose().pose;

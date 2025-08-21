@@ -20,11 +20,12 @@ find_package(yaml-cpp REQUIRED)
 find_package(ament_index_cpp REQUIRED)  
 find_package(rosidl_default_generators REQUIRED)
 find_package(action_msgs REQUIRED)
+find_package(attach_gazebo_client)
 
 find_package(gazebo_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
-# find_package(attach_gazebo_interfaces REQUIRED)
+find_package(attach_gazebo_interfaces REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
 "action/ExecuteTask.action"
@@ -52,6 +53,8 @@ ament_target_dependencies(pick_cube_node
   tf2_geometry_msgs
   moveit_ros_planning_interface
   moveit_visual_tools
+  # attach_gazebo_client
+  attach_gazebo_interfaces
 )
 
 # Make sure this line is present!
